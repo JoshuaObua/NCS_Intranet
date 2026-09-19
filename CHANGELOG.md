@@ -1,0 +1,279 @@
+# Changelog
+
+All notable changes, features, and bug fixes for the **NCS Intranet System** are documented in this file.
+
+---
+
+### Fixed
+- **Feather Icon TypeError & Sidebar Resilience (`Uncaught TypeError: r.default[o] is undefined`)**:
+  - Fixed JavaScript console error at `app.all.js:16171` caused by non-existent Feather icon names (`"calculator"` in Accounting menu and `"server"` in ICT menu).
+  - Updated `Left_menu.php` to use valid Feather icons (`"credit-card"` for Accounting, `"cpu"` for ICT).
+  - Added fallback guards `$class = get_array_value($main_menu, "class") ?: "grid"` in `left_menu.php`.
+- **Sidebar Navigation Menu Labels Updated**:
+  - Renamed `Facilities & Venue Operations` to **`Facilities & Venues`**
+  - Renamed `Fixed Assets Management` to **`Fixed Asset MGT`**
+  - Renamed `Internal Audit Department` to **`Auditor`**
+  - Renamed `Procurement & Logistics` to **`Procurement`**
+
+### Added
+- **Suppliers Registry & Vendor Contacts Directory Module**:
+  - Integrated **Suppliers Registry** (`suppliers`) as a top-level independent sidebar menu item directly below **Clients** ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)), featuring 5 specialized submenus:
+    - **Suppliers Directory** (`suppliers`) - *Master directory of pre-qualified suppliers, contractors & vendors with category, PPDA registration, URA TIN, and compliance overview*
+    - **Supplier Contacts** (`suppliers/contacts`) - *Full directory of supplier representatives, Account Managers, technical contacts, emails, and mobile phones*
+    - **PPDA & Statutory Compliance** (`suppliers/compliance`) - *Statutory compliance verification matrix tracking PPDA registration, URA TIN numbers, Tax Clearance, and debarment status*
+    - **Categories & Prequalification** (`suppliers/categories`) - *Prequalification categories across Works, Sports Equipment, ICT & Media, Catering, Fleet, and Consulting*
+    - **Vendor Rating & Performance** (`suppliers/performance`) - *Vendor performance scorecards, SLA delivery ratings, and credit payment terms*
+  - **Database Architecture**: Created 2 PostgreSQL tables (`ncs_suppliers` and `ncs_supplier_contacts`) seeded with baseline supplier profiles and contact personnel.
+  - **Backend Controller & Models**: Built [Suppliers.php](file:///var/www/ncs_intranet/app/Controllers/Suppliers.php), [Suppliers_model.php](file:///var/www/ncs_intranet/app/Models/Suppliers_model.php), and [Supplier_contacts_model.php](file:///var/www/ncs_intranet/app/Models/Supplier_contacts_model.php).
+  - **Views & UI**: Built 8 view templates in `app/Views/suppliers/` featuring DataTables, modal forms, status badges, vendor star ratings, and detailed profile views.
+
+- **Internal Audit Department Module & Ugandan Format Audit Report Generator**:
+  - Integrated **Internal Audit** as a top-level independent sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) positioned alongside Accounting, Fixed Assets, and Legal & Compliance, implementing `Docs/plans/auditor-dashboard-plan.md` into 7 specialized submenus:
+    - **Internal Audit Dashboard & Controls** (`internal_audit`) - *Executive audit compliance summary cards, overall control ratings (SATISFACTORY / LOW RISK), and audit integrity metrics*
+    - **Physical Tag Spot-Checks & QR Scanner** (`internal_audit/spot_checks`) - *Physical barcode & QR code spot-check scanner verifying 297 fixed asset records (UGX 32.18B portfolio) and stores inventory*
+    - **Audit Discrepancy & Exception Manager** (`internal_audit/discrepancies`) - *Logging, tracking, severity classification (LOW, MEDIUM, HIGH, CRITICAL), and remediation manager for audit discrepancies*
+    - **Financial Control & Ledger Verification** (`internal_audit/financial_controls`) - *PFMA 2015 Section 48 & Treasury Instructions 2017 double-entry ledger verification and Form 5 vote-head commitment audit*
+    - **Statutory & Regulatory Audit Matrix** (`internal_audit/compliance_matrix`) - *Statutory compliance matrix tracking URA PAYE/WHT/EFRIS tax clearance, NSSF 15% remittances, PPDA procurement audit, and WADA anti-doping returns*
+    - **Ugandan Format Internal Audit Report Generator** (`internal_audit/generate_report`) - *Formal Republic of Uganda Public Sector Internal Audit Report generator featuring standard headers, executive audit opinion, statutory scope, detailed findings table, recommendations & management action plan matrix, and formal sign-offs for GS/Accounting Officer and Auditor General*
+    - **Audit Trail & Activity Log** (`internal_audit/activity_log`) - *Immutable system audit stream and personal audit activity logbook*
+  - **Database Architecture**: Created 2 PostgreSQL tables (`ncs_audit_discrepancies` and `ncs_audit_reports`).
+  - **Backend Controller & Models**: Built [Internal_audit.php](file:///var/www/ncs_intranet/app/Controllers/Internal_audit.php), [Audit_discrepancies_model.php](file:///var/www/ncs_intranet/app/Models/Audit_discrepancies_model.php), and [Audit_reports_model.php](file:///var/www/ncs_intranet/app/Models/Audit_reports_model.php).
+  - **Views & UI**: Built 8 view templates in `app/Views/internal_audit/` featuring DataTables, Select2 dropdowns, Feather icons, and formal print/PDF report styling.
+
+- **Fixed Assets Management Department Module & Sidebar Fix**:
+  - Integrated **Fixed Assets** as an independent top-level sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) positioned alongside Accounting, implementing `Docs/plans/fixed-assets-and-dashboards-plan.md` with 7 specialized submenus:
+    - **Master Asset Register & Portfolio** (`fixed_assets`) - *Master asset register accommodating 297 baseline assets across 10 asset classes (UGX 32.18B Net Valuation)*
+    - **Bulk Excel Import & Data Sync** (`fixed_assets/import_modal`) - *Batch CSV/Excel asset import engine with downloadable import template generator pre-configured with required headers*
+    - **Asset Revaluation & Value Adjustments** (`fixed_assets/adjustments`) - *FB_COST vs ADJUSTED_COST revaluation ledger across Land (UGX 27.89B), Non-Residential Buildings (UGX 3.30B), Light Vehicles (UGX 508.9M), Electrical Machinery, and Furniture*
+    - **IPSAS 17 Depreciation Engine** (`fixed_assets/depreciation`) - *Monthly straight-line depreciation calculation engine with useful life rules & asset value write-downs*
+    - **Audit Spot-Checks & Tag Verification** (`fixed_assets/audit_verification`) - *Physical QR/tag barcode spot-check logger and Auditor verification controls*
+    - **Disposals & Statutory Write-Offs** (`fixed_assets/disposals`) - *Statutory disposal & write-off recommendation engine with General Secretary sign-offs*
+    - **Fixed Assets Financial Reports** (`fixed_assets/reports`) - *IPSAS 17, Auditor General, and PFMA 2015 statutory financial reports and board packages*
+  - **100% Baseline Excel Register Ingestion**: Parsed all 10 asset worksheets from `Docs/FIXED ASSET REGISTER ADJUSTMENTS.xlsx` (Cycles, Electrical Machinery, Furniture & Fittings, Land, Light ICT Hardware, Light Vehicles, Non-Residential Buildings, Office Equipment, Other ICT Equipment, Residential Buildings), populating PostgreSQL table `ncs_fixed_assets` with 297 records totaling **UGX 32,175,914,535.00**.
+  - **Sidebar Menu & Icon Rendering Fix**: Updated [left_menu.php](file:///var/www/ncs_intranet/app/Views/includes/left_menu.php) to support custom submenu Feather icons, active submenu state tracking, and clean accordion toggle rendering.
+  - **Database Architecture**: Created PostgreSQL tables `ncs_fixed_assets` and `ncs_asset_transaction_logs`.
+  - **Backend Controller & Models**: Built [Fixed_assets.php](file:///var/www/ncs_intranet/app/Controllers/Fixed_assets.php), [Fixed_assets_model.php](file:///var/www/ncs_intranet/app/Models/Fixed_assets_model.php), and [Asset_transaction_logs_model.php](file:///var/www/ncs_intranet/app/Models/Asset_transaction_logs_model.php).
+  - **Views & UI**: Built 11 view templates in `app/Views/fixed_assets/` featuring DataTables, Select2 dropdowns, Feather icons, and modal anchors.
+
+- **Legal & Compliance Department Module**:
+  - Integrated **Legal & Compliance** as a top-level independent sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)), implementing `Docs/plans/legal-compliance-department-plan.md` into 7 specialized submenus:
+    - **Legal Contracts & MOUs Vault** (`legal_compliance/contracts` or `legal_compliance`) - *Central repository for commercial contracts, land leases, federation MOUs, and vendor SLAs (UGX 29.40B active portfolio value)*
+    - **Federation Governance & Disputes** (`legal_compliance/disputes`) - *Arbitration & dispute resolution engine for National Sports Federations, election challenges, and NCS Tribunal rulings*
+    - **Statutory & Regulatory Monitor** (`legal_compliance/statutory`) - *Statutory compliance matrix tracking National Sports Act 2023, WADA Anti-Doping Code, PPDA Authority returns, PDPO Data Protection, URA PAYE/EFRIS, and NSSF compliance*
+    - **IP & Trademark Protection** (`legal_compliance/trademarks`) - *URSB trademark registry for National Council of Sports official crest, Team Uganda brand marks, and commercial licensing rights*
+    - **Litigation & Court Cases** (`legal_compliance/litigation`) - *High Court, Court of Appeal, and Magistrate litigation manager tracking suit numbers, financial exposure risk (UGX 1.25B contingent liability), and lead counsel status*
+    - **Board Resolutions & Secretariat** (`legal_compliance/board_acts`) - *Repository for Board sitting resolutions, statutory gazette notices (Statutory Instrument No. 42), and Ministerial directives*
+    - **Legal Compliance Reports** (`legal_compliance/reports`) - *Executive legal audit briefing, risk exposure analytics, contract renewal pipeline, and statutory returns*
+  - **Database Architecture**: Created 4 PostgreSQL tables (`ncs_legal_contracts`, `ncs_legal_disputes`, `ncs_legal_trademarks`, `ncs_legal_litigation`).
+  - **Backend Controller & Models**: Built [Legal_compliance.php](file:///var/www/ncs_intranet/app/Controllers/Legal_compliance.php), [Legal_contracts_model.php](file:///var/www/ncs_intranet/app/Models/Legal_contracts_model.php), [Legal_disputes_model.php](file:///var/www/ncs_intranet/app/Models/Legal_disputes_model.php), [Legal_trademarks_model.php](file:///var/www/ncs_intranet/app/Models/Legal_trademarks_model.php), and [Legal_litigation_model.php](file:///var/www/ncs_intranet/app/Models/Legal_litigation_model.php).
+  - **Views & UI**: Created 11 view templates in `app/Views/legal_compliance/` with DataTables, Select2 dropdowns, Feather icons, and RISE modal form anchors (`contract_modal_form`, `dispute_modal_form`, `trademark_modal_form`, `litigation_modal_form`).
+
+- **Accounting Department Module (Positioned Immediately Below Leads)**:
+  - Integrated **Accounting** as an independent top-level sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) positioned directly below **Leads**, merging `Docs/plans/accountant-dashboard-plan.md` and `Docs/plans/accountant-hr-auditor-itofficer-dashboards-plan.md` into 8 specialized submenus:
+    - **General Ledger & Journal Entries** (`accounting/ledger`) - *Double-entry journal voucher posting engine, vote-head validation, debit/credit ledger tracking*
+    - **Fixed Assets & Depreciation Register** (`accounting/assets`) - *IPSAS 17 Straight-Line depreciation engine for 297 fixed assets (UGX 32.18B Net Book Value) across 11 Excel classes*
+    - **Federation Subventions & Grants** (`accounting/grants`) - *Quarterly grant disbursement tracking for 50+ national sports associations & accountability verification*
+    - **PPDA Form 5 Vote Clearance** (`accounting/vote_clearance`) - *Financial vote-head budget availability clearance engine for departmental procurement requisitions*
+    - **NTR & Bank Reconciliation** (`accounting/reconciliation`) - *Non-Tax Revenue collection logging & bank statement reconciliation engine*
+    - **Budget Execution & Vote-Heads** (`accounting/budget`) - *Government subvention budget performance & quarterly vote-head commitment ledger*
+    - **Internal Audit & Spot-Checks** (`accounting/audit_verification`) - *Internal auditor independent verification, physical asset tag spot-checks, and discrepancy manager*
+    - **Financial Reports & Statements** (`accounting/reports`) - *Auditor General, PFMA 2015, and Treasury Instructions statutory financial statements*
+  - **Database Architecture**: Created 4 PostgreSQL tables `ncs_accounting_ledgers`, `ncs_accounting_grants`, `ncs_accounting_vote_clearance`, and `ncs_accounting_reconciliations`.
+  - **Backend Controller & Models**: Built [Accounting.php](file:///var/www/ncs_intranet/app/Controllers/Accounting.php), [Accounting_ledgers_model.php](file:///var/www/ncs_intranet/app/Models/Accounting_ledgers_model.php), [Accounting_grants_model.php](file:///var/www/ncs_intranet/app/Models/Accounting_grants_model.php), [Accounting_vote_clearance_model.php](file:///var/www/ncs_intranet/app/Models/Accounting_vote_clearance_model.php), and [Accounting_reconciliations_model.php](file:///var/www/ncs_intranet/app/Models/Accounting_reconciliations_model.php).
+
+- **Facilities & Venue Operations Module (Independent Menu Just Below Projects)**:
+  - Integrated **Facilities & Venue Operations** as an independent top-level sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) positioned directly below **Projects**, featuring 7 specialized submenus:
+    - **Facilities Register & Venue Hub** (`facilities`) - *Master venue register for Lugogo Indoor Arena, Sports Ground, Tennis Complex, Hockey Pitch, Lugogo Hostels Block, Hoima Regional Hub, and Kapchorwa High Altitude Center*
+    - **Venue Bookings & Calendar** (`facilities/bookings`) - *Multi-facility interactive booking scheduler & calendar conflict resolution engine*
+    - **Commercial NTR Billing & Invoices** (`facilities/invoices`) - *Non-Tax Revenue tariff billing linked with Finance URA PRN receipts*
+    - **Lugogo Hostels Accommodation** (`facilities/hostels`) - *Athlete camp room allocations, key management, and national team rosters*
+    - **Pre & Post Event Inspections** (`facilities/inspections`) - *Safety checklists & post-event damage deposit clearance engine*
+    - **Facility Capital Projects** (`facilities/projects`) - *Capital renovation projects & contractor management linked directly to facilities*
+    - **Facility Reports & NTR Statements** (`facilities/reports`) - *Facility operations returns, contractor expenses, and NTR financial statements*
+  - **Project-Facility Relation Architecture**:
+    - Created relational mapping table `ncs_project_facility_relations` linking every system project directly to an official NCS facility.
+    - Updated [Projects_model.php](file:///var/www/ncs_intranet/app/Models/Projects_model.php) to automatically join facilities and fetch target facility titles.
+    - Updated project addition/editing modal form ([projects/modal_form.php](file:///var/www/ncs_intranet/app/Views/projects/modal_form.php)) with a searchable **Select Facility / Sporting Venue** dropdown selector.
+    - Updated project save pipeline in [Projects.php](file:///var/www/ncs_intranet/app/Controllers/Projects.php) to persist facility mapping relations.
+  - **Database Architecture**: Created PostgreSQL tables `ncs_facilities`, `ncs_facility_bookings`, `ncs_hostel_occupancies`, `ncs_facility_inspections`, and `ncs_project_facility_relations`.
+  - **Backend Controller & Models**: Built [Facilities.php](file:///var/www/ncs_intranet/app/Controllers/Facilities.php), [Facilities_model.php](file:///var/www/ncs_intranet/app/Models/Facilities_model.php), [Facility_bookings_model.php](file:///var/www/ncs_intranet/app/Models/Facility_bookings_model.php), [Hostel_occupancies_model.php](file:///var/www/ncs_intranet/app/Models/Hostel_occupancies_model.php), and [Facility_inspections_model.php](file:///var/www/ncs_intranet/app/Models/Facility_inspections_model.php).
+
+- **Administration Department Module**:
+  - Unified **Administration** top-level executive sidebar menu ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) merging 4 executive blueprints into 8 specialized submenus (eliminating standalone separate dashboard pages):
+    - **Executive Approvals & Vetting** (`administration/approvals`) - *General Secretary Accounting Officer Vetting Engine*
+    - **Master Executive Valuation Register** (`administration/appraisals`) - *GS Asset Valuation & Fixed Asset Register (297 assets, UGX 31.02B / 32.18B valuation portfolio across 11 Excel classes)*
+    - **Employee 360° Profile Inspector** (`administration/employee_inspector`) - *360° Employee Inspector for 128 staff establishment across 13 departments & bureaucratic ranks*
+    - **Federation Oversight & Technical Ops** (`administration/federations`) - *Technical oversight & subvention grant distribution for 50+ National Sports Associations/Federations (FUFA, UAF, UNF, UBF, URU, USF)*
+    - **Administrative Governance & Policy** (`administration/hr_governance`) - *AGS Admin Public Service Policy Compliance & HR Governance Roster*
+    - **Cross-Departmental Master Reports** (`administration/master_reports`) - *Executive combined statutory returns & Auditor General audit readiness reports*
+    - **Board & Ministry Policy Briefs** (`administration/board_packages`) - *Cabinet Papers, Ministerial Briefs, and Executive Board Sitting Policy Packages*
+    - **Administration Activity Log** (`administration/activities`) - *Executive audit trail & immutable activity logbook*
+  - **Executive Vetting & Authorization Engine**: Multi-stage authorization queue for high-value Procurement Form 5s, HR restructuring Memos, Engineering Capex, Store Requisitions, and Policy Exceptions with General Secretary vetting notes and decision routing (`Approved`, `Forwarded to Board`, `Rejected`, `Hold for Audit`).
+  - **Fixed Asset Appraisal & Valuation Register**: Master appraisal ledger tracking UGX 31.02B net asset portfolio (32 acres at Lugogo, 50 acres at Hoima, National High Altitude Training Centre Kapchorwa, synthetic AstroTurf, Cummins 500kVA generators, executive fleet), land title deed status, and NIC insurance coverage.
+  - **National Sports Associations & Federations Oversight**: Technical oversight portal monitoring 50+ registered sports federations, grant disbursements (UGX 29.80B subvention pool), governance status (`Fully Compliant`, `Conditional Recognition`, `Notice of Warning`, `Suspended`), international affiliations (FIFA, World Athletics, World Netball, World Rugby), and compliance scores (0-100%).
+  - **Board & Ministry Policy Packages**: Strategic dossier generation engine for Cabinet Policy Papers, Ministerial Briefs, Quarterly Subvention Reports, and Statutory Audit Returns.
+  - **Database Architecture**: Created 4 PostgreSQL tables (`ncs_admin_approvals`, `ncs_admin_appraisals`, `ncs_admin_federations`, `ncs_admin_board_packages`).
+  - **Backend Controller & Models**: Built [Administration.php](file:///var/www/ncs_intranet/app/Controllers/Administration.php), [Admin_approvals_model.php](file:///var/www/ncs_intranet/app/Models/Admin_approvals_model.php), [Admin_appraisals_model.php](file:///var/www/ncs_intranet/app/Models/Admin_appraisals_model.php), [Admin_federations_model.php](file:///var/www/ncs_intranet/app/Models/Admin_federations_model.php), and [Admin_board_packages_model.php](file:///var/www/ncs_intranet/app/Models/Admin_board_packages_model.php).
+
+- **ICT & Media Department Module**:
+  - Integrated **ICT & Media** top-level sidebar module ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) with 8 specialized submenus (eliminating standalone separate dashboard pages):
+    - **IT & Media Equipment Register** (`ict_and_media/hardware`) - *Also mapped to `stores_inventory/ict_consumables` for dual-access inventory management*
+    - **Equipment Issuances & Dispatch** (`ict_and_media/issuances`)
+    - **Maintenance & Repair Requisitions** (`ict_and_media/maintenance`)
+    - **IT Helpdesk & Service Tickets** (`ict_and_media/helpdesk`)
+    - **ICT & Media Expenses** (`ict_and_media/expenses`)
+    - **Infrastructure Uptime & Backups** (`ict_and_media/infrastructure`)
+    - **ICT Activity Log** (`ict_and_media/activities`)
+    - **ICT & Media Reports** (`ict_and_media/reports`)
+  - **IT & Media Equipment Hardware Register**: Hardware asset tracking engine supporting 7 specialized categories:
+    - **Networking Hardware**: Cisco 48-port PoE switches, Fiber SFP+ uplinks, Patch Panels, APs, Firewalls.
+    - **Security Systems**: Hikvision 32-Channel 4K NVRs, PTZ dome cameras, access control turnstiles.
+    - **Cameras & Photography**: Sony FX6 4K Cinema cameras, DSLR/mirrorless bodies, prime/zoom lenses, studio lighting.
+    - **Specialized Media Production**: DJI Inspire 3 8K drones, DJI Ronin 2 3-axis gimbals, Proaim 22ft camera jib cranes, live stream encoders, video switchers.
+    - **Computing & Office Hardware**: Dual Xeon PowerEdge rack servers, laptops, desktops, UPS units, printers.
+    - **Audio-Visual & Broadcast**: Wireless lapel mics, audio mixers, studio monitors.
+    - **Consumables**: High-yield HP toner cartridges, SanDisk Extreme Pro SD cards, patch cords.
+  - **Inter-Departmental Equipment Issuances & Dispatch**: Check-out and return engine for issuing high-value media gear (Drones, 4K Cameras, Gimbals, Laptops) across departments (PR & Media, Executive Office, Sports Development) with expected return tracking, condition checks, and custodian signatures.
+  - **Cross-Departmental Maintenance & Repair Requisitions**: Hardware repair requisition engine enabling staff from any department to submit repair requests for faulty hardware, with IT diagnostic routing (`INTERNAL_IT` workshop vs `EXTERNAL_VENDOR` servicing vs `UNDER_WARRANTY` claim).
+  - **IT Helpdesk & Service Ticket Queue**: Support ticket queue with SLA priority escalation (`URGENT`, `HIGH`, `MEDIUM`, `LOW`), category tagging (`NETWORK`, `ACCESS_RIGHTS`, `EMAIL_INTRANET`, `HARDWARE`, `PRINTER`, `MEDIA_SUPPORT`), technician assignment, and resolution notes.
+  - **ICT & Media Operational Expenses**: Operational expense logbook for software licenses, AWS cloud S3 backups, SSL certificates, drone accessories, memory cards, and vendor servicing fees.
+  - **Systems Infrastructure Health & Disaster Recovery**: Command center monitoring intranet uptime (99.98%), server load, PostgreSQL database automated S3 backup sync logs (`rise_db`), and active user sessions.
+  - **ICT & Media Executive Reports**: Analytics dashboard displaying hardware valuation breakdowns, custodian issuance logs, maintenance repair costs, and IT expense reports.
+  - **Database Architecture**: Created 5 PostgreSQL tables (`ncs_ict_equipment`, `ncs_ict_issuances`, `ncs_ict_maintenance_requisitions`, `ncs_ict_helpdesk_tickets`, `ncs_ict_expenses`).
+  - **Backend Controller & Models**: Built [Ict_and_media.php](file:///var/www/ncs_intranet/app/Controllers/Ict_and_media.php), [Ict_equipment_model.php](file:///var/www/ncs_intranet/app/Models/Ict_equipment_model.php), [Ict_issuances_model.php](file:///var/www/ncs_intranet/app/Models/Ict_issuances_model.php), [Ict_maintenance_model.php](file:///var/www/ncs_intranet/app/Models/Ict_maintenance_model.php), [Ict_helpdesk_model.php](file:///var/www/ncs_intranet/app/Models/Ict_helpdesk_model.php), and [Ict_expenses_model.php](file:///var/www/ncs_intranet/app/Models/Ict_expenses_model.php).
+
+- **Engineering Department Module**:
+  - Integrated **Engineering** top-level sidebar module ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) expanded with 9 specialized submenus:
+    - **Work Orders & Maintenance** (`engineering/work_orders`)
+    - **Infrastructure Assets** (`engineering/assets`)
+    - **Civil Assets & Land Register** (`engineering/civil_assets`) - *Assistant Engineer Civil Blueprint*
+    - **Electrical Machinery & Generators** (`engineering/electrical_assets`) - *Assistant Engineer Electrical Blueprint*
+    - **CapEx Requisitions** (`engineering/capex`)
+    - **Facility Inspections** (`engineering/inspections`)
+    - **Technician Field Rosters** (`engineering/technicians`) - *Field Trade Rosters Blueprint*
+    - **Engineering Activity Log** (`engineering/activities`)
+    - **Engineering Reports** (`engineering/reports`)
+  - **Civil Infrastructure & Land Cadastral Register (Assistant Engineer Civil Blueprint)**: Real-time land and structural asset tracking engine for stadium complexes (Plot 2-10 Coronation Ave, Plot 14-16 Hesketh Bell Rd, Lugogo Indoor Arena, Hostel Block), deed verification (`tag_number`), acreage, property valuation (UGX 12.8B+), boundary beacon status (`VERIFIED`, `UNVERIFIED`, `IN_PROGRESS`, `DISPUTED`), and encroachment risk flagging (`CLEAR`, `HIGH_RISK`, `ENCROACHED`).
+  - **Electrical Machinery, Generators & Telemetry Logbook (Assistant Engineer Electrical Blueprint)**: Operational telemetry register monitoring standby diesel generators (60 KVA Perkins 166-NCS-G-0001), HVAC cassette AC units, fuel reserves (tank capacity, fuel level %), cumulative engine run hours, ATS auto-start readiness (`PASS_AUTO`, `ATTENTION`, `MANUAL_ONLY`, `FAULTY`), and maintenance service intervals.
+  - **Technician Field Duty Rosters**: Field trade roster management engine for assigned facility technicians (Plumbers, Masons, Electricians, Generator Operators) tracking certification levels, phone contacts, stationed venues, and shift duty statuses (`ON_DUTY`, `ON_CALL`, `OFF_DUTY`).
+  - **Work Orders & Maintenance Logbook**: Job card generation, preventive/reactive task dispatching, priority routing (`EMERGENCY`, `HIGH`, `MEDIUM`, `LOW`), category tagging (`CIVIL`, `ELECTRICAL`, `MECHANICAL`, `PLUMBING`, `TURF_GROUNDS`), cost estimation, and status tracking.
+  - **Infrastructure Asset Register**: Comprehensive logbook for stadium complexes, indoor arenas, high-voltage transformers, floodlight towers, swimming pools, turf irrigation systems, and standby power generators with condition health ratings (`EXCELLENT`, `GOOD`, `FAIR`, `CRITICAL`, `DAMAGED`).
+  - **CapEx Requisitions & Rank Approval Workflow**: Capital expenditure requisition engine supporting multi-stage approvals (Initiating Officer $\rightarrow$ Senior Engineer HOD $\rightarrow$ General Secretary / Accounting Officer).
+  - **Facility Inspections & Event Readiness Certification**: Pre-match and stadium readiness audit checklists complying with FIFA, CAF, and World Athletics safety standards.
+  - **Senior Engineer HOD Personal Activity Timeline**: Accountability audit timeline tracking Senior Engineer actions, CapEx decisions, inspection certificates, work order dispatches, and login logs.
+  - **Statutory Engineering & Analytics Reports**: Executive analytics dashboard displaying work order completion rates, CapEx budget utilization, civil land valuations, generator telemetry, technician duty counts, asset health condition indexes, and event readiness scores.
+  - **Database Architecture**: Created 7 PostgreSQL tables (`ncs_engineering_work_orders`, `ncs_engineering_assets`, `ncs_engineering_civil_assets`, `ncs_engineering_electrical_assets`, `ncs_engineering_technicians`, `ncs_engineering_capex`, `ncs_engineering_inspections`).
+  - **Backend Controller & Models**: Built [Engineering.php](file:///var/www/ncs_intranet/app/Controllers/Engineering.php), [Engineering_work_orders_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_work_orders_model.php), [Engineering_assets_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_assets_model.php), [Engineering_civil_assets_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_civil_assets_model.php), [Engineering_electrical_assets_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_electrical_assets_model.php), [Engineering_technicians_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_technicians_model.php), [Engineering_capex_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_capex_model.php), and [Engineering_inspections_model.php](file:///var/www/ncs_intranet/app/Models/Engineering_inspections_model.php).
+
+- **Procurement & Logistics Module**:
+  - Integrated **Procurement & Logistics** submenus under the **Tickets** sidebar menu ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)):
+    - **Fill Form 5 (PPDA Requisition)** (`procurement/fill_form_5`)
+    - **Form 5 Approvals** (`procurement/approvals`)
+    - **Annual Procurement Plan (APP)** (`procurement/plan`)
+    - **Supplier Registry & Blacklist** (`procurement/suppliers`)
+    - **Procurement Reports** (`procurement/reports`)
+  - **Statutory PPDA Form 5 Requisition Engine**: Multi-step interactive wizard complying with PPDA Regulations (2023) Sections 1 to 6 (PDE Code, Procurement Type, Recurrent/Development Budget, Multiyear Contracting, Particulars of Procurement, and dynamic line item cost estimation with auto-computed grand totals).
+  - **3-Stage Approval & Workflow Queue**: Built approval tracking for Initiator $\rightarrow$ HOD Confirmation $\rightarrow$ Finance Vote Clearance $\rightarrow$ Accounting Officer (General Secretary) Final Sign-off with status badges and endorsement modals.
+  - **Annual Procurement Plan (APP) Tracking**: Built datatable and modal management interface for monitoring quarterly procurement plan execution, procurement methods (Open Domestic Bidding, Restricted Bidding, RFQ, Direct, Micro Procurement), and estimated values.
+  - **Approved Supplier & PPDA Blacklist Registry**: Created contractor qualification database tracking company names, PPDA registration numbers, TIN numbers, contacts, and PPDA debarred contractor alerts.
+  - **Statutory Procurement Reports**: Created PDU performance analytics page featuring pipeline valuation metrics, approval stage breakdowns, and APP execution summaries.
+  - **Department Auto-Detection & Bureaucracy Rank Integration**: Form 5 automatically detects the initiating officer's current department (title, code) and role rank (Rank 1–3) upon wizard loading.
+  - **Rank-Based Internal Superior Submission**: Enforces strict internal department submission rules where Rank 3 officers submit to Rank 2 supervisors, and Rank 2 supervisors submit to Rank 1 Department Heads (HOD).
+  - **Inter-Departmental Forwarding & Cross-Department Rank Selection**: Approvers can endorse and forward Form 5 requisitions across organizational departments (e.g., Engineering $\rightarrow$ HR $\rightarrow$ Administration $\rightarrow$ Accounting & Finance). Forwarding interface dynamically fetches all ranked roles/officers in the target department, enabling selection of any officer rank in that department (e.g. Senior Accountant at Rank 2 or CFO at Rank 1).
+  - **Workflow Audit Trail & History**: Embedded step-by-step audit logging into `workflow_history` JSON storing timestamps, initiating officers, departments, ranks, forwarding actions, and endorsement notes.
+  - **Database Architecture**: Created 4 PostgreSQL tables (`ncs_procurement_form5`, `ncs_procurement_form5_items`, `ncs_procurement_plans`, `ncs_procurement_suppliers`) with columns for `department_id`, `requester_rank`, `assigned_approver_id`, `target_department_id`, and `workflow_history`.
+  - **Backend Controller & Models**: Built [Procurement.php](file:///var/www/ncs_intranet/app/Controllers/Procurement.php), [Procurement_form5_model.php](file:///var/www/ncs_intranet/app/Models/Procurement_form5_model.php), [Procurement_form5_items_model.php](file:///var/www/ncs_intranet/app/Models/Procurement_form5_items_model.php), [Procurement_plans_model.php](file:///var/www/ncs_intranet/app/Models/Procurement_plans_model.php), and [Procurement_suppliers_model.php](file:///var/www/ncs_intranet/app/Models/Procurement_suppliers_model.php).
+
+- **Stores & Inventory Management System**:
+  - Built a comprehensive **Store & Inventory** top-level sidebar module ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) compliant with PFMA 2015, Treasury Instructions, and PPDA Guidelines with submenus:
+    - **Add new Inventory Record** (`stores_inventory/create_page`)
+    - **Inventory Records** (`stores_inventory`)
+    - **Goods Received Notes (GRN)** (`stores_inventory/grn`)
+    - **Requisitions** (`stores_inventory/requisitions`)
+    - **Issuances & Re-issuances** (`stores_inventory/issuances`)
+    - **Stock Takes & Reconciliation** (`stores_inventory/stock_takes`)
+    - **Obsolescence & Defect Flagging** (`stores_inventory/obsolescence`)
+    - **Sports Equipment Pool** (`stores_inventory/sports_gear`)
+    - **Engineering Spares Management** (`stores_inventory/engineering_spares`)
+    - **ICT Consumables & Light Hardware** (`stores_inventory/ict_consumables`)
+    - **Office & Administrative Supplies** (`stores_inventory/office_supplies`)
+    - **Issuance & Movement Audit Trail** (`stores_inventory/audit_trail`)
+    - **Stock Aging & Buffer Alerts** (`stores_inventory/alerts`)
+    - **Stores Inventory Reports** (`stores_inventory/reports`)
+  - **Add New Inventory Page UI Redesign**:
+    - Created dedicated full-page form view [create_page.php](file:///var/www/ncs_intranet/app/Views/stores_inventory/create_page.php) featuring standard RISE card container (`p30`), 2-column form layout grid, fully initialised `Select2` dropdowns for categories and condition status, Feather icons (`plus-circle`), and `appForm` AJAX submission with redirect back to inventory list.
+    - Added `create_page()` and `create()` methods in [Stores_inventory.php](file:///var/www/ncs_intranet/app/Controllers/Stores_inventory.php).
+    - Updated sidebar menu item `add_new_inventory_record` in [Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php) to point directly to `stores_inventory/create_page`.
+  - **Reports Integration**: Added **Inventory Report** menu item (`stores_inventory/reports`) under the **Reports** sidebar dropdown.
+  - **Database Architecture**: Created 6 PostgreSQL tables: `ncs_store_inventory_items`, `ncs_store_grn`, `ncs_store_requisitions`, `ncs_store_issuances`, `ncs_store_audit_trail`, and `ncs_store_stock_takes`.
+  - **Inward GRN Verification**: Generates digital GRNs, tracks purchase orders, vendor details, quality inspection checklists, and automatically increments warehouse quantity on hand upon receipt.
+  - **Requisitions & Approval Workflow**: Multi-step requisition system (Staff Request $\rightarrow$ HOD Endorsement $\rightarrow$ Stores Officer Issue Voucher).
+  - **Issuance & Re-issuance**: Store Issue Vouchers (SIV) supporting assignment to departments, roles, or staff with handover condition logging and automated inventory deduction.
+  - **Obsolescence & Defect Flagging**: Defective item reporting, replacement part requests, and Board of Survey write-off tracking.
+  - **Physical Stock Count & Accounting Reconciliation**: Bi-annual physical stock takes, automated book vs. physical variance calculation, and variance valuation brief.
+  - **Audit Trail & Movement Tracking**: Immutable audit trail logging all movement, issuance condition logs, defect reports, and stock adjustments.
+
+- **Departments Management System**:
+  - Integrated a new **Departments** sidebar module ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) with submenus:
+    - **Create Department** (`departments/modal_form` / AJAX modal trigger)
+    - **Manage Departments** (`departments`)
+  - **Database Schema**: Created `ncs_departments` table storing department details (`title`, `code`, `description`, `head_id`, `created_at`, `deleted`).
+  - **Default Organizational Seeding**: Pre-seeded key organizational departments (Administration & HR, Finance & Accounting, Sports Operations & Technical Services, Procurement & Logistics, IT & Media, Legal & Compliance, Estate & Facilities Management, Gate Security).
+  - **Department CRUD Controller & View**: Built [Departments.php](file:///var/www/ncs_intranet/app/Controllers/Departments.php), [Departments_model.php](file:///var/www/ncs_intranet/app/Models/Departments_model.php), [index.php](file:///var/www/ncs_intranet/app/Views/departments/index.php), and [modal_form.php](file:///var/www/ncs_intranet/app/Views/departments/modal_form.php) with full DataTables support and staff head selection.
+
+- **Role Bureaucracy Hierarchy & Department Assignment**:
+  - **Database Alteration**: Added `department_id` and `rank` columns to `ncs_roles`.
+  - **Role Creation UI**: Updated [roles/modal_form.php](file:///var/www/ncs_intranet/app/Views/roles/modal_form.php) with:
+    - Automatically populated, searchable **Department** dropdown (`Select2`).
+    - Numeric **Department Rank** input determining bureaucracy order (where `1` represents the top executive rank in that department).
+  - **Role List Representation**: Updated [Roles.php](file:///var/www/ncs_intranet/app/Controllers/Roles.php) and [Roles_model.php](file:///var/www/ncs_intranet/app/Models/Roles_model.php) to display Department name badges and Rank hierarchy badges, sorted logically by department and rank.
+
+- **Visitor Appointment System**:
+  - Integrated a complete **Visitor Appointment** module under the sidebar with dedicated submenus:
+    - **Create An Appointment** (`visitor_appointment/create`)
+    - **Appointments Records** (`visitor_appointment`)
+  - **Appointment Registration Form**: Captures First Name, Last Name, Other Name, Identification Number (NIN / Passport / Driving License / Refugee Card), Phone Number, Email, Organization, Host Officer (searchable dropdown by Name, Email, or Role), Reason for Visit, Date Picker, and Time fields.
+  - **Internal Team Member Appointments**: Enabled appointment creation for internal organizational meetings without requiring external visitor details.
+  - **Attachment Support**: Added file upload capability adhering to existing framework design aesthetics.
+  - **Approval & Rescheduling Workflow**: Status tracking (`Pending`, `Approved`, `Rejected`, `Rescheduled`) with mandatory reason input for rejections or rescheduling.
+  - **Notification Alerts**: Automatic internal system message (`ncs_messages`) dispatched to the host officer upon appointment scheduling.
+  - **PDF Export**: Printable appointment pass PDF documents (`visitor_appointment/download_pdf/{id}`).
+
+- **Visitor Logbook & Gate Pass Management**:
+  - Built a separate **Visitor Logbook** sidebar module for gate security check-ins and gatepass management:
+    - **Create Visitor Record** (`visitor_logbook/create`)
+    - **Visitor Records** (`visitor_logbook`)
+  - **Time Tracking**: Automated Check-In (`time_in`) and Check-Out (`time_out`) recording with single-click check-out status updates.
+  - **Nationality Rules**:
+    - **Ugandan**: Strict mandatory National Identification Number (NIN) field validation.
+    - **Non-Ugandan**: Selective support for Passport, Driving License, or Refugee Card Number.
+  - **Security & Gate Audit**:
+    - Records check-in and check-out security officer IDs (`recorded_by`, `checked_out_by`).
+    - Configurable entry gate selection via system settings (`ncs_visitor_logbook_gates`).
+  - **Gate Notification & PDF**: Automatic host notification on arrival at gate and printable gate pass slip generation (`visitor_logbook/download_pdf/{id}`).
+
+- **Fleet Route Aliases**:
+  - Added direct route aliases in [Routes.php](file:///var/www/ncs_intranet/app/Config/Routes.php) mapping `/routes`, `/service_logs`, and `/fleet_report` directly to `Fleet::routes`, `Fleet::service_logs`, and `Fleet::fleet_report`.
+
+### Fixed
+- **Messages Module 500 Error**:
+  - **Database Compatibility**: Guarded `SET sql_mode = ''` calls across database models ([Messages_model.php](file:///var/www/ncs_intranet/app/Models/Messages_model.php), `Clients_model.php`, `Projects_model.php`, `Tasks_model.php`, `Timesheets_model.php`) to execute only on MySQL connections, resolving PostgreSQL execution errors.
+  - **ANSI SQL Function Overloads**: Replaced non-existent PostgreSQL function `mysql_if()` with ANSI standard `COALESCE()` and `CASE WHEN ... END` syntax in [Messages_model.php](file:///var/www/ncs_intranet/app/Models/Messages_model.php).
+  - **Query Grouping**: Expanded `GROUP BY` clause in `Messages_model::get_chat_list()` to explicitly list non-aggregated message and user fields required by PostgreSQL.
+
+- **Fleet Management 500 Errors & Modal UI Polish**:
+  - **View Context Resolution**: Fixed `ErrorException: Undefined property: CodeIgniter\View\View::$login_user` by changing `$this->login_user` to `$login_user` across [fleet/index.php](file:///var/www/ncs_intranet/app/Views/fleet/index.php), [fleet/routes.php](file:///var/www/ncs_intranet/app/Views/fleet/routes.php), [fleet/service_logs.php](file:///var/www/ncs_intranet/app/Views/fleet/service_logs.php), and [fleet/vehicle_details.php](file:///var/www/ncs_intranet/app/Views/fleet/vehicle_details.php).
+  - **DatePicker & Select2 Integration**: Replaced raw `$(".datepicker").datepicker()` calls with native `setDatePicker(...)` helper and added `Select2` dropdown initialization in [vehicle_modal_form.php](file:///var/www/ncs_intranet/app/Views/fleet/vehicle_modal_form.php), [route_modal_form.php](file:///var/www/ncs_intranet/app/Views/fleet/route_modal_form.php), and [service_log_modal_form.php](file:///var/www/ncs_intranet/app/Views/fleet/service_log_modal_form.php).
+  - **DataTables Callback Binding**: Ensured `onSuccess` handlers correctly target `#fleet-table`, `#routes-table`, and `#service-logs-table` to refresh UI table views dynamically upon saving records.
+
+- **HR Module Views**:
+  - Resolved `$this->login_user` property access errors in HR views: [hr/index.php](file:///var/www/ncs_intranet/app/Views/hr/index.php), [hr/appraisals/index.php](file:///var/www/ncs_intranet/app/Views/hr/appraisals/index.php), [hr/dept_reports/index.php](file:///var/www/ncs_intranet/app/Views/hr/dept_reports/index.php), and [hr/payroll/index.php](file:///var/www/ncs_intranet/app/Views/hr/payroll/index.php).
+
+- **Team Member Profile Bug**:
+  - Fixed database query and view rendering errors when accessing user profile pages on `/team_members/view/{id}`.
+
+### Security & System Administration
+- **Admin Credential Update**:
+  - Updated primary system administrator account email to `admin@ncs.go.ug` with updated secure password `@Fr1caObuaObali`.
+- **Network Access Configuration**:
+  - Configured application web server and intranet listeners for LAN accessibility on host IP `192.168.152.202`.

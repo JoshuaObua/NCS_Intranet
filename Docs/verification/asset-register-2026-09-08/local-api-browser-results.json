@@ -1,0 +1,61 @@
+{
+  "scope": "Workspace frontend on port 4173 with real local Docker API/PostgreSQL on 9081",
+  "accountant_login": true,
+  "dashboard_navigation": true,
+  "pagination": [
+    100,
+    100,
+    97
+  ],
+  "land_filter_count": 8,
+  "search_count": 1,
+  "pivot_rows": 35,
+  "asset_writes": 0,
+  "events": [
+    {
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/dashboard/stats",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/applications",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    }
+  ]
+}

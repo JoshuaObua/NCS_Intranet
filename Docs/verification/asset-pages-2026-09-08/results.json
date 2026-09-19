@@ -1,0 +1,83 @@
+{
+  "scope": "Fixture browser tests; all API writes intercepted",
+  "passed": [
+    "Accountant dashboard opens independent new-asset page",
+    "Required new-asset fields block empty submission",
+    "Nested API error visible and entered data retained",
+    "Create submits decimal values once and returns to register",
+    "Revaluation direct refresh and submission",
+    "Verification loads existing status and posts asset ID",
+    "Depreciation separate page and period payload",
+    "Cancel returns without posting",
+    "Invalid asset cannot submit",
+    "Mobile page fits viewport"
+  ],
+  "posts": [
+    {
+      "endpoint": "/api/v1/assets",
+      "payload": {
+        "asset_book": "NCS FA BOOK",
+        "asset_number": "NEW-1",
+        "tag_number": "TAG-1",
+        "asset_description": "New test asset",
+        "category_segment1": "MACHINERY AND EQUIPMENT",
+        "category_segment3": "LIGHT ICT HARDWARE",
+        "category_segment4": "",
+        "asset_units": 1,
+        "fb_cost": 123.45,
+        "adjusted_cost": 123.45,
+        "date_placed_in_service": "2023-07-01",
+        "custodian_department": "General Administration",
+        "location_building": "NCS Lugogo Head Office",
+        "location_room": "Main Facility",
+        "depreciation_method": "STRAIGHT_LINE",
+        "useful_life_years": 5,
+        "worksheet_source": "LIGHT ICT HARDWARE"
+      }
+    },
+    {
+      "endpoint": "/api/v1/assets",
+      "payload": {
+        "asset_book": "NCS FA BOOK",
+        "asset_number": "NEW-1",
+        "tag_number": "TAG-1",
+        "asset_description": "New test asset",
+        "category_segment1": "MACHINERY AND EQUIPMENT",
+        "category_segment3": "LIGHT ICT HARDWARE",
+        "category_segment4": "",
+        "asset_units": 1,
+        "fb_cost": 123.45,
+        "adjusted_cost": 123.45,
+        "date_placed_in_service": "2023-07-01",
+        "custodian_department": "General Administration",
+        "location_building": "NCS Lugogo Head Office",
+        "location_room": "Main Facility",
+        "depreciation_method": "STRAIGHT_LINE",
+        "useful_life_years": 5,
+        "worksheet_source": "LIGHT ICT HARDWARE"
+      }
+    },
+    {
+      "endpoint": "/api/v1/assets/revalue",
+      "payload": {
+        "asset_id": "asset-test",
+        "new_cost": 150.25,
+        "notes": ""
+      }
+    },
+    {
+      "endpoint": "/api/v1/assets/verify",
+      "payload": {
+        "asset_id": "asset-test",
+        "status": "VERIFIED",
+        "notes": "Checked"
+      }
+    },
+    {
+      "endpoint": "/api/v1/assets/depreciate",
+      "payload": {
+        "period": "2026-09"
+      }
+    }
+  ]
+}

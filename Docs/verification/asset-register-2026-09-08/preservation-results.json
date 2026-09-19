@@ -1,0 +1,40 @@
+{
+  "scope": "Local Docker engine only",
+  "containers": [
+    {
+      "name": "ncsintranet-backend-1",
+      "same_id": true,
+      "status_after": "Up 37 minutes (healthy)"
+    },
+    {
+      "name": "ncsintranet-location-service-1",
+      "same_id": true,
+      "status_after": "Up 37 minutes"
+    },
+    {
+      "name": "ncsintranet-frontend-1",
+      "same_id": true,
+      "status_after": "Up 37 minutes"
+    },
+    {
+      "name": "ncsintranet-nginx-1",
+      "same_id": true,
+      "status_after": "Up 37 minutes"
+    },
+    {
+      "name": "ncsintranet-postgres-1",
+      "same_id": true,
+      "status_after": "Up 37 minutes (healthy)"
+    },
+    {
+      "name": "buildx_buildkit_dns-builder0",
+      "same_id": true,
+      "status_after": "Up 37 minutes"
+    }
+  ],
+  "asset_export_before_sha256": "0952306b59daf80f7e81ba53416f1bccd22f36a3eda154d47152c51117672c39",
+  "asset_export_after_sha256": "0952306b59daf80f7e81ba53416f1bccd22f36a3eda154d47152c51117672c39",
+  "asset_data_unchanged": true,
+  "raw_export_sha256_before_whitespace_normalization": "0be90d3bc732329ce82d534e1c2150abba301677b6bae707a4cda8a3bad018d4",
+  "hash_scope": "Whitespace-normalized SQL exports committed as evidence; original raw capture hash retained separately"
+}

@@ -1,0 +1,2 @@
+{ login_status: 200, error: undefined, has_token: true }
+Local authenticated checks passed

@@ -1,0 +1,76 @@
+diff --git a/backend/internal/handlers/operator.go b/backend/internal/handlers/operator.go
+index d7667425..88cc9146 100644
+--- a/backend/internal/handlers/operator.go
++++ b/backend/internal/handlers/operator.go
+@@ -10,6 +10,8 @@ import (
+ 	"strings"
+ 	"time"
+ 
++	"github.com/atenimedia-llc/ncs-online/backend/internal/maintenance"
++	"github.com/atenimedia-llc/ncs-online/backend/internal/models"
+ 	"github.com/atenimedia-llc/ncs-online/backend/internal/repository"
+ )
+ 
+@@ -17,7 +19,7 @@ type OperatorHandler struct {
+ 	repo *repository.OperatorRepo
+ }
+ 
+-func NewOperatorHandler(repo *repository.OperatorRepo) *OperatorHandler {
++func NewOperatorHandler(repo *repository.OperatorRepo, _ *maintenance.State) *OperatorHandler {
+ 	return &OperatorHandler{repo: repo}
+ }
+ 
+@@ -360,7 +362,7 @@ func serviceStatuses(dockerReady bool) []map[string]any {
+ 		var matched map[string]any
+ 
+ 		for _, c := range containers {
+-			cName, _ := fmt.Sprint(c["Names"])
++			cName := fmt.Sprint(c["Names"])
+ 			if (svcName == "nginx" && strings.Contains(cName, "nginx")) ||
+ 				(svcName == "backup" && (strings.Contains(cName, "certbot") || strings.Contains(cName, "backup"))) ||
+ 				(svcName == "frontend" && strings.Contains(cName, composeProject+"-frontend")) ||
+@@ -464,11 +466,13 @@ func writeJSON(w http.ResponseWriter, status int, data any) {
+ }
+ 
+ func usernameFromContext(ctx context.Context) string {
+-	return "operator@ncs.go.ug"
++	value, _ := ctx.Value(models.CtxUserEmail).(string)
++	return value
+ }
+ 
+ func actorIDFromContext(ctx context.Context) string {
+-	return "op-admin-1"
++	value, _ := ctx.Value(models.CtxUserID).(string)
++	return value
+ }
+ 
+ func clientIP(r *http.Request) string {
+diff --git a/backend/internal/repository/operator_audit.go b/backend/internal/repository/operator_audit.go
+new file mode 100644
+index 00000000..342ad23a
+--- /dev/null
++++ b/backend/internal/repository/operator_audit.go
+@@ -0,0 +1,23 @@
++package repository
++
++import (
++	"context"
++	"encoding/json"
++	"github.com/atenimedia-llc/ncs-online/backend/internal/models"
++	"github.com/google/uuid"
++)
++
++// AuditEventParams adapts the VPS operator UI events to the shared audit store.
++type AuditEventParams struct{ ActorID, ActorEmail, Action, Resource, Details, IPAddress string }
++
++func (r *OperatorRepo) LogAuditEvent(ctx context.Context, event AuditEventParams) error {
++	details, err := json.Marshal(map[string]string{"details": event.Details})
++	if err != nil {
++		return err
++	}
++	var userID *string
++	if event.ActorID != "" {
++		userID = &event.ActorID
++	}
++	return (&AuditRepo{db: r.db}).Log(ctx, &models.AuditLog{ID: uuid.NewString(), UserID: userID, Username: event.ActorEmail, Action: event.Action, Resource: event.Resource, NewValues: details, IPAddress: event.IPAddress, Authenticated: userID != nil})
++}

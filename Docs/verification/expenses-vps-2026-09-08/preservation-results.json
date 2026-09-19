@@ -1,0 +1,13 @@
+{
+  "changed_containers": [
+    "ncsintranet-frontend-1",
+    "ncsintranet-backend-1"
+  ],
+  "unchanged_containers": 22,
+  "existing_asset_user_department_snapshot_unchanged": true,
+  "snapshots": [
+    "fixed_assets|297|a55f1c5b68f674875fed6a82ec2846f9",
+    "users|28",
+    "departments|10"
+  ]
+}

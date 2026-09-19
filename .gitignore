@@ -1,0 +1,6 @@
+writable/logs/
+writable/cache/
+writable/session/
+writable/uploads/temp/
+.env
+cookies.txt

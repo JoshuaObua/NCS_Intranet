@@ -1,0 +1,19 @@
+{
+  "seed_records": 297,
+  "differences": 0,
+  "source_exceptions": [
+    {
+      "asset": "M1007059",
+      "field": "FB_COST",
+      "raw": "#############",
+      "seed_convention": "0; unresolved source amount"
+    }
+  ],
+  "cached_pivot": {
+    "nonempty_rows_including_header": 47,
+    "grand_total": 4098812766,
+    "source_minus_cached_pivot": "26917101769.00",
+    "land_cached_total": 976832000,
+    "status": "STALE: cached pivot differs from current source sheets"
+  }
+}

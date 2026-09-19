@@ -1,0 +1,112 @@
+{
+  "site": "https://ncsintranet.atenimedia.com",
+  "checks": [
+    "Real accountant login",
+    "Register reads 297 real VPS assets",
+    "New asset independent page",
+    "Revaluation deep link survives reload and loads real asset",
+    "Verification independent page loads real asset",
+    "Depreciation independent page",
+    "All three asset pages accessible",
+    "Mobile new-asset page fits viewport"
+  ],
+  "asset_writes": 0,
+  "events": [
+    {
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/reception/leave/status",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/7cd3ba4d-ae67-4fff-9ce0-e7b8d4e09d53",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/7cd3ba4d-ae67-4fff-9ce0-e7b8d4e09d53",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/7cd3ba4d-ae67-4fff-9ce0-e7b8d4e09d53",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "status": 200,
+      "method": "GET"
+    }
+  ],
+  "errors": []
+}

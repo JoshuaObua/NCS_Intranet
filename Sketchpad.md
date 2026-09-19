@@ -1,0 +1,2 @@
+-Update team member profile to have the following
+-under files add CV, ID,Passport, Passport, Certificates, as file category when somone is adding new file upload to the system and ensure that under permissions only super admin and other admins are allowed to view teams private file uploads, also the allowed or permistted users or roles like HR among others

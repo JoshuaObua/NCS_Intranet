@@ -1,0 +1,67 @@
+{
+  "scope": "Local browser, intercepted API using workbook fixture; no server writes",
+  "results": [
+    {
+      "name": "Accountant navigation link visible",
+      "pass": true
+    },
+    {
+      "name": "Final page reachable",
+      "pass": true
+    },
+    {
+      "name": "Category resets pagination",
+      "pass": true
+    },
+    {
+      "name": "Search and category combined",
+      "pass": true
+    },
+    {
+      "name": "Pivot rows rendered",
+      "pass": true
+    },
+    {
+      "name": "Mobile page fits viewport",
+      "pass": true
+    },
+    {
+      "name": "Failed summary does not show hardcoded total",
+      "pass": true
+    }
+  ],
+  "requests": [
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/assets/summary",
+      "method": "GET"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "scope": "Read-only LOCAL Docker database, not remote VPS",
+  "metadata": {
+    "database": "ncsintranet",
+    "server_version": "16.15",
+    "assets": 297,
+    "logs": 0,
+    "fb_cost": 31015914535.0,
+    "adjusted_cost": 32175914535.0,
+    "accumulated_depreciation": 0.0
+  },
+  "expected_records": 297,
+  "database_records": 297,
+  "differences": [],
+  "extra_database_assets": []
+}

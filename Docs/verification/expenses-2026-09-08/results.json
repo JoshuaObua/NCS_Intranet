@@ -1,0 +1,20 @@
+{
+  "scope": "Local browser fixtures; backend verified separately against isolated PostgreSQL schema",
+  "passed": [
+    "Accountant dashboard expense card is visible",
+    "Today defaults and required fields prevent empty submission",
+    "Save error visible and form retained",
+    "Multipart expense and receipt submit then open independent detail page",
+    "Receipt download works",
+    "Register displays named recorder, department and amount; accountant has no category controls",
+    "Accountant cannot open admin category page",
+    "Entry fits mobile viewport",
+    "senior_accountant dashboard and register accessible",
+    "chief_accountant dashboard and register accessible",
+    "asset_accountant dashboard and register accessible",
+    "finance_department dashboard and register accessible",
+    "Admin creates and deactivates categories on independent page",
+    "No-category empty state prevents recording",
+    "No browser runtime errors"
+  ]
+}

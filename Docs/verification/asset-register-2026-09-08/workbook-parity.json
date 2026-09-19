@@ -1,0 +1,85 @@
+{
+  "scope": "Workbook versus migration 034; hash source exception reported explicitly",
+  "sheets": [
+    {
+      "worksheet": "CYCLES",
+      "count": 1,
+      "fb_cost": "9375000.00",
+      "adjusted_cost": "9375000.00"
+    },
+    {
+      "worksheet": "ELECTRICAL MACHINERY",
+      "count": 11,
+      "fb_cost": "107394446.00",
+      "adjusted_cost": "107394446.00"
+    },
+    {
+      "worksheet": "FURNITURE AND FITTINGS",
+      "count": 154,
+      "fb_cost": "96423651.00",
+      "adjusted_cost": "96423651.00"
+    },
+    {
+      "worksheet": "LAND",
+      "count": 8,
+      "fb_cost": "27893933769",
+      "adjusted_cost": "27893933769"
+    },
+    {
+      "worksheet": "LIGHT ICT HARDWARE",
+      "count": 86,
+      "fb_cost": "59834250.00",
+      "adjusted_cost": "59834250.00"
+    },
+    {
+      "worksheet": "LIGHT VEHICLES",
+      "count": 3,
+      "fb_cost": "508963880.00",
+      "adjusted_cost": "508963880.00"
+    },
+    {
+      "worksheet": "NON RESIDENTIAL BUILDINGS",
+      "count": 17,
+      "fb_cost": "2138452000.00",
+      "adjusted_cost": "3298452000.00"
+    },
+    {
+      "worksheet": "OFFICE EQUIPMENT",
+      "count": 10,
+      "fb_cost": "27668036.00",
+      "adjusted_cost": "27668036.00"
+    },
+    {
+      "worksheet": "OTHER ICT EQUIPMENT",
+      "count": 6,
+      "fb_cost": "6619503.00",
+      "adjusted_cost": "6619503.00"
+    },
+    {
+      "worksheet": "RESIDENTIAL BUILDINGS",
+      "count": 1,
+      "fb_cost": "167250000.00",
+      "adjusted_cost": "167250000.00"
+    }
+  ],
+  "seed_records": 297,
+  "source_exceptions": [
+    {
+      "asset": "M1007059",
+      "field": "FB_COST",
+      "raw": "#############",
+      "seed_convention": "0; unresolved source amount"
+    }
+  ],
+  "differences": [],
+  "extra_seed_assets": [],
+  "total_fb_cost": "31015914535.00",
+  "total_adjusted_cost": "32175914535.00",
+  "cached_pivot": {
+    "nonempty_rows_including_header": 47,
+    "grand_total": 4098812766,
+    "source_minus_cached_pivot": "26917101769.00",
+    "land_cached_total": 976832000,
+    "status": "STALE: cached pivot differs from current source sheets"
+  }
+}
