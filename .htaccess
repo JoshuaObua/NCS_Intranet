@@ -1,0 +1,35 @@
+# CodeIgniter 4 front-controller rewriting.
+# The front controller (index.php) lives in the project root rather than a
+# public/ directory, so the framework folders are blocked from direct access.
+
+Options -Indexes +FollowSymlinks
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Send everything that is not an existing file or directory to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
+
+    # Ensure HTTP Authorization headers reach PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule ^(.*)$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 index.php
+</IfModule>
+
+# Never serve application internals directly
+RedirectMatch 404 (?i)^/ncsintranet/(app|system|writable|install|Docs|documentation|updates)/
+RedirectMatch 404 (?i)/\.(env|git)
+
+<FilesMatch "(?i)\.(env|sql|md|py|log)$">
+    Require all denied
+</FilesMatch>
+
+# Keep the CLI/bootstrap files from being fetched as plain text
+<FilesMatch "(?i)^(spark|restore_app\.py)$">
+    Require all denied
+</FilesMatch>

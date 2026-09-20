@@ -554,7 +554,6 @@ class Projects_model extends Crud_model {
                 GROUP BY $projects_table.client_id    
                 ) AS project_details ON project_details.client_id=$clients_table.id
                 WHERE $clients_table.deleted=0
-                GROUP BY $clients_table.id
                 ";
 
         return $this->db->query($sql);

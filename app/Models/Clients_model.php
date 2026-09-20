@@ -709,8 +709,7 @@ class Clients_model extends Crud_model {
                     GROUP BY leads_group_table.owner_id
                 ) AS leads_details ON leads_details.owner_id = $users_table.id
                 LEFT JOIN (SELECT $clients_table.owner_id, COUNT(1) AS converted_to_client FROM $clients_table WHERE $clients_table.is_lead=0 AND $clients_table.deleted=0 AND $clients_table.client_migration_date > '2000-01-01' $clients_where GROUP BY $clients_table.owner_id) as leads_migrated ON leads_migrated.owner_id = $users_table.id
-                WHERE $users_table.deleted=0 AND $users_table.status='active' AND $users_table.user_type='staff'
-                GROUP BY $users_table.id";
+                WHERE $users_table.deleted=0 AND $users_table.status='active' AND $users_table.user_type='staff'";
         return $this->db->query($sql);
     }
 
@@ -750,8 +749,8 @@ class Clients_model extends Crud_model {
         $sql = "";
 
         if ($group_by == "created_date") {
-            $sql = "SELECT DATE_FORMAT($date_group_by_field,'%d') AS day, SUM(1) total_converted, COUNT(*) OVER() AS _pg_found_rows
-                FROM $clients_table 
+            $sql = "SELECT DATE_FORMAT(DATE($date_group_by_field),'%d') AS day, SUM(1) total_converted, COUNT(*) OVER() AS _pg_found_rows
+                FROM $clients_table
                 WHERE $clients_table.is_lead=0 AND $clients_table.deleted=0 AND $clients_table.client_migration_date > '2000-01-01' $where
                 GROUP BY DATE($date_group_by_field)";
         } else if ($group_by == "owner_id") {
@@ -759,13 +758,13 @@ class Clients_model extends Crud_model {
                 FROM $clients_table 
                 LEFT JOIN $users_table ON $users_table.id = $clients_table.owner_id
                 WHERE $clients_table.is_lead=0 AND $clients_table.deleted=0 AND $clients_table.client_migration_date > '2000-01-01' $where
-                GROUP BY $clients_table.owner_id";
+                GROUP BY $clients_table.owner_id, $users_table.first_name, $users_table.last_name";
         } else if ($group_by == "source_id") {
             $sql = "SELECT $clients_table.lead_source_id, SUM(1) total_converted, $lead_source_table.title, COUNT(*) OVER() AS _pg_found_rows
                 FROM $clients_table 
                 LEFT JOIN $lead_source_table ON $lead_source_table.id = $clients_table.lead_source_id
                 WHERE $clients_table.is_lead=0 AND $clients_table.deleted=0 AND $clients_table.client_migration_date > '2000-01-01' $where
-                GROUP BY $clients_table.lead_source_id";
+                GROUP BY $clients_table.lead_source_id, $lead_source_table.title";
         }
 
         return $this->db->query($sql);

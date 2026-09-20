@@ -188,7 +188,7 @@ class Invoice_payments_model extends Crud_model {
         LEFT JOIN $invoices_table ON $invoices_table.id=$payments_table.invoice_id
         LEFT JOIN $clients_table ON $clients_table.id=(SELECT $invoices_table.client_id FROM $invoices_table WHERE $invoices_table.id=$payments_table.invoice_id LIMIT 1)
         WHERE $payments_table.deleted=0 $where
-        GROUP BY MONTH($payments_table.payment_date)";
+        GROUP BY MONTH($payments_table.payment_date), $clients_table.currency, $clients_table.currency_symbol";
 
         return $this->db->query($sql);
     }
@@ -223,7 +223,7 @@ class Invoice_payments_model extends Crud_model {
         LEFT JOIN $invoices_table ON $invoices_table.id=$payments_table.invoice_id
         LEFT JOIN $clients_table ON $clients_table.id=(SELECT $invoices_table.client_id FROM $invoices_table WHERE $invoices_table.id=$payments_table.invoice_id LIMIT 1)
         WHERE $payments_table.deleted=0 AND $invoices_table.deleted=0 AND $clients_table.deleted=0 $where
-        GROUP BY $invoices_table.client_id";
+        GROUP BY $invoices_table.client_id, $clients_table.company_name, $clients_table.currency, $clients_table.currency_symbol";
 
         return $this->db->query($sql);
     }

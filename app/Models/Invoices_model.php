@@ -624,7 +624,7 @@ class Invoices_model extends Crud_model {
             LEFT JOIN $clients_table ON $clients_table.id = $invoices_table.client_id             
             LEFT JOIN (SELECT SUM($invoice_payments_table.amount) AS payment_received, $invoice_payments_table.invoice_id FROM $invoice_payments_table WHERE $invoice_payments_table.deleted=0 GROUP BY $invoice_payments_table.invoice_id) AS payments_table ON payments_table.invoice_id = $invoices_table.id
             WHERE $invoices_table.deleted=0 AND $invoices_table.status = 'not_paid' $where
-            GROUP BY $invoices_table.client_id";
+            GROUP BY $invoices_table.client_id, $clients_table.company_name, $clients_table.currency, $clients_table.currency_symbol";
         $result = $this->db->query($sql);
 
         return $result;
