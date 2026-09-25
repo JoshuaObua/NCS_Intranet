@@ -182,4 +182,22 @@ $lang["ppda_and_statutory_compliance"] = "PPDA & Statutory Compliance";
 $lang["supplier_categories_and_prequalification"] = "Categories & Prequalification";
 $lang["supplier_performance_and_rating"] = "Vendor Rating & Performance";
 
+// UG Pass Authentication
+$lang["signin_with_ugpass"] = "Sign in with UG Pass";
+$lang["ugpass_not_configured"] = "UG Pass authentication credentials have not been configured yet in your .env file.";
+$lang["ugpass_auth_failed"] = "UG Pass authentication failed. Please try again.";
+$lang["ugpass_access_denied"] = "UG Pass login was canceled or access was denied.";
+$lang["ugpass_account_not_found"] = "Your UG Pass identity was verified, but no matching Intranet account was found.";
+$lang["ugpass_session_invalid"] = "Your UG Pass authentication session was invalid or expired.";
+$lang["ugpass_account_disabled"] = "Your intranet account is currently inactive or disabled.";
+// Organogram & Hierarchy Approval Workflow
+$lang["organogram"] = "Organogram";
+$lang["organogram_chart"] = "Organization Chart & Workflow";
+$lang["organogram_palette"] = "Offices & Branches";
+$lang["organogram_search_roles"] = "Search roles & offices...";
+$lang["organogram_simulate"] = "Simulate Approval Workflow";
+$lang["organogram_auto_layout"] = "Auto-Arrange Tree";
+$lang["organogram_reset"] = "Reset Hierarchy";
+$lang["organogram_drag_instruction"] = "Drag any office onto the canvas to place it in the hierarchy.";
+
 return $lang;

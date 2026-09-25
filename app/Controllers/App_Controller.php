@@ -106,6 +106,7 @@ class App_Controller extends Controller {
     public $Store_issuances_model;
     public $Store_audit_trail_model;
     public $Store_stock_takes_model;
+    public $Organogram_model;
 
     public function __construct() {
         //main template to make frame of this app
@@ -125,7 +126,7 @@ class App_Controller extends Controller {
         //assign settings from database
         $settings = $this->Settings_model->get_all_required_settings($login_user_id)->getResult();
         foreach ($settings as $setting) {
-            config('Rise')->app_settings_array[$setting->setting_name] = $setting->setting_value;
+            config('Ncs')->app_settings_array[$setting->setting_name] = $setting->setting_value;
         }
 
         $users = $this->Users_model->get_one($login_user_id);
@@ -245,7 +246,8 @@ class App_Controller extends Controller {
             'Store_requisitions_model',
             'Store_issuances_model',
             'Store_audit_trail_model',
-            'Store_stock_takes_model'
+            'Store_stock_takes_model',
+            'Organogram_model'
         );
     }
 

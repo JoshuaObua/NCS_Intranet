@@ -81,7 +81,7 @@
                 echo form_input(array(
                     "id" => "system_balance",
                     "name" => "system_balance",
-                    "value" => number_format($model_info->system_balance, 2),
+                    "value" => number_format((float) ($model_info->system_balance ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));
@@ -98,7 +98,7 @@
                 echo form_input(array(
                     "id" => "bank_statement_balance",
                     "name" => "bank_statement_balance",
-                    "value" => number_format($model_info->bank_statement_balance, 2),
+                    "value" => number_format((float) ($model_info->bank_statement_balance ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

@@ -157,7 +157,7 @@
                 echo form_input(array(
                     "id" => "total_fee_ugx",
                     "name" => "total_fee_ugx",
-                    "value" => number_format($model_info->total_fee_ugx, 2),
+                    "value" => number_format((float) ($model_info->total_fee_ugx ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));
@@ -174,7 +174,7 @@
                 echo form_input(array(
                     "id" => "caution_deposit_ugx",
                     "name" => "caution_deposit_ugx",
-                    "value" => number_format($model_info->caution_deposit_ugx, 2),
+                    "value" => number_format((float) ($model_info->caution_deposit_ugx ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

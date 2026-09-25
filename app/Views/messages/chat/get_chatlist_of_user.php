@@ -1,4 +1,4 @@
-<div class="rise-chat-header">
+<div class="ncs-chat-header">
     <div class="chat-back chat-topbar-btn" id="js-back-to-team-members-tab">
         <i data-feather="chevron-left" class="icon-22"></i>
     </div>
@@ -10,7 +10,7 @@
 
     <?php echo view("messages/chat/chat_header_actions"); ?>
 </div>
-<div id="js-single-user-chat-list" class="rise-chat-body full-height">
+<div id="js-single-user-chat-list" class="ncs-chat-body full-height">
 
     <div class='clearfix p10 b-b'>
         <?php

@@ -399,7 +399,7 @@
         padding-bottom: 15px;
     }
 
-    .rise-chat-wrapper {
+    .ncs-chat-wrapper {
         width: 100% !important;
         left: 0 !important;
         right: 0 !important;
@@ -407,7 +407,7 @@
         bottom: 0 !important;
     }
 
-    .rise-chat-body {
+    .ncs-chat-body {
         &.full-height {
             height: 413px !important;
         }
@@ -713,7 +713,7 @@
         padding-right: 0 !important;
     }
 
-    .rise-cart-wrapper {
+    .ncs-cart-wrapper {
         height: 450px !important;
         bottom: 84px !important;
         top: unset !important;
@@ -721,7 +721,7 @@
         z-index: 100 !important;
     }
 
-    .rise-chat-wrapper:not(.rise-cart-wrapper) {
+    .ncs-chat-wrapper:not(.ncs-cart-wrapper) {
         width: 100% !important;
         height: 100% !important;
         left: 0 !important;
@@ -730,7 +730,7 @@
         z-index: 1060 !important;
         box-shadow: none !important;
 
-        .rise-chat-body {
+        .ncs-chat-body {
             height: calc(100vh - 164px) !important;
 
             &.full-height {
@@ -761,7 +761,7 @@
             bottom: 20px !important;
         }
 
-        .rise-cart-wrapper {
+        .ncs-cart-wrapper {
             bottom: 0 !important;
         }
 
@@ -1830,7 +1830,7 @@
         padding: 0 !important;
     }
 
-    .rise-chat-footer {
+    .ncs-chat-footer {
         textarea {
             height: 56px !important;
         }

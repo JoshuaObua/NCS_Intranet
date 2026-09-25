@@ -1190,7 +1190,7 @@ if (!function_exists('send_push_notifications')) {
             }
 
             if (count($channels) > 0) {
-                $correct_credentials = $pusher_connect->trigger_channel_event($channels, 'rise-pusher-event', $data);
+                $correct_credentials = $pusher_connect->trigger_channel_event($channels, 'ncs-pusher-event', $data);
             }
 
             if (count($beams_interests) > 0) {

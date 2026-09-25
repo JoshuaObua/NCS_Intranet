@@ -198,7 +198,7 @@ Close a finding only with evidence: a reviewed pull request, migration, automate
 # NCS Intranet — Security, Business-Logic & System Completeness Audit
 
 **Prepared:** 2026-09-20
-**Scope:** Full codebase review (`app/`, `install/`, `Docs/`, root config, git history) of the NCS Intranet — a CodeIgniter 4 application built on a heavily customized fork of Rise CRM, running on PostgreSQL, developed for the National Council of Sports (Uganda).
+**Scope:** Full codebase review (`app/`, `install/`, `Docs/`, root config, git history) of the NCS Intranet — a CodeIgniter 4 application built on a heavily customized fork of Ncs CRM, running on PostgreSQL, developed for the National Council of Sports (Uganda).
 **Method:** Static review of configuration, controllers, models, views, routing, and the custom modules added on top of the base CRM (Fleet, HR Payroll, Internal Audit, Legal & Compliance, Procurement, Suppliers, Stores Inventory, Facilities, Visitor Logbook, Fixed Assets).
 
 > This report is written for whoever owns remediation of this system — a technical lead or the developer(s) responsible for hardening and completing it before/while it is used in production. Findings are ordered by severity, with file references so each one can be located and fixed directly.
@@ -215,7 +215,7 @@ Close a finding only with evidence: a reviewed pull request, migration, automate
 
 The single most urgent item is **§1.1 — plaintext production credentials committed to git**. Everything else can wait a day; that one cannot.
 
-The system's biggest structural weakness is that **authorization is opt-in per controller** rather than centrally enforced. The original Rise CRM modules mostly remember to call the permission-check methods; **almost none of the custom modules NCS added do** (§2.1). That single pattern, repeated across ~8 modules, is responsible for most of the access-control findings below.
+The system's biggest structural weakness is that **authorization is opt-in per controller** rather than centrally enforced. The original Ncs CRM modules mostly remember to call the permission-check methods; **almost none of the custom modules NCS added do** (§2.1). That single pattern, repeated across ~8 modules, is responsible for most of the access-control findings below.
 
 ---
 
@@ -245,8 +245,8 @@ general_secretary,...,gs@ncs.go.ug,NCS@Executive2026!,...
 `app/Config/Database.php` has the live PostgreSQL host, username, password and database name hardcoded directly in a tracked PHP file:
 
 ```php
-'hostname' => '127.0.0.1', 'username' => 'rise_user', 'password' => 'rise_pass_2024',
-'database' => 'rise_db', 'DBDriver' => 'Postgre', ...
+'hostname' => '127.0.0.1', 'username' => 'ncs_user', 'password' => 'ncs_pass_2024',
+'database' => 'ncs_db', 'DBDriver' => 'Postgre', ...
 ```
 
 There is no `.env` file in use at all (`.gitignore` excludes one, but none exists — the app just doesn't use environment-based config). On top of that, `app/Config/Encryption.php:24` ships with an **empty encryption key** (`public string $key = '';`). CodeIgniter's `Encrypter` service will throw on an empty key when actually used, and anywhere in the code that relies on `encrypt()/decrypt()` (e.g. for stored OAuth tokens, payment credentials) is either silently broken or, worse, someone has hardcoded a key elsewhere that I didn't find — either way this needs to be resolved and the key needs to live outside version control.
@@ -375,7 +375,7 @@ Worse, `subscription_payment_succeeded()` records the payment **amount and trans
 ],
 ```
 
-`app/Config/Security.php` is configured (cookie-based CSRF, `rise_csrf_token`/`rise_csrf_cookie`), but configuring it has no effect unless the filter actually runs on requests. Unless CSRF tokens are being checked manually somewhere I didn't find (I searched and found no manual `$this->request->getPost($csrf_name)` verification pattern), **every state-changing POST endpoint in the app — invoices, payroll, user management, role changes — currently has no CSRF protection**, meaning a malicious external page can trigger state changes in an authenticated user's session just by getting them to load it (classic CSRF).
+`app/Config/Security.php` is configured (cookie-based CSRF, `ncs_csrf_token`/`ncs_csrf_cookie`), but configuring it has no effect unless the filter actually runs on requests. Unless CSRF tokens are being checked manually somewhere I didn't find (I searched and found no manual `$this->request->getPost($csrf_name)` verification pattern), **every state-changing POST endpoint in the app — invoices, payroll, user management, role changes — currently has no CSRF protection**, meaning a malicious external page can trigger state changes in an authenticated user's session just by getting them to load it (classic CSRF).
 
 **Fix:** enable the `csrf` filter globally (`'before' => ['csrf']`), and exempt only the specific endpoints that genuinely need to be CSRF-exempt (webhooks, the CORS-enabled lead-collection endpoint), rather than the current all-off-by-default posture.
 

@@ -196,17 +196,17 @@ class Google_calendar_events {
         }
     }
 
-    //get start/end date and time 
+    //get start/end date and time
     private function _get_start_end_date_time($event_info, $type = "", $datetime_object_type = "") {
         $date_type = $type . "_date";
         $time_type = $type . "_time";
 
         if ($type === "end" && is_null($event_info->end_date)) {
-            $event_info->end_date = $event_info->start_date;      //there has no end date. Set start date = end date. 
+            $event_info->end_date = $event_info->start_date;      //there has no end date. Set start date = end date.
         }
 
         if ($type === "end" && $datetime_object_type == "date") {
-            //all day event. add one day extra with end date for google calander event. 
+            //all day event. add one day extra with end date for google calander event.
             $event_info->end_date = add_period_to_date($event_info->end_date, 1, "days");
         }
 
@@ -251,7 +251,7 @@ class Google_calendar_events {
 
             $users = $this->ci->Events_model->get_share_with_users_of_event($event_info)->getResult();
             foreach ($users as $user) {
-                //when saving event from RISE to Google, add shared members whose are not integrated with Google Calendar also
+                //when saving event from NCS to Google, add shared members whose are not integrated with Google Calendar also
                 $user_google_calendar_gmail = get_setting('user_' . $user->id . '_google_calendar_gmail');
                 $user_google_calendar_gmail = $user_google_calendar_gmail ? $user_google_calendar_gmail : $user->email;
                 if ($user_google_calendar_gmail) {
@@ -363,7 +363,7 @@ class Google_calendar_events {
         foreach ($events as $event) {
             $google_event_id = $event->recurringEventId ? $event->recurringEventId : $event->id;
 
-            //if the event is deleted from Google, delete from RISE too
+            //if the event is deleted from Google, delete from NCS too
             if ($event->status == "cancelled") {
                 $this->_delete_calendar_events($user_id, $google_event_id);
                 continue;
@@ -373,12 +373,12 @@ class Google_calendar_events {
             $end_date = $start_date;
 
             if ($event->end->date) {
-                // it's full day event. In google calendar, the full day event returns 1 extra day. 
-                // so, we have to remove the extra day before saving to RISE. 
+                // it's full day event. In google calendar, the full day event returns 1 extra day.
+                // so, we have to remove the extra day before saving to NCS.
                 $end_date = subtract_period_from_date($event->end->date, 1, "days");
             }
 
-            // make sure, the end date can't be before start date. 
+            // make sure, the end date can't be before start date.
             if ($end_date < $start_date) {
                 $end_date = $start_date;
             }

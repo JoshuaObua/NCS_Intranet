@@ -6,8 +6,8 @@
         <strong>Requisition Ref:</strong> <?php echo $model_info->requisition_ref; ?><br>
         <strong>Department:</strong> <?php echo $model_info->requesting_department; ?><br>
         <strong>Vote-Head:</strong> <code><?php echo $model_info->vote_head_code; ?></code> - <?php echo $model_info->vote_head_title; ?><br>
-        <strong>Requested Sum:</strong> UGX <?php echo number_format($model_info->requested_amount, 2); ?><br>
-        <strong>Available Budget:</strong> UGX <?php echo number_format($model_info->available_budget, 2); ?>
+        <strong>Requested Sum:</strong> UGX <?php echo number_format((float) ($model_info->requested_amount ?? 0), 2); ?><br>
+        <strong>Available Budget:</strong> UGX <?php echo number_format((float) ($model_info->available_budget ?? 0), 2); ?>
     </div>
 
     <div class="form-group">

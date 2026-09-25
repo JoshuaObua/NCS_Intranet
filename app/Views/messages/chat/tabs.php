@@ -4,7 +4,7 @@
     <?php echo view("messages/chat/chat_header_actions"); ?>
 </div>
 
-<div class="rise-chat-body clearfix full-height">
+<div class="ncs-chat-body clearfix full-height">
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane fade" id="chat-inbox-tab">
             <?php echo view("messages/chat/chat_list", array("messages" => $messages)); ?>
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="rise-chat-footer footer-buttons-section">
+<div class="ncs-chat-footer footer-buttons-section">
     <div class="chat-tab" data-bs-toggle="ajax-tab" role="tablist">
         <li class="box-content" id="chat-inbox-tab-button">
             <a role="presentation" href="#" data-bs-toggle="tab" data-bs-target="#chat-inbox-tab" class="btn btn-default chat-button">
@@ -65,7 +65,7 @@
         });
 
         //drag and drop
-        makeDraggable(".chat-topbar", ".rise-chat-wrapper", async function(pos) {
+        makeDraggable(".chat-topbar", ".ncs-chat-wrapper", async function(pos) {
             var currentDimensions = await IDBHelper.getValue('chat_window_dimensions') || {};
 
             await IDBHelper.setValue('chat_window_dimensions', {

@@ -216,12 +216,12 @@ if (!function_exists('get_actual_controller_name')) {
 if (!function_exists('get_setting')) {
 
     function get_setting($key = "") {
-        $setting_value = get_array_value(config('Rise')->app_settings_array, $key);
+        $setting_value = get_array_value(config('Ncs')->app_settings_array, $key);
         if ($setting_value !== NULL) {
             return $setting_value;
         } else {
-            if (isset(config('Rise')->$key)) {
-                return config('Rise')->$key;
+            if (isset(config('Ncs')->$key)) {
+                return config('Ncs')->$key;
             } else if (isset(config('App')->$key)) {
                 return config('App')->$key;
             } else {
@@ -1320,7 +1320,14 @@ if (!function_exists("clean_data")) {
 if (!function_exists("get_logo_url")) {
 
     function get_logo_url() {
-        return get_file_from_setting("site_logo");
+        // Uploaded branding can be removed while its database setting remains.
+        // Always keep the bundled NCS mark available as the default.
+        $configured = get_file_from_setting("site_logo");
+        $value = get_setting("site_logo");
+        if ($value && is_string($value) && is_file(FCPATH . get_setting("system_file_path") . $value)) {
+            return $configured;
+        }
+        return get_file_uri("ncs_logo.png");
     }
 }
 
@@ -1345,6 +1352,9 @@ if (!function_exists("get_file_from_setting")) {
 
                     return get_source_url_of_file($file, $file_path, "thumbnail", $only_file_path_with_slash, $only_file_path_with_slash, $show_full_size_thumbnail);
                 } else {
+                    if (!is_file(FCPATH . $file_path . $setting_value)) {
+                        return false;
+                    }
                     if ($only_file_path_with_slash) {
                         return "/" . ($file_path . $setting_value);
                     } else {
@@ -1361,7 +1371,11 @@ if (!function_exists("get_favicon_url")) {
 
     function get_favicon_url() {
         $favicon_from_setting = get_file_from_setting('favicon');
-        return $favicon_from_setting ? $favicon_from_setting : get_file_uri("assets/images/favicon.png");
+        $value = get_setting('favicon');
+        if ($value && is_string($value) && is_file(FCPATH . get_setting("system_file_path") . $value)) {
+            return $favicon_from_setting;
+        }
+        return get_file_uri("ncs_logo.png");
     }
 }
 
@@ -1627,7 +1641,7 @@ if (!function_exists('send_message_via_pusher')) {
                 "message" => $message_data
             );
 
-            if ($pusher_connect->trigger_channel_event('user_' . $to_user_id . '_message_id_' . $message_id . '_channel', 'rise-chat-event', $data)) {
+            if ($pusher_connect->trigger_channel_event('user_' . $to_user_id . '_message_id_' . $message_id . '_channel', 'ncs-chat-event', $data)) {
                 return true;
             }
         } else {
@@ -1649,7 +1663,7 @@ if (!function_exists('send_message_via_pusher')) {
                         </div>"
             );
 
-            if ($pusher_connect->trigger_channel_event('user_' . $to_user_id . '_message_id_' . $message_id . '_channel', 'rise-chat-typing-event', $message_data)) {
+            if ($pusher_connect->trigger_channel_event('user_' . $to_user_id . '_message_id_' . $message_id . '_channel', 'ncs-chat-typing-event', $message_data)) {
                 return true;
             }
         }

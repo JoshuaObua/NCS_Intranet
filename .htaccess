@@ -22,10 +22,10 @@ Options -Indexes +FollowSymlinks
 </IfModule>
 
 # Never serve application internals directly
-RedirectMatch 404 (?i)^/ncsintranet/(app|system|writable|install|Docs|documentation|updates)/
+RedirectMatch 404 (?i)^/NCS_Intranet/(app|system|writable|install|Docs|documentation|updates|scripts)/
 RedirectMatch 404 (?i)/\.(env|git)
 
-<FilesMatch "(?i)\.(env|sql|md|py|log)$">
+<FilesMatch "(?i)\.(env|sql|md|py|log|ps1)$">
     Require all denied
 </FilesMatch>
 

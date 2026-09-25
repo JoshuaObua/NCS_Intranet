@@ -5,7 +5,7 @@
     <div class="alert alert-info">
         <strong>Fixed Asset:</strong> <?php echo $model_info->asset_tag; ?> - <?php echo $model_info->asset_name; ?><br>
         <strong>Category:</strong> <?php echo $model_info->asset_class; ?><br>
-        <strong>Historical Cost:</strong> UGX <?php echo number_format($model_info->historical_cost, 2); ?>
+        <strong>Historical Cost:</strong> UGX <?php echo number_format((float) ($model_info->historical_cost ?? 0), 2); ?>
     </div>
 
     <div class="form-group">
@@ -16,7 +16,7 @@
                 echo form_input(array(
                     "id" => "current_valuation",
                     "name" => "current_valuation",
-                    "value" => number_format($model_info->current_valuation, 2),
+                    "value" => number_format((float) ($model_info->current_valuation ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "Enter updated market value"
                 ));
@@ -33,7 +33,7 @@
                 echo form_input(array(
                     "id" => "accumulated_depreciation",
                     "name" => "accumulated_depreciation",
-                    "value" => number_format($model_info->accumulated_depreciation, 2),
+                    "value" => number_format((float) ($model_info->accumulated_depreciation ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "Enter accumulated depreciation"
                 ));

@@ -308,7 +308,7 @@ $$;
 ALTER FUNCTION public.now() OWNER TO postgres;
 
 --
--- Name: round(double precision, integer); Type: FUNCTION; Schema: public; Owner: rise_user
+-- Name: round(double precision, integer); Type: FUNCTION; Schema: public; Owner: ncs_user
 --
 
 CREATE FUNCTION public.round(val double precision, scale integer) RETURNS numeric
@@ -323,7 +323,7 @@ END;
 $$;
 
 
-ALTER FUNCTION public.round(val double precision, scale integer) OWNER TO rise_user;
+ALTER FUNCTION public.round(val double precision, scale integer) OWNER TO ncs_user;
 
 --
 -- Name: str_to_date(text, text); Type: FUNCTION; Schema: public; Owner: postgres
@@ -339,7 +339,7 @@ $$;
 ALTER FUNCTION public.str_to_date(str text, fmt text) OWNER TO postgres;
 
 --
--- Name: time_to_sec(interval); Type: FUNCTION; Schema: public; Owner: rise_user
+-- Name: time_to_sec(interval); Type: FUNCTION; Schema: public; Owner: ncs_user
 --
 
 CREATE FUNCTION public.time_to_sec(val interval) RETURNS numeric
@@ -354,10 +354,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.time_to_sec(val interval) OWNER TO rise_user;
+ALTER FUNCTION public.time_to_sec(val interval) OWNER TO ncs_user;
 
 --
--- Name: time_to_sec(numeric); Type: FUNCTION; Schema: public; Owner: rise_user
+-- Name: time_to_sec(numeric); Type: FUNCTION; Schema: public; Owner: ncs_user
 --
 
 CREATE FUNCTION public.time_to_sec(val numeric) RETURNS numeric
@@ -369,10 +369,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.time_to_sec(val numeric) OWNER TO rise_user;
+ALTER FUNCTION public.time_to_sec(val numeric) OWNER TO ncs_user;
 
 --
--- Name: timediff(timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: rise_user
+-- Name: timediff(timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: ncs_user
 --
 
 CREATE FUNCTION public.timediff(ts1 timestamp without time zone, ts2 timestamp without time zone) RETURNS interval
@@ -387,7 +387,7 @@ END;
 $$;
 
 
-ALTER FUNCTION public.timediff(ts1 timestamp without time zone, ts2 timestamp without time zone) OWNER TO rise_user;
+ALTER FUNCTION public.timediff(ts1 timestamp without time zone, ts2 timestamp without time zone) OWNER TO ncs_user;
 
 --
 -- Name: timestampdiff(text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: public; Owner: postgres
@@ -504,7 +504,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: ncs_accounting_grants; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_grants; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_accounting_grants (
@@ -521,10 +521,10 @@ CREATE TABLE public.ncs_accounting_grants (
 );
 
 
-ALTER TABLE public.ncs_accounting_grants OWNER TO rise_user;
+ALTER TABLE public.ncs_accounting_grants OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_grants_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_grants_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_accounting_grants_id_seq
@@ -536,17 +536,17 @@ CREATE SEQUENCE public.ncs_accounting_grants_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_accounting_grants_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_accounting_grants_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_grants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_grants_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_accounting_grants_id_seq OWNED BY public.ncs_accounting_grants.id;
 
 
 --
--- Name: ncs_accounting_ledgers; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_ledgers; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_accounting_ledgers (
@@ -564,10 +564,10 @@ CREATE TABLE public.ncs_accounting_ledgers (
 );
 
 
-ALTER TABLE public.ncs_accounting_ledgers OWNER TO rise_user;
+ALTER TABLE public.ncs_accounting_ledgers OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_ledgers_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_ledgers_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_accounting_ledgers_id_seq
@@ -579,17 +579,17 @@ CREATE SEQUENCE public.ncs_accounting_ledgers_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_accounting_ledgers_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_accounting_ledgers_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_ledgers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_ledgers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_accounting_ledgers_id_seq OWNED BY public.ncs_accounting_ledgers.id;
 
 
 --
--- Name: ncs_accounting_reconciliations; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_reconciliations; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_accounting_reconciliations (
@@ -607,10 +607,10 @@ CREATE TABLE public.ncs_accounting_reconciliations (
 );
 
 
-ALTER TABLE public.ncs_accounting_reconciliations OWNER TO rise_user;
+ALTER TABLE public.ncs_accounting_reconciliations OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_reconciliations_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_reconciliations_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_accounting_reconciliations_id_seq
@@ -622,17 +622,17 @@ CREATE SEQUENCE public.ncs_accounting_reconciliations_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_accounting_reconciliations_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_accounting_reconciliations_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_reconciliations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_reconciliations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_accounting_reconciliations_id_seq OWNED BY public.ncs_accounting_reconciliations.id;
 
 
 --
--- Name: ncs_accounting_vote_clearance; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_vote_clearance; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_accounting_vote_clearance (
@@ -651,10 +651,10 @@ CREATE TABLE public.ncs_accounting_vote_clearance (
 );
 
 
-ALTER TABLE public.ncs_accounting_vote_clearance OWNER TO rise_user;
+ALTER TABLE public.ncs_accounting_vote_clearance OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_vote_clearance_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_vote_clearance_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_accounting_vote_clearance_id_seq
@@ -666,10 +666,10 @@ CREATE SEQUENCE public.ncs_accounting_vote_clearance_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_accounting_vote_clearance_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_accounting_vote_clearance_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_accounting_vote_clearance_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_vote_clearance_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_accounting_vote_clearance_id_seq OWNED BY public.ncs_accounting_vote_clearance.id;
@@ -721,7 +721,7 @@ ALTER SEQUENCE public.ncs_activity_logs_id_seq OWNED BY public.ncs_activity_logs
 
 
 --
--- Name: ncs_admin_appraisals; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_appraisals; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_admin_appraisals (
@@ -745,10 +745,10 @@ CREATE TABLE public.ncs_admin_appraisals (
 );
 
 
-ALTER TABLE public.ncs_admin_appraisals OWNER TO rise_user;
+ALTER TABLE public.ncs_admin_appraisals OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_appraisals_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_appraisals_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_admin_appraisals_id_seq
@@ -760,17 +760,17 @@ CREATE SEQUENCE public.ncs_admin_appraisals_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_admin_appraisals_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_admin_appraisals_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_appraisals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_admin_appraisals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_admin_appraisals_id_seq OWNED BY public.ncs_admin_appraisals.id;
 
 
 --
--- Name: ncs_admin_approvals; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_approvals; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_admin_approvals (
@@ -794,10 +794,10 @@ CREATE TABLE public.ncs_admin_approvals (
 );
 
 
-ALTER TABLE public.ncs_admin_approvals OWNER TO rise_user;
+ALTER TABLE public.ncs_admin_approvals OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_approvals_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_approvals_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_admin_approvals_id_seq
@@ -809,17 +809,17 @@ CREATE SEQUENCE public.ncs_admin_approvals_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_admin_approvals_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_admin_approvals_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_approvals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_admin_approvals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_admin_approvals_id_seq OWNED BY public.ncs_admin_approvals.id;
 
 
 --
--- Name: ncs_admin_board_packages; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_board_packages; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_admin_board_packages (
@@ -837,10 +837,10 @@ CREATE TABLE public.ncs_admin_board_packages (
 );
 
 
-ALTER TABLE public.ncs_admin_board_packages OWNER TO rise_user;
+ALTER TABLE public.ncs_admin_board_packages OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_board_packages_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_board_packages_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_admin_board_packages_id_seq
@@ -852,17 +852,17 @@ CREATE SEQUENCE public.ncs_admin_board_packages_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_admin_board_packages_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_admin_board_packages_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_board_packages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_admin_board_packages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_admin_board_packages_id_seq OWNED BY public.ncs_admin_board_packages.id;
 
 
 --
--- Name: ncs_admin_federations; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_federations; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_admin_federations (
@@ -884,10 +884,10 @@ CREATE TABLE public.ncs_admin_federations (
 );
 
 
-ALTER TABLE public.ncs_admin_federations OWNER TO rise_user;
+ALTER TABLE public.ncs_admin_federations OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_federations_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_admin_federations_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_admin_federations_id_seq
@@ -899,10 +899,10 @@ CREATE SEQUENCE public.ncs_admin_federations_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_admin_federations_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_admin_federations_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_admin_federations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_admin_federations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_admin_federations_id_seq OWNED BY public.ncs_admin_federations.id;
@@ -990,7 +990,7 @@ ALTER SEQUENCE public.ncs_article_helpful_status_id_seq OWNED BY public.ncs_arti
 
 
 --
--- Name: ncs_asset_transaction_logs; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_asset_transaction_logs; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_asset_transaction_logs (
@@ -1005,10 +1005,10 @@ CREATE TABLE public.ncs_asset_transaction_logs (
 );
 
 
-ALTER TABLE public.ncs_asset_transaction_logs OWNER TO rise_user;
+ALTER TABLE public.ncs_asset_transaction_logs OWNER TO ncs_user;
 
 --
--- Name: ncs_asset_transaction_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_asset_transaction_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_asset_transaction_logs_id_seq
@@ -1020,10 +1020,10 @@ CREATE SEQUENCE public.ncs_asset_transaction_logs_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_asset_transaction_logs_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_asset_transaction_logs_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_asset_transaction_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_asset_transaction_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_asset_transaction_logs_id_seq OWNED BY public.ncs_asset_transaction_logs.id;
@@ -1072,7 +1072,7 @@ ALTER SEQUENCE public.ncs_attendance_id_seq OWNED BY public.ncs_attendance.id;
 
 
 --
--- Name: ncs_audit_discrepancies; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_audit_discrepancies (
@@ -1097,10 +1097,10 @@ CREATE TABLE public.ncs_audit_discrepancies (
 );
 
 
-ALTER TABLE public.ncs_audit_discrepancies OWNER TO rise_user;
+ALTER TABLE public.ncs_audit_discrepancies OWNER TO ncs_user;
 
 --
--- Name: ncs_audit_discrepancies_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_audit_discrepancies_id_seq
@@ -1112,17 +1112,17 @@ CREATE SEQUENCE public.ncs_audit_discrepancies_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_audit_discrepancies_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_audit_discrepancies_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_audit_discrepancies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_audit_discrepancies_id_seq OWNED BY public.ncs_audit_discrepancies.id;
 
 
 --
--- Name: ncs_audit_reports; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_audit_reports (
@@ -1142,10 +1142,10 @@ CREATE TABLE public.ncs_audit_reports (
 );
 
 
-ALTER TABLE public.ncs_audit_reports OWNER TO rise_user;
+ALTER TABLE public.ncs_audit_reports OWNER TO ncs_user;
 
 --
--- Name: ncs_audit_reports_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_audit_reports_id_seq
@@ -1157,10 +1157,10 @@ CREATE SEQUENCE public.ncs_audit_reports_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_audit_reports_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_audit_reports_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_audit_reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_audit_reports_id_seq OWNED BY public.ncs_audit_reports.id;
@@ -1818,7 +1818,7 @@ ALTER SEQUENCE public.ncs_dashboards_id_seq OWNED BY public.ncs_dashboards.id;
 
 
 --
--- Name: ncs_departments; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_departments; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_departments (
@@ -1833,10 +1833,10 @@ CREATE TABLE public.ncs_departments (
 );
 
 
-ALTER TABLE public.ncs_departments OWNER TO rise_user;
+ALTER TABLE public.ncs_departments OWNER TO ncs_user;
 
 --
--- Name: ncs_departments_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_departments_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_departments_id_seq
@@ -1848,10 +1848,10 @@ CREATE SEQUENCE public.ncs_departments_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_departments_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_departments_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_departments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_departments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_departments_id_seq OWNED BY public.ncs_departments.id;
@@ -1934,7 +1934,7 @@ ALTER SEQUENCE public.ncs_email_templates_id_seq OWNED BY public.ncs_email_templ
 
 
 --
--- Name: ncs_engineering_assets; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_assets (
@@ -1953,10 +1953,10 @@ CREATE TABLE public.ncs_engineering_assets (
 );
 
 
-ALTER TABLE public.ncs_engineering_assets OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_assets OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_assets_id_seq
@@ -1968,17 +1968,17 @@ CREATE SEQUENCE public.ncs_engineering_assets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_assets_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_assets_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_assets_id_seq OWNED BY public.ncs_engineering_assets.id;
 
 
 --
--- Name: ncs_engineering_capex; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_capex (
@@ -2004,10 +2004,10 @@ CREATE TABLE public.ncs_engineering_capex (
 );
 
 
-ALTER TABLE public.ncs_engineering_capex OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_capex OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_capex_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_capex_id_seq
@@ -2019,17 +2019,17 @@ CREATE SEQUENCE public.ncs_engineering_capex_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_capex_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_capex_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_capex_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_capex_id_seq OWNED BY public.ncs_engineering_capex.id;
 
 
 --
--- Name: ncs_engineering_civil_assets; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_civil_assets (
@@ -2050,10 +2050,10 @@ CREATE TABLE public.ncs_engineering_civil_assets (
 );
 
 
-ALTER TABLE public.ncs_engineering_civil_assets OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_civil_assets OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_civil_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_civil_assets_id_seq
@@ -2065,17 +2065,17 @@ CREATE SEQUENCE public.ncs_engineering_civil_assets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_civil_assets_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_civil_assets_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_civil_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_civil_assets_id_seq OWNED BY public.ncs_engineering_civil_assets.id;
 
 
 --
--- Name: ncs_engineering_electrical_assets; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_electrical_assets (
@@ -2098,10 +2098,10 @@ CREATE TABLE public.ncs_engineering_electrical_assets (
 );
 
 
-ALTER TABLE public.ncs_engineering_electrical_assets OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_electrical_assets OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_electrical_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_electrical_assets_id_seq
@@ -2113,17 +2113,17 @@ CREATE SEQUENCE public.ncs_engineering_electrical_assets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_electrical_assets_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_electrical_assets_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_electrical_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_electrical_assets_id_seq OWNED BY public.ncs_engineering_electrical_assets.id;
 
 
 --
--- Name: ncs_engineering_inspections; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_inspections (
@@ -2143,10 +2143,10 @@ CREATE TABLE public.ncs_engineering_inspections (
 );
 
 
-ALTER TABLE public.ncs_engineering_inspections OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_inspections OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_inspections_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_inspections_id_seq
@@ -2158,17 +2158,17 @@ CREATE SEQUENCE public.ncs_engineering_inspections_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_inspections_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_inspections_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_inspections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_inspections_id_seq OWNED BY public.ncs_engineering_inspections.id;
 
 
 --
--- Name: ncs_engineering_technicians; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_technicians; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_technicians (
@@ -2185,10 +2185,10 @@ CREATE TABLE public.ncs_engineering_technicians (
 );
 
 
-ALTER TABLE public.ncs_engineering_technicians OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_technicians OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_technicians_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_technicians_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_technicians_id_seq
@@ -2200,17 +2200,17 @@ CREATE SEQUENCE public.ncs_engineering_technicians_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_technicians_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_technicians_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_technicians_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_technicians_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_technicians_id_seq OWNED BY public.ncs_engineering_technicians.id;
 
 
 --
--- Name: ncs_engineering_work_orders; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_engineering_work_orders (
@@ -2232,10 +2232,10 @@ CREATE TABLE public.ncs_engineering_work_orders (
 );
 
 
-ALTER TABLE public.ncs_engineering_work_orders OWNER TO rise_user;
+ALTER TABLE public.ncs_engineering_work_orders OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_work_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_engineering_work_orders_id_seq
@@ -2247,10 +2247,10 @@ CREATE SEQUENCE public.ncs_engineering_work_orders_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_engineering_work_orders_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_engineering_work_orders_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_engineering_work_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_engineering_work_orders_id_seq OWNED BY public.ncs_engineering_work_orders.id;
@@ -2679,7 +2679,7 @@ ALTER SEQUENCE public.ncs_expenses_id_seq OWNED BY public.ncs_expenses.id;
 
 
 --
--- Name: ncs_facilities; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_facilities; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_facilities (
@@ -2697,10 +2697,10 @@ CREATE TABLE public.ncs_facilities (
 );
 
 
-ALTER TABLE public.ncs_facilities OWNER TO rise_user;
+ALTER TABLE public.ncs_facilities OWNER TO ncs_user;
 
 --
--- Name: ncs_facilities_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_facilities_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_facilities_id_seq
@@ -2712,17 +2712,17 @@ CREATE SEQUENCE public.ncs_facilities_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_facilities_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_facilities_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_facilities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_facilities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_facilities_id_seq OWNED BY public.ncs_facilities.id;
 
 
 --
--- Name: ncs_facility_bookings; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_facility_bookings; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_facility_bookings (
@@ -2744,10 +2744,10 @@ CREATE TABLE public.ncs_facility_bookings (
 );
 
 
-ALTER TABLE public.ncs_facility_bookings OWNER TO rise_user;
+ALTER TABLE public.ncs_facility_bookings OWNER TO ncs_user;
 
 --
--- Name: ncs_facility_bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_facility_bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_facility_bookings_id_seq
@@ -2759,17 +2759,17 @@ CREATE SEQUENCE public.ncs_facility_bookings_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_facility_bookings_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_facility_bookings_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_facility_bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_facility_bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_facility_bookings_id_seq OWNED BY public.ncs_facility_bookings.id;
 
 
 --
--- Name: ncs_facility_inspections; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_facility_inspections; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_facility_inspections (
@@ -2786,10 +2786,10 @@ CREATE TABLE public.ncs_facility_inspections (
 );
 
 
-ALTER TABLE public.ncs_facility_inspections OWNER TO rise_user;
+ALTER TABLE public.ncs_facility_inspections OWNER TO ncs_user;
 
 --
--- Name: ncs_facility_inspections_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_facility_inspections_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_facility_inspections_id_seq
@@ -2801,10 +2801,10 @@ CREATE SEQUENCE public.ncs_facility_inspections_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_facility_inspections_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_facility_inspections_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_facility_inspections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_facility_inspections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_facility_inspections_id_seq OWNED BY public.ncs_facility_inspections.id;
@@ -2847,7 +2847,7 @@ ALTER SEQUENCE public.ncs_file_category_id_seq OWNED BY public.ncs_file_category
 
 
 --
--- Name: ncs_fixed_assets; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_fixed_assets; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_fixed_assets (
@@ -2881,10 +2881,10 @@ CREATE TABLE public.ncs_fixed_assets (
 );
 
 
-ALTER TABLE public.ncs_fixed_assets OWNER TO rise_user;
+ALTER TABLE public.ncs_fixed_assets OWNER TO ncs_user;
 
 --
--- Name: ncs_fixed_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_fixed_assets_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_fixed_assets_id_seq
@@ -2896,17 +2896,17 @@ CREATE SEQUENCE public.ncs_fixed_assets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_fixed_assets_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_fixed_assets_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_fixed_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_fixed_assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_fixed_assets_id_seq OWNED BY public.ncs_fixed_assets.id;
 
 
 --
--- Name: ncs_fleet_routes; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_routes; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_fleet_routes (
@@ -2929,10 +2929,10 @@ CREATE TABLE public.ncs_fleet_routes (
 );
 
 
-ALTER TABLE public.ncs_fleet_routes OWNER TO rise_user;
+ALTER TABLE public.ncs_fleet_routes OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_routes_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_routes_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_fleet_routes_id_seq
@@ -2944,17 +2944,17 @@ CREATE SEQUENCE public.ncs_fleet_routes_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_fleet_routes_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_fleet_routes_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_routes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_routes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_fleet_routes_id_seq OWNED BY public.ncs_fleet_routes.id;
 
 
 --
--- Name: ncs_fleet_service_logs; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_service_logs; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_fleet_service_logs (
@@ -2974,10 +2974,10 @@ CREATE TABLE public.ncs_fleet_service_logs (
 );
 
 
-ALTER TABLE public.ncs_fleet_service_logs OWNER TO rise_user;
+ALTER TABLE public.ncs_fleet_service_logs OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_service_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_service_logs_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_fleet_service_logs_id_seq
@@ -2989,17 +2989,17 @@ CREATE SEQUENCE public.ncs_fleet_service_logs_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_fleet_service_logs_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_fleet_service_logs_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_service_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_service_logs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_fleet_service_logs_id_seq OWNED BY public.ncs_fleet_service_logs.id;
 
 
 --
--- Name: ncs_fleet_vehicles; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_vehicles; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_fleet_vehicles (
@@ -3025,10 +3025,10 @@ CREATE TABLE public.ncs_fleet_vehicles (
 );
 
 
-ALTER TABLE public.ncs_fleet_vehicles OWNER TO rise_user;
+ALTER TABLE public.ncs_fleet_vehicles OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_vehicles_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_vehicles_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_fleet_vehicles_id_seq
@@ -3040,10 +3040,10 @@ CREATE SEQUENCE public.ncs_fleet_vehicles_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_fleet_vehicles_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_fleet_vehicles_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_fleet_vehicles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_vehicles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_fleet_vehicles_id_seq OWNED BY public.ncs_fleet_vehicles.id;
@@ -3228,7 +3228,7 @@ ALTER SEQUENCE public.ncs_help_categories_id_seq OWNED BY public.ncs_help_catego
 
 
 --
--- Name: ncs_hostel_occupancies; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hostel_occupancies; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hostel_occupancies (
@@ -3247,10 +3247,10 @@ CREATE TABLE public.ncs_hostel_occupancies (
 );
 
 
-ALTER TABLE public.ncs_hostel_occupancies OWNER TO rise_user;
+ALTER TABLE public.ncs_hostel_occupancies OWNER TO ncs_user;
 
 --
--- Name: ncs_hostel_occupancies_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hostel_occupancies_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hostel_occupancies_id_seq
@@ -3262,17 +3262,17 @@ CREATE SEQUENCE public.ncs_hostel_occupancies_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hostel_occupancies_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hostel_occupancies_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hostel_occupancies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hostel_occupancies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hostel_occupancies_id_seq OWNED BY public.ncs_hostel_occupancies.id;
 
 
 --
--- Name: ncs_hr_appraisal_items; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisal_items; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_appraisal_items (
@@ -3290,10 +3290,10 @@ CREATE TABLE public.ncs_hr_appraisal_items (
 );
 
 
-ALTER TABLE public.ncs_hr_appraisal_items OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_appraisal_items OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_appraisal_items_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisal_items_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_appraisal_items_id_seq
@@ -3305,17 +3305,17 @@ CREATE SEQUENCE public.ncs_hr_appraisal_items_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_appraisal_items_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_appraisal_items_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_appraisal_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisal_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_appraisal_items_id_seq OWNED BY public.ncs_hr_appraisal_items.id;
 
 
 --
--- Name: ncs_hr_appraisals; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisals; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_appraisals (
@@ -3349,10 +3349,10 @@ CREATE TABLE public.ncs_hr_appraisals (
 );
 
 
-ALTER TABLE public.ncs_hr_appraisals OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_appraisals OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_appraisals_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisals_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_appraisals_id_seq
@@ -3364,17 +3364,17 @@ CREATE SEQUENCE public.ncs_hr_appraisals_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_appraisals_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_appraisals_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_appraisals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_appraisals_id_seq OWNED BY public.ncs_hr_appraisals.id;
 
 
 --
--- Name: ncs_hr_memo_recipients; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memo_recipients; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_memo_recipients (
@@ -3389,10 +3389,10 @@ CREATE TABLE public.ncs_hr_memo_recipients (
 );
 
 
-ALTER TABLE public.ncs_hr_memo_recipients OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_memo_recipients OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_memo_recipients_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memo_recipients_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_memo_recipients_id_seq
@@ -3404,17 +3404,17 @@ CREATE SEQUENCE public.ncs_hr_memo_recipients_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_memo_recipients_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_memo_recipients_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_memo_recipients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memo_recipients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_memo_recipients_id_seq OWNED BY public.ncs_hr_memo_recipients.id;
 
 
 --
--- Name: ncs_hr_memos; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_memos (
@@ -3433,10 +3433,10 @@ CREATE TABLE public.ncs_hr_memos (
 );
 
 
-ALTER TABLE public.ncs_hr_memos OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_memos OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_memos_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_memos_id_seq
@@ -3448,17 +3448,17 @@ CREATE SEQUENCE public.ncs_hr_memos_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_memos_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_memos_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_memos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_memos_id_seq OWNED BY public.ncs_hr_memos.id;
 
 
 --
--- Name: ncs_hr_payroll; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_payroll; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_payroll (
@@ -3498,10 +3498,10 @@ CREATE TABLE public.ncs_hr_payroll (
 );
 
 
-ALTER TABLE public.ncs_hr_payroll OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_payroll OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_payroll_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_payroll_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_payroll_id_seq
@@ -3513,17 +3513,17 @@ CREATE SEQUENCE public.ncs_hr_payroll_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_payroll_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_payroll_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_payroll_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_payroll_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_payroll_id_seq OWNED BY public.ncs_hr_payroll.id;
 
 
 --
--- Name: ncs_hr_profiles; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_profiles (
@@ -3567,10 +3567,10 @@ CREATE TABLE public.ncs_hr_profiles (
 );
 
 
-ALTER TABLE public.ncs_hr_profiles OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_profiles OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_profiles_id_seq
@@ -3582,17 +3582,17 @@ CREATE SEQUENCE public.ncs_hr_profiles_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_profiles_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_profiles_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_profiles_id_seq OWNED BY public.ncs_hr_profiles.id;
 
 
 --
--- Name: ncs_hr_report_submissions; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_submissions; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_report_submissions (
@@ -3611,10 +3611,10 @@ CREATE TABLE public.ncs_hr_report_submissions (
 );
 
 
-ALTER TABLE public.ncs_hr_report_submissions OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_report_submissions OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_submissions_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_report_submissions_id_seq
@@ -3626,17 +3626,17 @@ CREATE SEQUENCE public.ncs_hr_report_submissions_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_report_submissions_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_report_submissions_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_submissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_report_submissions_id_seq OWNED BY public.ncs_hr_report_submissions.id;
 
 
 --
--- Name: ncs_hr_report_template_fields; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_template_fields; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_report_template_fields (
@@ -3652,10 +3652,10 @@ CREATE TABLE public.ncs_hr_report_template_fields (
 );
 
 
-ALTER TABLE public.ncs_hr_report_template_fields OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_report_template_fields OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_template_fields_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_template_fields_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_report_template_fields_id_seq
@@ -3667,17 +3667,17 @@ CREATE SEQUENCE public.ncs_hr_report_template_fields_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_report_template_fields_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_report_template_fields_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_template_fields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_template_fields_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_report_template_fields_id_seq OWNED BY public.ncs_hr_report_template_fields.id;
 
 
 --
--- Name: ncs_hr_report_templates; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_templates; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_hr_report_templates (
@@ -3694,10 +3694,10 @@ CREATE TABLE public.ncs_hr_report_templates (
 );
 
 
-ALTER TABLE public.ncs_hr_report_templates OWNER TO rise_user;
+ALTER TABLE public.ncs_hr_report_templates OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_hr_report_templates_id_seq
@@ -3709,17 +3709,17 @@ CREATE SEQUENCE public.ncs_hr_report_templates_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_hr_report_templates_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_hr_report_templates_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_hr_report_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_hr_report_templates_id_seq OWNED BY public.ncs_hr_report_templates.id;
 
 
 --
--- Name: ncs_ict_equipment; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_ict_equipment (
@@ -3741,10 +3741,10 @@ CREATE TABLE public.ncs_ict_equipment (
 );
 
 
-ALTER TABLE public.ncs_ict_equipment OWNER TO rise_user;
+ALTER TABLE public.ncs_ict_equipment OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_ict_equipment_id_seq
@@ -3756,17 +3756,17 @@ CREATE SEQUENCE public.ncs_ict_equipment_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_ict_equipment_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_ict_equipment_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_ict_equipment_id_seq OWNED BY public.ncs_ict_equipment.id;
 
 
 --
--- Name: ncs_ict_expenses; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_ict_expenses (
@@ -3785,10 +3785,10 @@ CREATE TABLE public.ncs_ict_expenses (
 );
 
 
-ALTER TABLE public.ncs_ict_expenses OWNER TO rise_user;
+ALTER TABLE public.ncs_ict_expenses OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_expenses_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_ict_expenses_id_seq
@@ -3800,17 +3800,17 @@ CREATE SEQUENCE public.ncs_ict_expenses_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_ict_expenses_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_ict_expenses_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_expenses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_ict_expenses_id_seq OWNED BY public.ncs_ict_expenses.id;
 
 
 --
--- Name: ncs_ict_helpdesk_tickets; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_ict_helpdesk_tickets (
@@ -3833,10 +3833,10 @@ CREATE TABLE public.ncs_ict_helpdesk_tickets (
 );
 
 
-ALTER TABLE public.ncs_ict_helpdesk_tickets OWNER TO rise_user;
+ALTER TABLE public.ncs_ict_helpdesk_tickets OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_helpdesk_tickets_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_ict_helpdesk_tickets_id_seq
@@ -3848,17 +3848,17 @@ CREATE SEQUENCE public.ncs_ict_helpdesk_tickets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_ict_helpdesk_tickets_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_ict_helpdesk_tickets_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_helpdesk_tickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_ict_helpdesk_tickets_id_seq OWNED BY public.ncs_ict_helpdesk_tickets.id;
 
 
 --
--- Name: ncs_ict_issuances; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_ict_issuances (
@@ -3883,10 +3883,10 @@ CREATE TABLE public.ncs_ict_issuances (
 );
 
 
-ALTER TABLE public.ncs_ict_issuances OWNER TO rise_user;
+ALTER TABLE public.ncs_ict_issuances OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_issuances_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_ict_issuances_id_seq
@@ -3898,17 +3898,17 @@ CREATE SEQUENCE public.ncs_ict_issuances_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_ict_issuances_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_ict_issuances_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_issuances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_ict_issuances_id_seq OWNED BY public.ncs_ict_issuances.id;
 
 
 --
--- Name: ncs_ict_maintenance_requisitions; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_ict_maintenance_requisitions (
@@ -3932,10 +3932,10 @@ CREATE TABLE public.ncs_ict_maintenance_requisitions (
 );
 
 
-ALTER TABLE public.ncs_ict_maintenance_requisitions OWNER TO rise_user;
+ALTER TABLE public.ncs_ict_maintenance_requisitions OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_maintenance_requisitions_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_ict_maintenance_requisitions_id_seq
@@ -3947,10 +3947,10 @@ CREATE SEQUENCE public.ncs_ict_maintenance_requisitions_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_ict_maintenance_requisitions_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_ict_maintenance_requisitions_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_ict_maintenance_requisitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_ict_maintenance_requisitions_id_seq OWNED BY public.ncs_ict_maintenance_requisitions.id;
@@ -4393,7 +4393,7 @@ ALTER SEQUENCE public.ncs_leave_types_id_seq OWNED BY public.ncs_leave_types.id;
 
 
 --
--- Name: ncs_legal_contracts; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_contracts; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_legal_contracts (
@@ -4414,10 +4414,10 @@ CREATE TABLE public.ncs_legal_contracts (
 );
 
 
-ALTER TABLE public.ncs_legal_contracts OWNER TO rise_user;
+ALTER TABLE public.ncs_legal_contracts OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_contracts_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_contracts_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_legal_contracts_id_seq
@@ -4429,17 +4429,17 @@ CREATE SEQUENCE public.ncs_legal_contracts_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_legal_contracts_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_legal_contracts_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_contracts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_legal_contracts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_legal_contracts_id_seq OWNED BY public.ncs_legal_contracts.id;
 
 
 --
--- Name: ncs_legal_disputes; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_disputes; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_legal_disputes (
@@ -4458,10 +4458,10 @@ CREATE TABLE public.ncs_legal_disputes (
 );
 
 
-ALTER TABLE public.ncs_legal_disputes OWNER TO rise_user;
+ALTER TABLE public.ncs_legal_disputes OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_disputes_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_disputes_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_legal_disputes_id_seq
@@ -4473,17 +4473,17 @@ CREATE SEQUENCE public.ncs_legal_disputes_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_legal_disputes_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_legal_disputes_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_disputes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_legal_disputes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_legal_disputes_id_seq OWNED BY public.ncs_legal_disputes.id;
 
 
 --
--- Name: ncs_legal_litigation; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_litigation; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_legal_litigation (
@@ -4500,10 +4500,10 @@ CREATE TABLE public.ncs_legal_litigation (
 );
 
 
-ALTER TABLE public.ncs_legal_litigation OWNER TO rise_user;
+ALTER TABLE public.ncs_legal_litigation OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_litigation_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_litigation_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_legal_litigation_id_seq
@@ -4515,17 +4515,17 @@ CREATE SEQUENCE public.ncs_legal_litigation_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_legal_litigation_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_legal_litigation_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_litigation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_legal_litigation_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_legal_litigation_id_seq OWNED BY public.ncs_legal_litigation.id;
 
 
 --
--- Name: ncs_legal_trademarks; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_trademarks; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_legal_trademarks (
@@ -4542,10 +4542,10 @@ CREATE TABLE public.ncs_legal_trademarks (
 );
 
 
-ALTER TABLE public.ncs_legal_trademarks OWNER TO rise_user;
+ALTER TABLE public.ncs_legal_trademarks OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_trademarks_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_legal_trademarks_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_legal_trademarks_id_seq
@@ -4557,10 +4557,10 @@ CREATE SEQUENCE public.ncs_legal_trademarks_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_legal_trademarks_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_legal_trademarks_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_legal_trademarks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_legal_trademarks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_legal_trademarks_id_seq OWNED BY public.ncs_legal_trademarks.id;
@@ -5212,7 +5212,7 @@ ALTER SEQUENCE public.ncs_posts_id_seq OWNED BY public.ncs_posts.id;
 
 
 --
--- Name: ncs_procurement_form5; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_procurement_form5 (
@@ -5264,10 +5264,10 @@ CREATE TABLE public.ncs_procurement_form5 (
 );
 
 
-ALTER TABLE public.ncs_procurement_form5 OWNER TO rise_user;
+ALTER TABLE public.ncs_procurement_form5 OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_form5_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_procurement_form5_id_seq
@@ -5279,17 +5279,17 @@ CREATE SEQUENCE public.ncs_procurement_form5_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_procurement_form5_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_procurement_form5_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_form5_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_procurement_form5_id_seq OWNED BY public.ncs_procurement_form5.id;
 
 
 --
--- Name: ncs_procurement_form5_items; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_procurement_form5_items (
@@ -5306,10 +5306,10 @@ CREATE TABLE public.ncs_procurement_form5_items (
 );
 
 
-ALTER TABLE public.ncs_procurement_form5_items OWNER TO rise_user;
+ALTER TABLE public.ncs_procurement_form5_items OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_form5_items_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_procurement_form5_items_id_seq
@@ -5321,17 +5321,17 @@ CREATE SEQUENCE public.ncs_procurement_form5_items_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_procurement_form5_items_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_procurement_form5_items_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_form5_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_procurement_form5_items_id_seq OWNED BY public.ncs_procurement_form5_items.id;
 
 
 --
--- Name: ncs_procurement_plans; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_procurement_plans (
@@ -5351,10 +5351,10 @@ CREATE TABLE public.ncs_procurement_plans (
 );
 
 
-ALTER TABLE public.ncs_procurement_plans OWNER TO rise_user;
+ALTER TABLE public.ncs_procurement_plans OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_procurement_plans_id_seq
@@ -5366,17 +5366,17 @@ CREATE SEQUENCE public.ncs_procurement_plans_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_procurement_plans_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_procurement_plans_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_procurement_plans_id_seq OWNED BY public.ncs_procurement_plans.id;
 
 
 --
--- Name: ncs_procurement_suppliers; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_procurement_suppliers (
@@ -5394,10 +5394,10 @@ CREATE TABLE public.ncs_procurement_suppliers (
 );
 
 
-ALTER TABLE public.ncs_procurement_suppliers OWNER TO rise_user;
+ALTER TABLE public.ncs_procurement_suppliers OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_procurement_suppliers_id_seq
@@ -5409,10 +5409,10 @@ CREATE SEQUENCE public.ncs_procurement_suppliers_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_procurement_suppliers_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_procurement_suppliers_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_procurement_suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_procurement_suppliers_id_seq OWNED BY public.ncs_procurement_suppliers.id;
@@ -5462,7 +5462,7 @@ ALTER SEQUENCE public.ncs_project_comments_id_seq OWNED BY public.ncs_project_co
 
 
 --
--- Name: ncs_project_facility_relations; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_project_facility_relations; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_project_facility_relations (
@@ -5471,7 +5471,7 @@ CREATE TABLE public.ncs_project_facility_relations (
 );
 
 
-ALTER TABLE public.ncs_project_facility_relations OWNER TO rise_user;
+ALTER TABLE public.ncs_project_facility_relations OWNER TO ncs_user;
 
 --
 -- Name: ncs_project_files; Type: TABLE; Schema: public; Owner: postgres
@@ -5955,7 +5955,7 @@ ALTER SEQUENCE public.ncs_reminder_settings_id_seq OWNED BY public.ncs_reminder_
 
 
 --
--- Name: ncs_roles; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_roles; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_roles (
@@ -5968,10 +5968,10 @@ CREATE TABLE public.ncs_roles (
 );
 
 
-ALTER TABLE public.ncs_roles OWNER TO rise_user;
+ALTER TABLE public.ncs_roles OWNER TO ncs_user;
 
 --
--- Name: ncs_roles_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_roles_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_roles_id_seq
@@ -5983,10 +5983,10 @@ CREATE SEQUENCE public.ncs_roles_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_roles_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_roles_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_roles_id_seq OWNED BY public.ncs_roles.id;
@@ -6032,7 +6032,7 @@ CREATE TABLE public.ncs_social_links (
 ALTER TABLE public.ncs_social_links OWNER TO postgres;
 
 --
--- Name: ncs_store_audit_trail; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_audit_trail; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_audit_trail (
@@ -6048,10 +6048,10 @@ CREATE TABLE public.ncs_store_audit_trail (
 );
 
 
-ALTER TABLE public.ncs_store_audit_trail OWNER TO rise_user;
+ALTER TABLE public.ncs_store_audit_trail OWNER TO ncs_user;
 
 --
--- Name: ncs_store_audit_trail_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_audit_trail_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_audit_trail_id_seq
@@ -6063,17 +6063,17 @@ CREATE SEQUENCE public.ncs_store_audit_trail_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_audit_trail_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_audit_trail_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_audit_trail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_audit_trail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_audit_trail_id_seq OWNED BY public.ncs_store_audit_trail.id;
 
 
 --
--- Name: ncs_store_grn; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_grn (
@@ -6093,10 +6093,10 @@ CREATE TABLE public.ncs_store_grn (
 );
 
 
-ALTER TABLE public.ncs_store_grn OWNER TO rise_user;
+ALTER TABLE public.ncs_store_grn OWNER TO ncs_user;
 
 --
--- Name: ncs_store_grn_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_grn_id_seq
@@ -6108,17 +6108,17 @@ CREATE SEQUENCE public.ncs_store_grn_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_grn_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_grn_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_grn_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_grn_id_seq OWNED BY public.ncs_store_grn.id;
 
 
 --
--- Name: ncs_store_inventory_items; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_inventory_items (
@@ -6142,10 +6142,10 @@ CREATE TABLE public.ncs_store_inventory_items (
 );
 
 
-ALTER TABLE public.ncs_store_inventory_items OWNER TO rise_user;
+ALTER TABLE public.ncs_store_inventory_items OWNER TO ncs_user;
 
 --
--- Name: ncs_store_inventory_items_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_inventory_items_id_seq
@@ -6157,17 +6157,17 @@ CREATE SEQUENCE public.ncs_store_inventory_items_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_inventory_items_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_inventory_items_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_inventory_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_inventory_items_id_seq OWNED BY public.ncs_store_inventory_items.id;
 
 
 --
--- Name: ncs_store_issuances; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_issuances (
@@ -6187,10 +6187,10 @@ CREATE TABLE public.ncs_store_issuances (
 );
 
 
-ALTER TABLE public.ncs_store_issuances OWNER TO rise_user;
+ALTER TABLE public.ncs_store_issuances OWNER TO ncs_user;
 
 --
--- Name: ncs_store_issuances_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_issuances_id_seq
@@ -6202,17 +6202,17 @@ CREATE SEQUENCE public.ncs_store_issuances_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_issuances_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_issuances_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_issuances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_issuances_id_seq OWNED BY public.ncs_store_issuances.id;
 
 
 --
--- Name: ncs_store_requisitions; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_requisitions (
@@ -6232,10 +6232,10 @@ CREATE TABLE public.ncs_store_requisitions (
 );
 
 
-ALTER TABLE public.ncs_store_requisitions OWNER TO rise_user;
+ALTER TABLE public.ncs_store_requisitions OWNER TO ncs_user;
 
 --
--- Name: ncs_store_requisitions_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_requisitions_id_seq
@@ -6247,17 +6247,17 @@ CREATE SEQUENCE public.ncs_store_requisitions_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_requisitions_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_requisitions_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_requisitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_requisitions_id_seq OWNED BY public.ncs_store_requisitions.id;
 
 
 --
--- Name: ncs_store_stock_takes; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_store_stock_takes; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_store_stock_takes (
@@ -6274,10 +6274,10 @@ CREATE TABLE public.ncs_store_stock_takes (
 );
 
 
-ALTER TABLE public.ncs_store_stock_takes OWNER TO rise_user;
+ALTER TABLE public.ncs_store_stock_takes OWNER TO ncs_user;
 
 --
--- Name: ncs_store_stock_takes_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_store_stock_takes_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_store_stock_takes_id_seq
@@ -6289,10 +6289,10 @@ CREATE SEQUENCE public.ncs_store_stock_takes_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_store_stock_takes_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_store_stock_takes_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_store_stock_takes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_store_stock_takes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_store_stock_takes_id_seq OWNED BY public.ncs_store_stock_takes.id;
@@ -6442,7 +6442,7 @@ ALTER SEQUENCE public.ncs_subscriptions_id_seq OWNED BY public.ncs_subscriptions
 
 
 --
--- Name: ncs_supplier_contacts; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_supplier_contacts (
@@ -6461,10 +6461,10 @@ CREATE TABLE public.ncs_supplier_contacts (
 );
 
 
-ALTER TABLE public.ncs_supplier_contacts OWNER TO rise_user;
+ALTER TABLE public.ncs_supplier_contacts OWNER TO ncs_user;
 
 --
--- Name: ncs_supplier_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_supplier_contacts_id_seq
@@ -6476,17 +6476,17 @@ CREATE SEQUENCE public.ncs_supplier_contacts_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_supplier_contacts_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_supplier_contacts_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_supplier_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_supplier_contacts_id_seq OWNED BY public.ncs_supplier_contacts.id;
 
 
 --
--- Name: ncs_suppliers; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_suppliers (
@@ -6516,10 +6516,10 @@ CREATE TABLE public.ncs_suppliers (
 );
 
 
-ALTER TABLE public.ncs_suppliers OWNER TO rise_user;
+ALTER TABLE public.ncs_suppliers OWNER TO ncs_user;
 
 --
--- Name: ncs_suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_suppliers_id_seq
@@ -6531,10 +6531,10 @@ CREATE SEQUENCE public.ncs_suppliers_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_suppliers_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_suppliers_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_suppliers_id_seq OWNED BY public.ncs_suppliers.id;
@@ -7116,7 +7116,7 @@ ALTER SEQUENCE public.ncs_verification_id_seq OWNED BY public.ncs_verification.i
 
 
 --
--- Name: ncs_visitor_appointments; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_appointments; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_visitor_appointments (
@@ -7147,10 +7147,10 @@ CREATE TABLE public.ncs_visitor_appointments (
 );
 
 
-ALTER TABLE public.ncs_visitor_appointments OWNER TO rise_user;
+ALTER TABLE public.ncs_visitor_appointments OWNER TO ncs_user;
 
 --
--- Name: ncs_visitor_appointments_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_appointments_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_visitor_appointments_id_seq
@@ -7162,17 +7162,17 @@ CREATE SEQUENCE public.ncs_visitor_appointments_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_visitor_appointments_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_visitor_appointments_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_visitor_appointments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_appointments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_visitor_appointments_id_seq OWNED BY public.ncs_visitor_appointments.id;
 
 
 --
--- Name: ncs_visitor_logbook; Type: TABLE; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_logbook; Type: TABLE; Schema: public; Owner: ncs_user
 --
 
 CREATE TABLE public.ncs_visitor_logbook (
@@ -7201,10 +7201,10 @@ CREATE TABLE public.ncs_visitor_logbook (
 );
 
 
-ALTER TABLE public.ncs_visitor_logbook OWNER TO rise_user;
+ALTER TABLE public.ncs_visitor_logbook OWNER TO ncs_user;
 
 --
--- Name: ncs_visitor_logbook_id_seq; Type: SEQUENCE; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_logbook_id_seq; Type: SEQUENCE; Schema: public; Owner: ncs_user
 --
 
 CREATE SEQUENCE public.ncs_visitor_logbook_id_seq
@@ -7216,38 +7216,38 @@ CREATE SEQUENCE public.ncs_visitor_logbook_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ncs_visitor_logbook_id_seq OWNER TO rise_user;
+ALTER SEQUENCE public.ncs_visitor_logbook_id_seq OWNER TO ncs_user;
 
 --
--- Name: ncs_visitor_logbook_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_logbook_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ncs_user
 --
 
 ALTER SEQUENCE public.ncs_visitor_logbook_id_seq OWNED BY public.ncs_visitor_logbook.id;
 
 
 --
--- Name: ncs_accounting_grants id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_grants id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_grants ALTER COLUMN id SET DEFAULT nextval('public.ncs_accounting_grants_id_seq'::regclass);
 
 
 --
--- Name: ncs_accounting_ledgers id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_ledgers id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_ledgers ALTER COLUMN id SET DEFAULT nextval('public.ncs_accounting_ledgers_id_seq'::regclass);
 
 
 --
--- Name: ncs_accounting_reconciliations id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_reconciliations id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_reconciliations ALTER COLUMN id SET DEFAULT nextval('public.ncs_accounting_reconciliations_id_seq'::regclass);
 
 
 --
--- Name: ncs_accounting_vote_clearance id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_vote_clearance id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_vote_clearance ALTER COLUMN id SET DEFAULT nextval('public.ncs_accounting_vote_clearance_id_seq'::regclass);
@@ -7261,28 +7261,28 @@ ALTER TABLE ONLY public.ncs_activity_logs ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- Name: ncs_admin_appraisals id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_appraisals id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_appraisals ALTER COLUMN id SET DEFAULT nextval('public.ncs_admin_appraisals_id_seq'::regclass);
 
 
 --
--- Name: ncs_admin_approvals id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_approvals id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_approvals ALTER COLUMN id SET DEFAULT nextval('public.ncs_admin_approvals_id_seq'::regclass);
 
 
 --
--- Name: ncs_admin_board_packages id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_board_packages id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_board_packages ALTER COLUMN id SET DEFAULT nextval('public.ncs_admin_board_packages_id_seq'::regclass);
 
 
 --
--- Name: ncs_admin_federations id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_federations id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_federations ALTER COLUMN id SET DEFAULT nextval('public.ncs_admin_federations_id_seq'::regclass);
@@ -7303,7 +7303,7 @@ ALTER TABLE ONLY public.ncs_article_helpful_status ALTER COLUMN id SET DEFAULT n
 
 
 --
--- Name: ncs_asset_transaction_logs id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_asset_transaction_logs id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_asset_transaction_logs ALTER COLUMN id SET DEFAULT nextval('public.ncs_asset_transaction_logs_id_seq'::regclass);
@@ -7317,14 +7317,14 @@ ALTER TABLE ONLY public.ncs_attendance ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- Name: ncs_audit_discrepancies id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_discrepancies ALTER COLUMN id SET DEFAULT nextval('public.ncs_audit_discrepancies_id_seq'::regclass);
 
 
 --
--- Name: ncs_audit_reports id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_reports ALTER COLUMN id SET DEFAULT nextval('public.ncs_audit_reports_id_seq'::regclass);
@@ -7436,7 +7436,7 @@ ALTER TABLE ONLY public.ncs_dashboards ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- Name: ncs_departments id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_departments id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_departments ALTER COLUMN id SET DEFAULT nextval('public.ncs_departments_id_seq'::regclass);
@@ -7457,49 +7457,49 @@ ALTER TABLE ONLY public.ncs_email_templates ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- Name: ncs_engineering_assets id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_assets ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_assets_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_capex id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_capex ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_capex_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_civil_assets id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_civil_assets ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_civil_assets_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_electrical_assets id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_electrical_assets ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_electrical_assets_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_inspections id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_inspections ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_inspections_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_technicians id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_technicians id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_technicians ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_technicians_id_seq'::regclass);
 
 
 --
--- Name: ncs_engineering_work_orders id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_work_orders ALTER COLUMN id SET DEFAULT nextval('public.ncs_engineering_work_orders_id_seq'::regclass);
@@ -7569,21 +7569,21 @@ ALTER TABLE ONLY public.ncs_expenses ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- Name: ncs_facilities id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_facilities id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facilities ALTER COLUMN id SET DEFAULT nextval('public.ncs_facilities_id_seq'::regclass);
 
 
 --
--- Name: ncs_facility_bookings id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_facility_bookings id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facility_bookings ALTER COLUMN id SET DEFAULT nextval('public.ncs_facility_bookings_id_seq'::regclass);
 
 
 --
--- Name: ncs_facility_inspections id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_facility_inspections id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facility_inspections ALTER COLUMN id SET DEFAULT nextval('public.ncs_facility_inspections_id_seq'::regclass);
@@ -7597,28 +7597,28 @@ ALTER TABLE ONLY public.ncs_file_category ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- Name: ncs_fixed_assets id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_fixed_assets id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fixed_assets ALTER COLUMN id SET DEFAULT nextval('public.ncs_fixed_assets_id_seq'::regclass);
 
 
 --
--- Name: ncs_fleet_routes id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_routes id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_routes ALTER COLUMN id SET DEFAULT nextval('public.ncs_fleet_routes_id_seq'::regclass);
 
 
 --
--- Name: ncs_fleet_service_logs id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_service_logs id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_service_logs ALTER COLUMN id SET DEFAULT nextval('public.ncs_fleet_service_logs_id_seq'::regclass);
 
 
 --
--- Name: ncs_fleet_vehicles id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_vehicles id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_vehicles ALTER COLUMN id SET DEFAULT nextval('public.ncs_fleet_vehicles_id_seq'::regclass);
@@ -7653,105 +7653,105 @@ ALTER TABLE ONLY public.ncs_help_categories ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- Name: ncs_hostel_occupancies id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hostel_occupancies id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hostel_occupancies ALTER COLUMN id SET DEFAULT nextval('public.ncs_hostel_occupancies_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_appraisal_items id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisal_items id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_appraisal_items ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_appraisal_items_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_appraisals id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisals id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_appraisals ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_appraisals_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_memo_recipients id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memo_recipients id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_memo_recipients ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_memo_recipients_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_memos id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_memos ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_memos_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_payroll id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_payroll id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_payroll ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_payroll_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_profiles id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_profiles ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_profiles_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_report_submissions id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_submissions id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_submissions ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_report_submissions_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_report_template_fields id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_template_fields id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_template_fields ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_report_template_fields_id_seq'::regclass);
 
 
 --
--- Name: ncs_hr_report_templates id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_templates id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_templates ALTER COLUMN id SET DEFAULT nextval('public.ncs_hr_report_templates_id_seq'::regclass);
 
 
 --
--- Name: ncs_ict_equipment id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_equipment ALTER COLUMN id SET DEFAULT nextval('public.ncs_ict_equipment_id_seq'::regclass);
 
 
 --
--- Name: ncs_ict_expenses id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_expenses ALTER COLUMN id SET DEFAULT nextval('public.ncs_ict_expenses_id_seq'::regclass);
 
 
 --
--- Name: ncs_ict_helpdesk_tickets id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_helpdesk_tickets ALTER COLUMN id SET DEFAULT nextval('public.ncs_ict_helpdesk_tickets_id_seq'::regclass);
 
 
 --
--- Name: ncs_ict_issuances id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_issuances ALTER COLUMN id SET DEFAULT nextval('public.ncs_ict_issuances_id_seq'::regclass);
 
 
 --
--- Name: ncs_ict_maintenance_requisitions id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_maintenance_requisitions ALTER COLUMN id SET DEFAULT nextval('public.ncs_ict_maintenance_requisitions_id_seq'::regclass);
@@ -7828,28 +7828,28 @@ ALTER TABLE ONLY public.ncs_leave_types ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- Name: ncs_legal_contracts id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_contracts id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_contracts ALTER COLUMN id SET DEFAULT nextval('public.ncs_legal_contracts_id_seq'::regclass);
 
 
 --
--- Name: ncs_legal_disputes id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_disputes id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_disputes ALTER COLUMN id SET DEFAULT nextval('public.ncs_legal_disputes_id_seq'::regclass);
 
 
 --
--- Name: ncs_legal_litigation id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_litigation id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_litigation ALTER COLUMN id SET DEFAULT nextval('public.ncs_legal_litigation_id_seq'::regclass);
 
 
 --
--- Name: ncs_legal_trademarks id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_trademarks id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_trademarks ALTER COLUMN id SET DEFAULT nextval('public.ncs_legal_trademarks_id_seq'::regclass);
@@ -7961,28 +7961,28 @@ ALTER TABLE ONLY public.ncs_posts ALTER COLUMN id SET DEFAULT nextval('public.nc
 
 
 --
--- Name: ncs_procurement_form5 id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5 id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5 ALTER COLUMN id SET DEFAULT nextval('public.ncs_procurement_form5_id_seq'::regclass);
 
 
 --
--- Name: ncs_procurement_form5_items id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5_items ALTER COLUMN id SET DEFAULT nextval('public.ncs_procurement_form5_items_id_seq'::regclass);
 
 
 --
--- Name: ncs_procurement_plans id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_plans ALTER COLUMN id SET DEFAULT nextval('public.ncs_procurement_plans_id_seq'::regclass);
 
 
 --
--- Name: ncs_procurement_suppliers id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_suppliers ALTER COLUMN id SET DEFAULT nextval('public.ncs_procurement_suppliers_id_seq'::regclass);
@@ -8073,49 +8073,49 @@ ALTER TABLE ONLY public.ncs_reminder_settings ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- Name: ncs_roles id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_roles id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_roles ALTER COLUMN id SET DEFAULT nextval('public.ncs_roles_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_audit_trail id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_audit_trail id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_audit_trail ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_audit_trail_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_grn id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_grn ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_grn_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_inventory_items id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_inventory_items ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_inventory_items_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_issuances id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_issuances ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_issuances_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_requisitions id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_requisitions ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_requisitions_id_seq'::regclass);
 
 
 --
--- Name: ncs_store_stock_takes id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_store_stock_takes id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_stock_takes ALTER COLUMN id SET DEFAULT nextval('public.ncs_store_stock_takes_id_seq'::regclass);
@@ -8143,14 +8143,14 @@ ALTER TABLE ONLY public.ncs_subscriptions ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- Name: ncs_supplier_contacts id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_supplier_contacts ALTER COLUMN id SET DEFAULT nextval('public.ncs_supplier_contacts_id_seq'::regclass);
 
 
 --
--- Name: ncs_suppliers id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_suppliers ALTER COLUMN id SET DEFAULT nextval('public.ncs_suppliers_id_seq'::regclass);
@@ -8248,21 +8248,21 @@ ALTER TABLE ONLY public.ncs_verification ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- Name: ncs_visitor_appointments id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_appointments id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_visitor_appointments ALTER COLUMN id SET DEFAULT nextval('public.ncs_visitor_appointments_id_seq'::regclass);
 
 
 --
--- Name: ncs_visitor_logbook id; Type: DEFAULT; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_logbook id; Type: DEFAULT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_visitor_logbook ALTER COLUMN id SET DEFAULT nextval('public.ncs_visitor_logbook_id_seq'::regclass);
 
 
 --
--- Name: ncs_accounting_grants ncs_accounting_grants_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_grants ncs_accounting_grants_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_grants
@@ -8270,7 +8270,7 @@ ALTER TABLE ONLY public.ncs_accounting_grants
 
 
 --
--- Name: ncs_accounting_ledgers ncs_accounting_ledgers_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_ledgers ncs_accounting_ledgers_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_ledgers
@@ -8278,7 +8278,7 @@ ALTER TABLE ONLY public.ncs_accounting_ledgers
 
 
 --
--- Name: ncs_accounting_reconciliations ncs_accounting_reconciliations_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_reconciliations ncs_accounting_reconciliations_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_reconciliations
@@ -8286,7 +8286,7 @@ ALTER TABLE ONLY public.ncs_accounting_reconciliations
 
 
 --
--- Name: ncs_accounting_vote_clearance ncs_accounting_vote_clearance_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_accounting_vote_clearance ncs_accounting_vote_clearance_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_accounting_vote_clearance
@@ -8302,7 +8302,7 @@ ALTER TABLE ONLY public.ncs_activity_logs
 
 
 --
--- Name: ncs_admin_appraisals ncs_admin_appraisals_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_appraisals ncs_admin_appraisals_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_appraisals
@@ -8310,7 +8310,7 @@ ALTER TABLE ONLY public.ncs_admin_appraisals
 
 
 --
--- Name: ncs_admin_approvals ncs_admin_approvals_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_approvals ncs_admin_approvals_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_approvals
@@ -8318,7 +8318,7 @@ ALTER TABLE ONLY public.ncs_admin_approvals
 
 
 --
--- Name: ncs_admin_board_packages ncs_admin_board_packages_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_board_packages ncs_admin_board_packages_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_board_packages
@@ -8326,7 +8326,7 @@ ALTER TABLE ONLY public.ncs_admin_board_packages
 
 
 --
--- Name: ncs_admin_federations ncs_admin_federations_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_admin_federations ncs_admin_federations_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_admin_federations
@@ -8350,7 +8350,7 @@ ALTER TABLE ONLY public.ncs_article_helpful_status
 
 
 --
--- Name: ncs_asset_transaction_logs ncs_asset_transaction_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_asset_transaction_logs ncs_asset_transaction_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_asset_transaction_logs
@@ -8366,7 +8366,7 @@ ALTER TABLE ONLY public.ncs_attendance
 
 
 --
--- Name: ncs_audit_discrepancies ncs_audit_discrepancies_discrepancy_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies ncs_audit_discrepancies_discrepancy_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_discrepancies
@@ -8374,7 +8374,7 @@ ALTER TABLE ONLY public.ncs_audit_discrepancies
 
 
 --
--- Name: ncs_audit_discrepancies ncs_audit_discrepancies_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_discrepancies ncs_audit_discrepancies_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_discrepancies
@@ -8382,7 +8382,7 @@ ALTER TABLE ONLY public.ncs_audit_discrepancies
 
 
 --
--- Name: ncs_audit_reports ncs_audit_reports_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports ncs_audit_reports_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_reports
@@ -8390,7 +8390,7 @@ ALTER TABLE ONLY public.ncs_audit_reports
 
 
 --
--- Name: ncs_audit_reports ncs_audit_reports_report_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_audit_reports ncs_audit_reports_report_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_audit_reports
@@ -8518,7 +8518,7 @@ ALTER TABLE ONLY public.ncs_dashboards
 
 
 --
--- Name: ncs_departments ncs_departments_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_departments ncs_departments_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_departments
@@ -8542,7 +8542,7 @@ ALTER TABLE ONLY public.ncs_email_templates
 
 
 --
--- Name: ncs_engineering_assets ncs_engineering_assets_asset_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets ncs_engineering_assets_asset_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_assets
@@ -8550,7 +8550,7 @@ ALTER TABLE ONLY public.ncs_engineering_assets
 
 
 --
--- Name: ncs_engineering_assets ncs_engineering_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_assets ncs_engineering_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_assets
@@ -8558,7 +8558,7 @@ ALTER TABLE ONLY public.ncs_engineering_assets
 
 
 --
--- Name: ncs_engineering_capex ncs_engineering_capex_capex_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex ncs_engineering_capex_capex_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_capex
@@ -8566,7 +8566,7 @@ ALTER TABLE ONLY public.ncs_engineering_capex
 
 
 --
--- Name: ncs_engineering_capex ncs_engineering_capex_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_capex ncs_engineering_capex_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_capex
@@ -8574,7 +8574,7 @@ ALTER TABLE ONLY public.ncs_engineering_capex
 
 
 --
--- Name: ncs_engineering_civil_assets ncs_engineering_civil_assets_asset_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets ncs_engineering_civil_assets_asset_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_civil_assets
@@ -8582,7 +8582,7 @@ ALTER TABLE ONLY public.ncs_engineering_civil_assets
 
 
 --
--- Name: ncs_engineering_civil_assets ncs_engineering_civil_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_civil_assets ncs_engineering_civil_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_civil_assets
@@ -8590,7 +8590,7 @@ ALTER TABLE ONLY public.ncs_engineering_civil_assets
 
 
 --
--- Name: ncs_engineering_electrical_assets ncs_engineering_electrical_assets_asset_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets ncs_engineering_electrical_assets_asset_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_electrical_assets
@@ -8598,7 +8598,7 @@ ALTER TABLE ONLY public.ncs_engineering_electrical_assets
 
 
 --
--- Name: ncs_engineering_electrical_assets ncs_engineering_electrical_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_electrical_assets ncs_engineering_electrical_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_electrical_assets
@@ -8606,7 +8606,7 @@ ALTER TABLE ONLY public.ncs_engineering_electrical_assets
 
 
 --
--- Name: ncs_engineering_inspections ncs_engineering_inspections_inspection_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections ncs_engineering_inspections_inspection_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_inspections
@@ -8614,7 +8614,7 @@ ALTER TABLE ONLY public.ncs_engineering_inspections
 
 
 --
--- Name: ncs_engineering_inspections ncs_engineering_inspections_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_inspections ncs_engineering_inspections_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_inspections
@@ -8622,7 +8622,7 @@ ALTER TABLE ONLY public.ncs_engineering_inspections
 
 
 --
--- Name: ncs_engineering_technicians ncs_engineering_technicians_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_technicians ncs_engineering_technicians_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_technicians
@@ -8630,7 +8630,7 @@ ALTER TABLE ONLY public.ncs_engineering_technicians
 
 
 --
--- Name: ncs_engineering_work_orders ncs_engineering_work_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders ncs_engineering_work_orders_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_work_orders
@@ -8638,7 +8638,7 @@ ALTER TABLE ONLY public.ncs_engineering_work_orders
 
 
 --
--- Name: ncs_engineering_work_orders ncs_engineering_work_orders_wo_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_engineering_work_orders ncs_engineering_work_orders_wo_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_engineering_work_orders
@@ -8718,7 +8718,7 @@ ALTER TABLE ONLY public.ncs_expenses
 
 
 --
--- Name: ncs_facilities ncs_facilities_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_facilities ncs_facilities_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facilities
@@ -8726,7 +8726,7 @@ ALTER TABLE ONLY public.ncs_facilities
 
 
 --
--- Name: ncs_facility_bookings ncs_facility_bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_facility_bookings ncs_facility_bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facility_bookings
@@ -8734,7 +8734,7 @@ ALTER TABLE ONLY public.ncs_facility_bookings
 
 
 --
--- Name: ncs_facility_inspections ncs_facility_inspections_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_facility_inspections ncs_facility_inspections_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_facility_inspections
@@ -8750,7 +8750,7 @@ ALTER TABLE ONLY public.ncs_file_category
 
 
 --
--- Name: ncs_fixed_assets ncs_fixed_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_fixed_assets ncs_fixed_assets_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fixed_assets
@@ -8758,7 +8758,7 @@ ALTER TABLE ONLY public.ncs_fixed_assets
 
 
 --
--- Name: ncs_fleet_routes ncs_fleet_routes_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_routes ncs_fleet_routes_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_routes
@@ -8766,7 +8766,7 @@ ALTER TABLE ONLY public.ncs_fleet_routes
 
 
 --
--- Name: ncs_fleet_service_logs ncs_fleet_service_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_service_logs ncs_fleet_service_logs_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_service_logs
@@ -8774,7 +8774,7 @@ ALTER TABLE ONLY public.ncs_fleet_service_logs
 
 
 --
--- Name: ncs_fleet_vehicles ncs_fleet_vehicles_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_fleet_vehicles ncs_fleet_vehicles_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_fleet_vehicles
@@ -8814,7 +8814,7 @@ ALTER TABLE ONLY public.ncs_help_categories
 
 
 --
--- Name: ncs_hostel_occupancies ncs_hostel_occupancies_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hostel_occupancies ncs_hostel_occupancies_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hostel_occupancies
@@ -8822,7 +8822,7 @@ ALTER TABLE ONLY public.ncs_hostel_occupancies
 
 
 --
--- Name: ncs_hr_appraisal_items ncs_hr_appraisal_items_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisal_items ncs_hr_appraisal_items_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_appraisal_items
@@ -8830,7 +8830,7 @@ ALTER TABLE ONLY public.ncs_hr_appraisal_items
 
 
 --
--- Name: ncs_hr_appraisals ncs_hr_appraisals_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_appraisals ncs_hr_appraisals_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_appraisals
@@ -8838,7 +8838,7 @@ ALTER TABLE ONLY public.ncs_hr_appraisals
 
 
 --
--- Name: ncs_hr_memo_recipients ncs_hr_memo_recipients_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memo_recipients ncs_hr_memo_recipients_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_memo_recipients
@@ -8846,7 +8846,7 @@ ALTER TABLE ONLY public.ncs_hr_memo_recipients
 
 
 --
--- Name: ncs_hr_memos ncs_hr_memos_memo_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos ncs_hr_memos_memo_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_memos
@@ -8854,7 +8854,7 @@ ALTER TABLE ONLY public.ncs_hr_memos
 
 
 --
--- Name: ncs_hr_memos ncs_hr_memos_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_memos ncs_hr_memos_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_memos
@@ -8862,7 +8862,7 @@ ALTER TABLE ONLY public.ncs_hr_memos
 
 
 --
--- Name: ncs_hr_payroll ncs_hr_payroll_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_payroll ncs_hr_payroll_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_payroll
@@ -8870,7 +8870,7 @@ ALTER TABLE ONLY public.ncs_hr_payroll
 
 
 --
--- Name: ncs_hr_profiles ncs_hr_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles ncs_hr_profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_profiles
@@ -8878,7 +8878,7 @@ ALTER TABLE ONLY public.ncs_hr_profiles
 
 
 --
--- Name: ncs_hr_profiles ncs_hr_profiles_user_id_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_profiles ncs_hr_profiles_user_id_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_profiles
@@ -8886,7 +8886,7 @@ ALTER TABLE ONLY public.ncs_hr_profiles
 
 
 --
--- Name: ncs_hr_report_submissions ncs_hr_report_submissions_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_submissions ncs_hr_report_submissions_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_submissions
@@ -8894,7 +8894,7 @@ ALTER TABLE ONLY public.ncs_hr_report_submissions
 
 
 --
--- Name: ncs_hr_report_template_fields ncs_hr_report_template_fields_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_template_fields ncs_hr_report_template_fields_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_template_fields
@@ -8902,7 +8902,7 @@ ALTER TABLE ONLY public.ncs_hr_report_template_fields
 
 
 --
--- Name: ncs_hr_report_templates ncs_hr_report_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_hr_report_templates ncs_hr_report_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_hr_report_templates
@@ -8910,7 +8910,7 @@ ALTER TABLE ONLY public.ncs_hr_report_templates
 
 
 --
--- Name: ncs_ict_equipment ncs_ict_equipment_item_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment ncs_ict_equipment_item_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_equipment
@@ -8918,7 +8918,7 @@ ALTER TABLE ONLY public.ncs_ict_equipment
 
 
 --
--- Name: ncs_ict_equipment ncs_ict_equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_equipment ncs_ict_equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_equipment
@@ -8926,7 +8926,7 @@ ALTER TABLE ONLY public.ncs_ict_equipment
 
 
 --
--- Name: ncs_ict_expenses ncs_ict_expenses_expense_ref_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses ncs_ict_expenses_expense_ref_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_expenses
@@ -8934,7 +8934,7 @@ ALTER TABLE ONLY public.ncs_ict_expenses
 
 
 --
--- Name: ncs_ict_expenses ncs_ict_expenses_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_expenses ncs_ict_expenses_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_expenses
@@ -8942,7 +8942,7 @@ ALTER TABLE ONLY public.ncs_ict_expenses
 
 
 --
--- Name: ncs_ict_helpdesk_tickets ncs_ict_helpdesk_tickets_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets ncs_ict_helpdesk_tickets_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_helpdesk_tickets
@@ -8950,7 +8950,7 @@ ALTER TABLE ONLY public.ncs_ict_helpdesk_tickets
 
 
 --
--- Name: ncs_ict_helpdesk_tickets ncs_ict_helpdesk_tickets_ticket_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_helpdesk_tickets ncs_ict_helpdesk_tickets_ticket_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_helpdesk_tickets
@@ -8958,7 +8958,7 @@ ALTER TABLE ONLY public.ncs_ict_helpdesk_tickets
 
 
 --
--- Name: ncs_ict_issuances ncs_ict_issuances_dispatch_ref_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances ncs_ict_issuances_dispatch_ref_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_issuances
@@ -8966,7 +8966,7 @@ ALTER TABLE ONLY public.ncs_ict_issuances
 
 
 --
--- Name: ncs_ict_issuances ncs_ict_issuances_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_issuances ncs_ict_issuances_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_issuances
@@ -8974,7 +8974,7 @@ ALTER TABLE ONLY public.ncs_ict_issuances
 
 
 --
--- Name: ncs_ict_maintenance_requisitions ncs_ict_maintenance_requisitions_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions ncs_ict_maintenance_requisitions_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_maintenance_requisitions
@@ -8982,7 +8982,7 @@ ALTER TABLE ONLY public.ncs_ict_maintenance_requisitions
 
 
 --
--- Name: ncs_ict_maintenance_requisitions ncs_ict_maintenance_requisitions_req_no_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_ict_maintenance_requisitions ncs_ict_maintenance_requisitions_req_no_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_ict_maintenance_requisitions
@@ -9070,7 +9070,7 @@ ALTER TABLE ONLY public.ncs_leave_types
 
 
 --
--- Name: ncs_legal_contracts ncs_legal_contracts_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_contracts ncs_legal_contracts_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_contracts
@@ -9078,7 +9078,7 @@ ALTER TABLE ONLY public.ncs_legal_contracts
 
 
 --
--- Name: ncs_legal_disputes ncs_legal_disputes_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_disputes ncs_legal_disputes_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_disputes
@@ -9086,7 +9086,7 @@ ALTER TABLE ONLY public.ncs_legal_disputes
 
 
 --
--- Name: ncs_legal_litigation ncs_legal_litigation_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_litigation ncs_legal_litigation_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_litigation
@@ -9094,7 +9094,7 @@ ALTER TABLE ONLY public.ncs_legal_litigation
 
 
 --
--- Name: ncs_legal_trademarks ncs_legal_trademarks_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_legal_trademarks ncs_legal_trademarks_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_legal_trademarks
@@ -9222,7 +9222,7 @@ ALTER TABLE ONLY public.ncs_posts
 
 
 --
--- Name: ncs_procurement_form5_items ncs_procurement_form5_items_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items ncs_procurement_form5_items_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5_items
@@ -9230,7 +9230,7 @@ ALTER TABLE ONLY public.ncs_procurement_form5_items
 
 
 --
--- Name: ncs_procurement_form5 ncs_procurement_form5_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5 ncs_procurement_form5_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5
@@ -9238,7 +9238,7 @@ ALTER TABLE ONLY public.ncs_procurement_form5
 
 
 --
--- Name: ncs_procurement_form5 ncs_procurement_form5_procurement_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5 ncs_procurement_form5_procurement_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5
@@ -9246,7 +9246,7 @@ ALTER TABLE ONLY public.ncs_procurement_form5
 
 
 --
--- Name: ncs_procurement_plans ncs_procurement_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans ncs_procurement_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_plans
@@ -9254,7 +9254,7 @@ ALTER TABLE ONLY public.ncs_procurement_plans
 
 
 --
--- Name: ncs_procurement_plans ncs_procurement_plans_procurement_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_plans ncs_procurement_plans_procurement_ref_no_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_plans
@@ -9262,7 +9262,7 @@ ALTER TABLE ONLY public.ncs_procurement_plans
 
 
 --
--- Name: ncs_procurement_suppliers ncs_procurement_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers ncs_procurement_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_suppliers
@@ -9270,7 +9270,7 @@ ALTER TABLE ONLY public.ncs_procurement_suppliers
 
 
 --
--- Name: ncs_procurement_suppliers ncs_procurement_suppliers_ppda_registration_no_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_suppliers ncs_procurement_suppliers_ppda_registration_no_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_suppliers
@@ -9286,7 +9286,7 @@ ALTER TABLE ONLY public.ncs_project_comments
 
 
 --
--- Name: ncs_project_facility_relations ncs_project_facility_relations_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_project_facility_relations ncs_project_facility_relations_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_project_facility_relations
@@ -9382,7 +9382,7 @@ ALTER TABLE ONLY public.ncs_reminder_settings
 
 
 --
--- Name: ncs_roles ncs_roles_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_roles ncs_roles_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_roles
@@ -9398,7 +9398,7 @@ ALTER TABLE ONLY public.ncs_social_links
 
 
 --
--- Name: ncs_store_audit_trail ncs_store_audit_trail_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_audit_trail ncs_store_audit_trail_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_audit_trail
@@ -9406,7 +9406,7 @@ ALTER TABLE ONLY public.ncs_store_audit_trail
 
 
 --
--- Name: ncs_store_grn ncs_store_grn_grn_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn ncs_store_grn_grn_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_grn
@@ -9414,7 +9414,7 @@ ALTER TABLE ONLY public.ncs_store_grn
 
 
 --
--- Name: ncs_store_grn ncs_store_grn_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_grn ncs_store_grn_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_grn
@@ -9422,7 +9422,7 @@ ALTER TABLE ONLY public.ncs_store_grn
 
 
 --
--- Name: ncs_store_inventory_items ncs_store_inventory_items_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items ncs_store_inventory_items_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_inventory_items
@@ -9430,7 +9430,7 @@ ALTER TABLE ONLY public.ncs_store_inventory_items
 
 
 --
--- Name: ncs_store_inventory_items ncs_store_inventory_items_sku_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_inventory_items ncs_store_inventory_items_sku_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_inventory_items
@@ -9438,7 +9438,7 @@ ALTER TABLE ONLY public.ncs_store_inventory_items
 
 
 --
--- Name: ncs_store_issuances ncs_store_issuances_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances ncs_store_issuances_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_issuances
@@ -9446,7 +9446,7 @@ ALTER TABLE ONLY public.ncs_store_issuances
 
 
 --
--- Name: ncs_store_issuances ncs_store_issuances_siv_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_issuances ncs_store_issuances_siv_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_issuances
@@ -9454,7 +9454,7 @@ ALTER TABLE ONLY public.ncs_store_issuances
 
 
 --
--- Name: ncs_store_requisitions ncs_store_requisitions_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions ncs_store_requisitions_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_requisitions
@@ -9462,7 +9462,7 @@ ALTER TABLE ONLY public.ncs_store_requisitions
 
 
 --
--- Name: ncs_store_requisitions ncs_store_requisitions_req_number_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_requisitions ncs_store_requisitions_req_number_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_requisitions
@@ -9470,7 +9470,7 @@ ALTER TABLE ONLY public.ncs_store_requisitions
 
 
 --
--- Name: ncs_store_stock_takes ncs_store_stock_takes_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_store_stock_takes ncs_store_stock_takes_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_store_stock_takes
@@ -9502,7 +9502,7 @@ ALTER TABLE ONLY public.ncs_subscriptions
 
 
 --
--- Name: ncs_supplier_contacts ncs_supplier_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts ncs_supplier_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_supplier_contacts
@@ -9510,7 +9510,7 @@ ALTER TABLE ONLY public.ncs_supplier_contacts
 
 
 --
--- Name: ncs_suppliers ncs_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers ncs_suppliers_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_suppliers
@@ -9518,7 +9518,7 @@ ALTER TABLE ONLY public.ncs_suppliers
 
 
 --
--- Name: ncs_suppliers ncs_suppliers_supplier_code_key; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_suppliers ncs_suppliers_supplier_code_key; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_suppliers
@@ -9630,7 +9630,7 @@ ALTER TABLE ONLY public.ncs_verification
 
 
 --
--- Name: ncs_visitor_appointments ncs_visitor_appointments_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_appointments ncs_visitor_appointments_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_visitor_appointments
@@ -9638,7 +9638,7 @@ ALTER TABLE ONLY public.ncs_visitor_appointments
 
 
 --
--- Name: ncs_visitor_logbook ncs_visitor_logbook_pkey; Type: CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_visitor_logbook ncs_visitor_logbook_pkey; Type: CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_visitor_logbook
@@ -10150,7 +10150,7 @@ CREATE INDEX user_type_ncs_users_idx ON public.ncs_users USING btree (user_type)
 
 
 --
--- Name: ncs_procurement_form5_items ncs_procurement_form5_items_form5_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_procurement_form5_items ncs_procurement_form5_items_form5_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_procurement_form5_items
@@ -10158,7 +10158,7 @@ ALTER TABLE ONLY public.ncs_procurement_form5_items
 
 
 --
--- Name: ncs_supplier_contacts ncs_supplier_contacts_supplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rise_user
+-- Name: ncs_supplier_contacts ncs_supplier_contacts_supplier_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ncs_user
 --
 
 ALTER TABLE ONLY public.ncs_supplier_contacts
@@ -10169,1428 +10169,1428 @@ ALTER TABLE ONLY public.ncs_supplier_contacts
 -- Name: FUNCTION date(timestamp without time zone); Type: ACL; Schema: pg_catalog; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION pg_catalog.date(timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION pg_catalog.date(timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION addtime(ts timestamp without time zone, t text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.addtime(ts timestamp without time zone, t text) TO rise_user;
+GRANT ALL ON FUNCTION public.addtime(ts timestamp without time zone, t text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION convert_tz(dt timestamp without time zone, from_tz text, to_tz text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.convert_tz(dt timestamp without time zone, from_tz text, to_tz text) TO rise_user;
+GRANT ALL ON FUNCTION public.convert_tz(dt timestamp without time zone, from_tz text, to_tz text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION date_add(d date, interval_expr text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.date_add(d date, interval_expr text) TO rise_user;
+GRANT ALL ON FUNCTION public.date_add(d date, interval_expr text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION date_format(d date, fmt text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.date_format(d date, fmt text) TO rise_user;
+GRANT ALL ON FUNCTION public.date_format(d date, fmt text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION date_format(d timestamp without time zone, fmt text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.date_format(d timestamp without time zone, fmt text) TO rise_user;
+GRANT ALL ON FUNCTION public.date_format(d timestamp without time zone, fmt text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION datediff(d1 date, d2 date); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.datediff(d1 date, d2 date) TO rise_user;
+GRANT ALL ON FUNCTION public.datediff(d1 date, d2 date) TO ncs_user;
 
 
 --
 -- Name: FUNCTION datediff(d1 text, d2 text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.datediff(d1 text, d2 text) TO rise_user;
+GRANT ALL ON FUNCTION public.datediff(d1 text, d2 text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION datediff(d1 timestamp without time zone, d2 timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.datediff(d1 timestamp without time zone, d2 timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.datediff(d1 timestamp without time zone, d2 timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION day(d date); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.day(d date) TO rise_user;
+GRANT ALL ON FUNCTION public.day(d date) TO ncs_user;
 
 
 --
 -- Name: FUNCTION day(d timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.day(d timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.day(d timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION find_in_set(needle integer, haystack text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.find_in_set(needle integer, haystack text) TO rise_user;
+GRANT ALL ON FUNCTION public.find_in_set(needle integer, haystack text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION find_in_set(needle text, haystack text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.find_in_set(needle text, haystack text) TO rise_user;
+GRANT ALL ON FUNCTION public.find_in_set(needle text, haystack text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION ifnull(anyelement, anyelement); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.ifnull(anyelement, anyelement) TO rise_user;
+GRANT ALL ON FUNCTION public.ifnull(anyelement, anyelement) TO ncs_user;
 
 
 --
 -- Name: FUNCTION month(d date); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.month(d date) TO rise_user;
+GRANT ALL ON FUNCTION public.month(d date) TO ncs_user;
 
 
 --
 -- Name: FUNCTION month(d timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.month(d timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.month(d timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION mysql_if(boolean, anyelement, anyelement); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.mysql_if(boolean, anyelement, anyelement) TO rise_user;
+GRANT ALL ON FUNCTION public.mysql_if(boolean, anyelement, anyelement) TO ncs_user;
 
 
 --
 -- Name: FUNCTION str_to_date(str text, fmt text); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.str_to_date(str text, fmt text) TO rise_user;
+GRANT ALL ON FUNCTION public.str_to_date(str text, fmt text) TO ncs_user;
 
 
 --
 -- Name: FUNCTION timestampdiff(unit text, ts1 timestamp without time zone, ts2 timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.timestampdiff(unit text, ts1 timestamp without time zone, ts2 timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.timestampdiff(unit text, ts1 timestamp without time zone, ts2 timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION trunc(val double precision, scale integer); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.trunc(val double precision, scale integer) TO rise_user;
+GRANT ALL ON FUNCTION public.trunc(val double precision, scale integer) TO ncs_user;
 
 
 --
 -- Name: FUNCTION unix_timestamp(); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.unix_timestamp() TO rise_user;
+GRANT ALL ON FUNCTION public.unix_timestamp() TO ncs_user;
 
 
 --
 -- Name: FUNCTION unix_timestamp(ts timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.unix_timestamp(ts timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.unix_timestamp(ts timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: FUNCTION year(d date); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.year(d date) TO rise_user;
+GRANT ALL ON FUNCTION public.year(d date) TO ncs_user;
 
 
 --
 -- Name: FUNCTION year(d timestamp without time zone); Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON FUNCTION public.year(d timestamp without time zone) TO rise_user;
+GRANT ALL ON FUNCTION public.year(d timestamp without time zone) TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_activity_logs; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_activity_logs TO rise_user;
+GRANT ALL ON TABLE public.ncs_activity_logs TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_activity_logs_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_activity_logs_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_activity_logs_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_announcements; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_announcements TO rise_user;
+GRANT ALL ON TABLE public.ncs_announcements TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_announcements_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_announcements_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_announcements_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_article_helpful_status; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_article_helpful_status TO rise_user;
+GRANT ALL ON TABLE public.ncs_article_helpful_status TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_article_helpful_status_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_article_helpful_status_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_article_helpful_status_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_attendance; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_attendance TO rise_user;
+GRANT ALL ON TABLE public.ncs_attendance TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_attendance_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_attendance_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_attendance_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_automation_settings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_automation_settings TO rise_user;
+GRANT ALL ON TABLE public.ncs_automation_settings TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_automation_settings_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_automation_settings_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_automation_settings_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_checklist_groups; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_checklist_groups TO rise_user;
+GRANT ALL ON TABLE public.ncs_checklist_groups TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_checklist_groups_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_checklist_groups_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_checklist_groups_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_checklist_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_checklist_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_checklist_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_checklist_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_checklist_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_checklist_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_checklist_template; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_checklist_template TO rise_user;
+GRANT ALL ON TABLE public.ncs_checklist_template TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_checklist_template_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_checklist_template_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_checklist_template_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_ci_sessions; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_ci_sessions TO rise_user;
+GRANT ALL ON TABLE public.ncs_ci_sessions TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_client_groups; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_client_groups TO rise_user;
+GRANT ALL ON TABLE public.ncs_client_groups TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_client_groups_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_client_groups_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_client_groups_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_client_wallet; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_client_wallet TO rise_user;
+GRANT ALL ON TABLE public.ncs_client_wallet TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_client_wallet_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_client_wallet_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_client_wallet_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_clients; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_clients TO rise_user;
+GRANT ALL ON TABLE public.ncs_clients TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_clients_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_clients_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_clients_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_company; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_company TO rise_user;
+GRANT ALL ON TABLE public.ncs_company TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_company_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_company_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_company_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_contract_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_contract_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_contract_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_contract_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_contract_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_contract_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_contract_templates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_contract_templates TO rise_user;
+GRANT ALL ON TABLE public.ncs_contract_templates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_contract_templates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_contract_templates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_contract_templates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_contracts; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_contracts TO rise_user;
+GRANT ALL ON TABLE public.ncs_contracts TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_contracts_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_contracts_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_contracts_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_custom_field_values; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_custom_field_values TO rise_user;
+GRANT ALL ON TABLE public.ncs_custom_field_values TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_custom_field_values_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_custom_field_values_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_custom_field_values_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_custom_fields; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_custom_fields TO rise_user;
+GRANT ALL ON TABLE public.ncs_custom_fields TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_custom_fields_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_custom_fields_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_custom_fields_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_custom_widgets; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_custom_widgets TO rise_user;
+GRANT ALL ON TABLE public.ncs_custom_widgets TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_custom_widgets_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_custom_widgets_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_custom_widgets_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_dashboards; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_dashboards TO rise_user;
+GRANT ALL ON TABLE public.ncs_dashboards TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_dashboards_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_dashboards_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_dashboards_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_e_invoice_templates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_e_invoice_templates TO rise_user;
+GRANT ALL ON TABLE public.ncs_e_invoice_templates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_e_invoice_templates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_e_invoice_templates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_e_invoice_templates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_email_templates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_email_templates TO rise_user;
+GRANT ALL ON TABLE public.ncs_email_templates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_email_templates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_email_templates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_email_templates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_estimate_comments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_estimate_comments TO rise_user;
+GRANT ALL ON TABLE public.ncs_estimate_comments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_estimate_comments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_estimate_comments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_estimate_comments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_estimate_forms; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_estimate_forms TO rise_user;
+GRANT ALL ON TABLE public.ncs_estimate_forms TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_estimate_forms_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_estimate_forms_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_estimate_forms_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_estimate_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_estimate_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_estimate_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_estimate_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_estimate_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_estimate_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_estimate_requests; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_estimate_requests TO rise_user;
+GRANT ALL ON TABLE public.ncs_estimate_requests TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_estimate_requests_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_estimate_requests_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_estimate_requests_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_estimates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_estimates TO rise_user;
+GRANT ALL ON TABLE public.ncs_estimates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_estimates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_estimates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_estimates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_event_tracker; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_event_tracker TO rise_user;
+GRANT ALL ON TABLE public.ncs_event_tracker TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_event_tracker_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_event_tracker_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_event_tracker_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_events; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_events TO rise_user;
+GRANT ALL ON TABLE public.ncs_events TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_events_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_events_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_events_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_expense_categories; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_expense_categories TO rise_user;
+GRANT ALL ON TABLE public.ncs_expense_categories TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_expense_categories_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_expense_categories_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_expense_categories_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_expenses; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_expenses TO rise_user;
+GRANT ALL ON TABLE public.ncs_expenses TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_expenses_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_expenses_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_expenses_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_file_category; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_file_category TO rise_user;
+GRANT ALL ON TABLE public.ncs_file_category TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_file_category_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_file_category_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_file_category_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_folders; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_folders TO rise_user;
+GRANT ALL ON TABLE public.ncs_folders TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_folders_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_folders_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_folders_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_general_files; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_general_files TO rise_user;
+GRANT ALL ON TABLE public.ncs_general_files TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_general_files_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_general_files_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_general_files_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_help_articles; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_help_articles TO rise_user;
+GRANT ALL ON TABLE public.ncs_help_articles TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_help_articles_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_help_articles_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_help_articles_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_help_categories; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_help_categories TO rise_user;
+GRANT ALL ON TABLE public.ncs_help_categories TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_help_categories_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_help_categories_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_help_categories_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_invoice_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_invoice_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_invoice_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_invoice_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_invoice_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_invoice_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_invoice_payments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_invoice_payments TO rise_user;
+GRANT ALL ON TABLE public.ncs_invoice_payments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_invoice_payments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_invoice_payments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_invoice_payments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_invoices; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_invoices TO rise_user;
+GRANT ALL ON TABLE public.ncs_invoices TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_invoices_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_invoices_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_invoices_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_item_categories; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_item_categories TO rise_user;
+GRANT ALL ON TABLE public.ncs_item_categories TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_item_categories_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_item_categories_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_item_categories_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_labels; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_labels TO rise_user;
+GRANT ALL ON TABLE public.ncs_labels TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_labels_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_labels_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_labels_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_lead_source; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_lead_source TO rise_user;
+GRANT ALL ON TABLE public.ncs_lead_source TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_lead_source_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_lead_source_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_lead_source_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_lead_status; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_lead_status TO rise_user;
+GRANT ALL ON TABLE public.ncs_lead_status TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_lead_status_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_lead_status_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_lead_status_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_leave_applications; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_leave_applications TO rise_user;
+GRANT ALL ON TABLE public.ncs_leave_applications TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_leave_applications_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_leave_applications_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_leave_applications_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_leave_types; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_leave_types TO rise_user;
+GRANT ALL ON TABLE public.ncs_leave_types TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_leave_types_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_leave_types_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_leave_types_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_likes; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_likes TO rise_user;
+GRANT ALL ON TABLE public.ncs_likes TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_likes_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_likes_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_likes_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_messages; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_messages TO rise_user;
+GRANT ALL ON TABLE public.ncs_messages TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_messages_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_messages_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_messages_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_milestones; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_milestones TO rise_user;
+GRANT ALL ON TABLE public.ncs_milestones TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_milestones_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_milestones_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_milestones_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_note_category; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_note_category TO rise_user;
+GRANT ALL ON TABLE public.ncs_note_category TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_note_category_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_note_category_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_note_category_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_notes; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_notes TO rise_user;
+GRANT ALL ON TABLE public.ncs_notes TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_notes_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_notes_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_notes_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_notification_settings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_notification_settings TO rise_user;
+GRANT ALL ON TABLE public.ncs_notification_settings TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_notification_settings_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_notification_settings_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_notification_settings_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_notifications; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_notifications TO rise_user;
+GRANT ALL ON TABLE public.ncs_notifications TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_notifications_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_notifications_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_notifications_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_order_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_order_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_order_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_order_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_order_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_order_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_order_status; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_order_status TO rise_user;
+GRANT ALL ON TABLE public.ncs_order_status TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_order_status_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_order_status_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_order_status_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_orders; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_orders TO rise_user;
+GRANT ALL ON TABLE public.ncs_orders TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_orders_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_orders_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_orders_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_pages; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_pages TO rise_user;
+GRANT ALL ON TABLE public.ncs_pages TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_pages_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_pages_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_pages_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_payment_methods; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_payment_methods TO rise_user;
+GRANT ALL ON TABLE public.ncs_payment_methods TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_payment_methods_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_payment_methods_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_payment_methods_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_paypal_ipn; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_paypal_ipn TO rise_user;
+GRANT ALL ON TABLE public.ncs_paypal_ipn TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_paypal_ipn_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_paypal_ipn_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_paypal_ipn_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_pin_comments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_pin_comments TO rise_user;
+GRANT ALL ON TABLE public.ncs_pin_comments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_pin_comments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_pin_comments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_pin_comments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_posts; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_posts TO rise_user;
+GRANT ALL ON TABLE public.ncs_posts TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_posts_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_posts_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_posts_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_comments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_comments TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_comments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_project_comments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_project_comments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_project_comments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_files; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_files TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_files TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_project_files_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_project_files_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_project_files_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_members; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_members TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_members TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_project_members_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_project_members_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_project_members_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_settings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_settings TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_settings TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_status; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_status TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_status TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_project_status_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_project_status_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_project_status_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_project_time; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_project_time TO rise_user;
+GRANT ALL ON TABLE public.ncs_project_time TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_project_time_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_project_time_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_project_time_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_projects; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_projects TO rise_user;
+GRANT ALL ON TABLE public.ncs_projects TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_projects_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_projects_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_projects_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_proposal_comments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_proposal_comments TO rise_user;
+GRANT ALL ON TABLE public.ncs_proposal_comments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_proposal_comments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_proposal_comments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_proposal_comments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_proposal_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_proposal_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_proposal_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_proposal_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_proposal_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_proposal_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_proposal_templates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_proposal_templates TO rise_user;
+GRANT ALL ON TABLE public.ncs_proposal_templates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_proposal_templates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_proposal_templates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_proposal_templates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_proposals; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_proposals TO rise_user;
+GRANT ALL ON TABLE public.ncs_proposals TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_proposals_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_proposals_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_proposals_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_reminder_logs; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_reminder_logs TO rise_user;
+GRANT ALL ON TABLE public.ncs_reminder_logs TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_reminder_logs_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_reminder_logs_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_reminder_logs_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_reminder_settings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_reminder_settings TO rise_user;
+GRANT ALL ON TABLE public.ncs_reminder_settings TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_reminder_settings_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_reminder_settings_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_reminder_settings_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_settings; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_settings TO rise_user;
+GRANT ALL ON TABLE public.ncs_settings TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_social_links; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_social_links TO rise_user;
+GRANT ALL ON TABLE public.ncs_social_links TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_stripe_ipn; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_stripe_ipn TO rise_user;
+GRANT ALL ON TABLE public.ncs_stripe_ipn TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_stripe_ipn_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_stripe_ipn_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_stripe_ipn_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_subscription_items; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_subscription_items TO rise_user;
+GRANT ALL ON TABLE public.ncs_subscription_items TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_subscription_items_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_subscription_items_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_subscription_items_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_subscriptions; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_subscriptions TO rise_user;
+GRANT ALL ON TABLE public.ncs_subscriptions TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_subscriptions_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_subscriptions_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_subscriptions_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_task_priority; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_task_priority TO rise_user;
+GRANT ALL ON TABLE public.ncs_task_priority TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_task_priority_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_task_priority_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_task_priority_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_task_status; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_task_status TO rise_user;
+GRANT ALL ON TABLE public.ncs_task_status TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_task_status_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_task_status_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_task_status_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_tasks; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_tasks TO rise_user;
+GRANT ALL ON TABLE public.ncs_tasks TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_tasks_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_tasks_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_tasks_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_taxes; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_taxes TO rise_user;
+GRANT ALL ON TABLE public.ncs_taxes TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_taxes_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_taxes_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_taxes_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_team; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_team TO rise_user;
+GRANT ALL ON TABLE public.ncs_team TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_team_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_team_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_team_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_team_member_job_info; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_team_member_job_info TO rise_user;
+GRANT ALL ON TABLE public.ncs_team_member_job_info TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_team_member_job_info_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_team_member_job_info_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_team_member_job_info_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_ticket_comments; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_ticket_comments TO rise_user;
+GRANT ALL ON TABLE public.ncs_ticket_comments TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_ticket_comments_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_ticket_comments_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_ticket_comments_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_ticket_templates; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_ticket_templates TO rise_user;
+GRANT ALL ON TABLE public.ncs_ticket_templates TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_ticket_templates_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_ticket_templates_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_ticket_templates_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_ticket_types; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_ticket_types TO rise_user;
+GRANT ALL ON TABLE public.ncs_ticket_types TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_ticket_types_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_ticket_types_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_ticket_types_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_tickets; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_tickets TO rise_user;
+GRANT ALL ON TABLE public.ncs_tickets TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_tickets_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_tickets_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_tickets_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_to_do; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_to_do TO rise_user;
+GRANT ALL ON TABLE public.ncs_to_do TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_to_do_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_to_do_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_to_do_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_users; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_users TO rise_user;
+GRANT ALL ON TABLE public.ncs_users TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_users_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_users_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_users_id_seq TO ncs_user;
 
 
 --
 -- Name: TABLE ncs_verification; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON TABLE public.ncs_verification TO rise_user;
+GRANT ALL ON TABLE public.ncs_verification TO ncs_user;
 
 
 --
 -- Name: SEQUENCE ncs_verification_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
-GRANT ALL ON SEQUENCE public.ncs_verification_id_seq TO rise_user;
+GRANT ALL ON SEQUENCE public.ncs_verification_id_seq TO ncs_user;
 
 
 --

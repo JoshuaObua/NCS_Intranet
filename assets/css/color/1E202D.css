@@ -611,13 +611,13 @@ pre {
   color: #ccc;
 }
 
-.rise-chat-wrapper {
+.ncs-chat-wrapper {
   background: #272B35;
 }
-.rise-chat-wrapper .message-row {
+.ncs-chat-wrapper .message-row {
   border-bottom-color: #2f3541;
 }
-.rise-chat-wrapper .message-row:hover {
+.ncs-chat-wrapper .message-row:hover {
   background: #20242C;
 }
 
@@ -629,18 +629,18 @@ pre {
   background-color: #5867dd;
 }
 
-.rise-chat-footer {
+.ncs-chat-footer {
   background: #272B35;
   border-color: #2f3541;
 }
-.rise-chat-footer textarea {
+.ncs-chat-footer textarea {
   background: #272B35;
   color: #ccc;
 }
-.rise-chat-footer .chat-button-section .btn-default {
+.ncs-chat-footer .chat-button-section .btn-default {
   background-color: transparent !important;
 }
-.rise-chat-footer .chat-button-section .btn-default:hover, .rise-chat-footer .chat-button-section .btn-default:focus {
+.ncs-chat-footer .chat-button-section .btn-default:hover, .ncs-chat-footer .chat-button-section .btn-default:focus {
   background-color: #20242C !important;
 }
 

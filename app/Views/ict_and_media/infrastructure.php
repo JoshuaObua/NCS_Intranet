@@ -100,8 +100,8 @@
                     <tbody>
                         <tr>
                             <td><strong>BAK-PG-2026-0918</strong></td>
-                            <td><code>rise_db</code> (PostgreSQL)</td>
-                            <td><code>s3://ncs-backups/pg_rise_db_20260918_0200.sql.gz.enc</code></td>
+                            <td><code>ncs_db</code> (PostgreSQL)</td>
+                            <td><code>s3://ncs-backups/pg_ncs_db_20260918_0200.sql.gz.enc</code></td>
                             <td>42.8 MB</td>
                             <td>2026-09-18 02:00:00</td>
                             <td><span class="badge bg-success">VERIFIED & ENCRYPTED</span></td>

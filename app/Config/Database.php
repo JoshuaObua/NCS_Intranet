@@ -33,9 +33,9 @@ class Database extends Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => '127.0.0.1',
-		'username' => 'rise_user',
-		'password' => 'rise_pass_2024',
-		'database' => 'rise_db',
+		'username' => '',
+		'password' => '',
+		'database' => '',
 		'DBDriver' => 'Postgre',
 		'DBPrefix' => 'ncs_',
 		'pConnect' => false,
@@ -81,6 +81,13 @@ class Database extends Config
 	public function __construct()
 	{
 		parent::__construct();
+		$this->default['hostname'] = env('database.hostname', $this->default['hostname']);
+		$this->default['username'] = env('database.username', $this->default['username']);
+		$this->default['password'] = env('database.password', $this->default['password']);
+		$this->default['database'] = env('database.database', $this->default['database']);
+		$this->default['DBDriver'] = env('database.driver', $this->default['DBDriver']);
+		$this->default['DBPrefix'] = env('database.prefix', $this->default['DBPrefix']);
+		$this->default['port'] = (int) env('database.port', $this->default['port']);
 
 		// Ensure that we always set the database group to 'tests' if
 		// we are currently running an automated test suite, so that

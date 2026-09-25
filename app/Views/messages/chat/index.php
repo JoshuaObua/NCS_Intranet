@@ -4,7 +4,7 @@ $can_chat = can_access_messages_module();
 
 if (get_setting("module_chat") && $can_chat) {
 ?>
-    <div id="js-rise-chat-wrapper" class="rise-chat-wrapper hide"></div>
+    <div id="js-ncs-chat-wrapper" class="ncs-chat-wrapper hide"></div>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -18,7 +18,7 @@ if (get_setting("module_chat") && $can_chat) {
                 $chatIconWrapper.append(' <span id="js-chat-min-icon" data-type="open" class="chat-min-icon"><i data-feather="message-circle" class="icon"></i></span>');
             }
 
-            var $chatBoxWrapper = '<div id="js-rise-chat-wrapper" class="rise-chat-wrapper hide"></div>';
+            var $chatBoxWrapper = '<div id="js-ncs-chat-wrapper" class="ncs-chat-wrapper hide"></div>';
             if (isMobile()) {
                 if (!hideChatIcon) {
                     $('#mobile-chat-menu-button').append($chatIconWrapper).find(".init-chat-icon").removeClass("init-chat-icon");
@@ -47,10 +47,10 @@ if (get_setting("module_chat") && $can_chat) {
                 $("#js-chat-min-icon").attr("data-type", type).html(count ? count : chatIconContent[type]);
 
                 if (type === "open") {
-                    $("#js-rise-chat-wrapper").addClass("hide"); //hide chat box
+                    $("#js-ncs-chat-wrapper").addClass("hide"); //hide chat box
                     $("#js-init-chat-icon").removeClass("has-message");
                 } else if (type === "close") {
-                    $("#js-rise-chat-wrapper").removeClass("hide"); //show chat box
+                    $("#js-ncs-chat-wrapper").removeClass("hide"); //show chat box
                     $("#js-init-chat-icon").removeClass("has-message");
                 } else if (type === "unread") {
                     $("#js-init-chat-icon").addClass("has-message");
@@ -73,7 +73,7 @@ if (get_setting("module_chat") && $can_chat) {
                 $chatIcon = $("#js-init-chat-icon");
 
             $chatIcon.click(function() {
-                $("#js-rise-chat-wrapper").html("");
+                $("#js-ncs-chat-wrapper").html("");
 
                 NotificationHelper.updateLastMessageCheckingStatus();
 
@@ -138,15 +138,15 @@ if (get_setting("module_chat") && $can_chat) {
                 }
             }
 
-            $('body #js-rise-chat-wrapper').on('click', '.js-message-row', function() {
+            $('body #js-ncs-chat-wrapper').on('click', '.js-message-row', function() {
                 getActiveChat($(this).attr("data-id"));
             });
 
-            $('body #js-rise-chat-wrapper').on('click', '.js-message-row-of-team-members-tab', function() {
+            $('body #js-ncs-chat-wrapper').on('click', '.js-message-row-of-team-members-tab', function() {
                 getChatlistOfUser($(this).attr("data-id"), "team_members");
             });
 
-            $('body #js-rise-chat-wrapper').on('click', '.js-message-row-of-clients-tab', function() {
+            $('body #js-ncs-chat-wrapper').on('click', '.js-message-row-of-clients-tab', function() {
                 getChatlistOfUser($(this).attr("data-id"), "clients");
             });
 
@@ -154,7 +154,7 @@ if (get_setting("module_chat") && $can_chat) {
             async function restoreChatDimensions() {
                 var dimensions = await IDBHelper.getValue('chat_window_dimensions');
                 if (dimensions) {
-                    var $chatWrapper = $('#js-rise-chat-wrapper');
+                    var $chatWrapper = $('#js-ncs-chat-wrapper');
 
                     var headerHeight = $('.navbar').outerHeight() || 66;
                     var sidebarWidth = $('.sidebar').outerWidth() || 70;
@@ -193,7 +193,7 @@ if (get_setting("module_chat") && $can_chat) {
             restoreChatDimensions();
 
             //make resizable
-            makeResizable('#js-rise-chat-wrapper', {
+            makeResizable('#js-ncs-chat-wrapper', {
                 minWidth: 310,
                 maxWidth: 800,
                 minHeight: 400,
@@ -222,8 +222,8 @@ if (get_setting("module_chat") && $can_chat) {
             //reset chat dimensions
             $(document).on('click', '.reset-chat-dimension', function() {
                 IDBHelper.setValue('chat_window_dimensions', null);
-                $('#js-rise-chat-wrapper').removeAttr('style');
-                $('#js-rise-chat-wrapper').removeClass('full-screen');
+                $('#js-ncs-chat-wrapper').removeAttr('style');
+                $('#js-ncs-chat-wrapper').removeClass('full-screen');
                 $('.chat-full-screen').removeClass('hide');
                 $('.chat-exit-full-screen').addClass('hide');
 
@@ -246,7 +246,7 @@ if (get_setting("module_chat") && $can_chat) {
         });
 
         function enterChatFullScreen() {
-            var $wrapper = $("#js-rise-chat-wrapper");
+            var $wrapper = $("#js-ncs-chat-wrapper");
             $wrapper.addClass("full-screen");
             $(".chat-full-screen").addClass("hide");
             $(".chat-exit-full-screen").removeClass("hide");
@@ -254,7 +254,7 @@ if (get_setting("module_chat") && $can_chat) {
         }
 
         function exitChatFullScreen() {
-            var $wrapper = $("#js-rise-chat-wrapper");
+            var $wrapper = $("#js-ncs-chat-wrapper");
             $wrapper.removeClass("full-screen");
             $(".chat-exit-full-screen").addClass("hide");
             $(".chat-full-screen").removeClass("hide");
@@ -262,7 +262,7 @@ if (get_setting("module_chat") && $can_chat) {
         }
 
         function handleFullScreenOrExitFullScreen() {
-            var $wrapper = $("#js-rise-chat-wrapper");
+            var $wrapper = $("#js-ncs-chat-wrapper");
             if ($wrapper.hasClass("full-screen")) {
                 setTimeout(function() {
                     $(".chat-exit-full-screen").removeClass("hide");
@@ -273,11 +273,11 @@ if (get_setting("module_chat") && $can_chat) {
 
         // Adjust inner chat body dynamically
         function adjustChatBodyHeight() {
-            var chatBoxHeight = $('#js-rise-chat-wrapper').height();
-            var headerHeight = $('.rise-chat-header').outerHeight() || 60;
-            var footerHeight = $('.rise-chat-footer').outerHeight() || 77;
+            var chatBoxHeight = $('#js-ncs-chat-wrapper').height();
+            var headerHeight = $('.ncs-chat-header').outerHeight() || 60;
+            var footerHeight = $('.ncs-chat-footer').outerHeight() || 77;
 
-            $('.rise-chat-body').height(chatBoxHeight - (headerHeight + footerHeight));
+            $('.ncs-chat-body').height(chatBoxHeight - (headerHeight + footerHeight));
         }
 
         function getChatlistOfUser(user_id, tab_type) {
@@ -285,7 +285,7 @@ if (get_setting("module_chat") && $can_chat) {
             setChatIcon("close"); //show close icon
 
             appLoader.show({
-                container: "#js-rise-chat-wrapper",
+                container: "#js-ncs-chat-wrapper",
                 css: "bottom: 40%; right: 35%;"
             });
 
@@ -297,7 +297,7 @@ if (get_setting("module_chat") && $can_chat) {
                     tab_type: tab_type
                 },
                 success: function(response) {
-                    $("#js-rise-chat-wrapper").html(response);
+                    $("#js-ncs-chat-wrapper").html(response);
                     appLoader.hide();
                 }
             });
@@ -311,7 +311,7 @@ if (get_setting("module_chat") && $can_chat) {
 
             setCookie("active_chat_id", "");
             appLoader.show({
-                container: "#js-rise-chat-wrapper",
+                container: "#js-ncs-chat-wrapper",
                 css: "bottom: 40%; right: 35%;"
             });
 
@@ -321,7 +321,7 @@ if (get_setting("module_chat") && $can_chat) {
                     type: "inbox"
                 },
                 success: function(response) {
-                    $("#js-rise-chat-wrapper").html(response);
+                    $("#js-ncs-chat-wrapper").html(response);
 
                     if (!trigger_from_user_chat) {
                         $("#chat-inbox-tab-button a").trigger("click");
@@ -338,7 +338,7 @@ if (get_setting("module_chat") && $can_chat) {
                 adjustChatBodyHeight();
 
                 //append resizable handles
-                resizableHandles("#js-rise-chat-wrapper");
+                resizableHandles("#js-ncs-chat-wrapper");
             }, 300);
         }
 
@@ -346,7 +346,7 @@ if (get_setting("module_chat") && $can_chat) {
             setChatIcon("close"); //show close icon
 
             appLoader.show({
-                container: "#js-rise-chat-wrapper",
+                container: "#js-ncs-chat-wrapper",
                 css: "bottom: 40%; right: 35%;"
             });
 
@@ -357,14 +357,14 @@ if (get_setting("module_chat") && $can_chat) {
                     message_id: message_id
                 },
                 success: function(response) {
-                    $("#js-rise-chat-wrapper").html(response);
+                    $("#js-ncs-chat-wrapper").html(response);
                     appLoader.hide();
                     setCookie("active_chat_id", message_id);
                     $("#js-chat-message-textarea").focus();
 
                     //append resizable handles
                     setTimeout(function() {
-                        resizableHandles("#js-rise-chat-wrapper");
+                        resizableHandles("#js-ncs-chat-wrapper");
                     }, 200);
                 }
             });

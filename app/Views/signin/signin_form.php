@@ -7,8 +7,6 @@
         <?php } ?>
     </div>
     <div class="card-body p30 rounded-bottom">
-        <?php echo form_open("signin/authenticate", array("id" => "signin-form", "class" => "general-form", "role" => "form")); ?>
-
         <?php
         $session = \Config\Services::session();
         $signin_validation_errors = $session->getFlashdata("signin_validation_errors");
@@ -22,6 +20,9 @@
                 <?php } ?>
             </div>
         <?php } ?>
+
+        <?php if (ENVIRONMENT !== 'production') { ?>
+        <?php echo form_open("signin/authenticate", array("id" => "signin-form", "class" => "general-form", "role" => "form")); ?>
         <div class="form-group">
             <?php
             echo form_input(array(
@@ -61,11 +62,19 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit"><?php echo app_lang('signin'); ?></button>
 
         <?php echo form_close(); ?>
-        <div class="mt5"><?php echo anchor("signin/request_reset_password", app_lang("forgot_password")); ?></div>
-
-        <?php if (!get_setting("disable_client_signup")) { ?>
-            <div class="mt20"><?php echo app_lang("you_dont_have_an_account") ?> &nbsp; <?php echo anchor("signup", app_lang("signup")); ?></div>
         <?php } ?>
+        <div class="mt20 text-center">
+            <div class="ncs-ugpass-label text-muted mb10">Sign in with</div>
+            <?php
+            $ugpass_login_url = get_uri('ugpass/login');
+            if (isset($redirect) && $redirect) {
+                $ugpass_login_url .= '?redirect=' . urlencode($redirect);
+            }
+            ?>
+            <a href="<?php echo $ugpass_login_url; ?>" class="ncs-ugpass-button" role="button" aria-label="Sign in with UG Pass" title="Authenticate securely with National Information Technology Authority (NITA-U) UG Pass">
+                <img src="<?php echo get_file_uri('assets/images/ugpass.png'); ?>" alt="Sign in with UG Pass" />
+            </a>
+        </div>
 
         <?php
         app_hooks()->do_action('app_hook_signin_extension');
@@ -74,8 +83,60 @@
 </div>
 
 
+<?php if (ENVIRONMENT !== 'production') { ?>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#signin-form").appForm({ajaxSubmit: false, isModal: false});
     });
-</script>    
+</script>
+<?php } ?>
+
+<style>
+    .ncs-ugpass-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+        min-height: 52px;
+        padding: 8px 24px;
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        background: #ffffff;
+        box-shadow: 0 1px 3px rgba(24, 39, 75, .08), 0 2px 6px rgba(24, 39, 75, .04);
+        opacity: 1;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+    .ncs-ugpass-button:hover {
+        background: #f8fafc;
+        border-color: #0b69a3;
+        box-shadow: 0 4px 12px rgba(11, 105, 163, .15);
+        transform: translateY(-1px);
+        text-decoration: none;
+    }
+    .ncs-ugpass-button:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(24, 39, 75, .1);
+    }
+    .ncs-ugpass-button:focus {
+        outline: 2px solid #0b69a3;
+        outline-offset: 2px;
+    }
+    .ncs-ugpass-button img {
+        display: block;
+        max-width: 155px;
+        max-height: 38px;
+        width: auto;
+        height: auto;
+    }
+    .ncs-ugpass-label {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    @media (max-width: 576px) {
+        .ncs-ugpass-label {
+            font-size: 1rem;
+        }
+    }
+</style>

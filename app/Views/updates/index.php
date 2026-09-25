@@ -13,7 +13,7 @@
                     <h4> <?php echo "App " . app_lang('updates'); ?></h4>
                     <div class="title-button-group">
                         <?php echo anchor("Updates/systeminfo",  "<i data-feather='package' class='icon-16 mr5'></i>" . "Php Info", array("class" => "btn btn-warning", "target" => "_blank")); ?>
-                        <a href='https://risedocs.fairsketch.com/doc/view/56' class='btn btn-info text-white' target='_blank'><i data-feather='help-circle' class='icon-16 mr5'></i><?php echo app_lang('help'); ?></a>
+                        <a href='https://ncsintranetdocs.atenimedia.com/doc/view/56' class='btn btn-info text-white' target='_blank'><i data-feather='help-circle' class='icon-16 mr5'></i><?php echo app_lang('help'); ?></a>
                     </div>
                 </div>
 

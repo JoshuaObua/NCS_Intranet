@@ -4,6 +4,87 @@ All notable changes, features, and bug fixes for the **NCS Intranet System** are
 
 ---
 
+### Added
+- **Interactive Organogram Diagram & Bottom-to-Top Approval Workflow Engine**:
+  - **Paper-Style Chip Visual Design & Infographic UI (Exact Match to `Docs/paper-style-organizational-chart-infographic-with-photo_52683-66505.avif`)**:
+    - **Capsule Anatomy**: White horizontal pill capsules (`border-radius: 999px` / `30px`) with multi-layered depth shadows (`box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)`).
+    - **Crescent Left Border Arcs**: Colored semi-circular arc hugging the left profile and framing circular portrait photos.
+    - **3D Folded Ribbon Level Badges**: Realistic folded ribbon banners at the top rim of cards with dog-ear underside folding triangles, displaying `LEVEL A`, `LEVEL B`, `LEVEL C`, `LEVEL D`.
+    - **Infographic Tier Color System**:
+      - Level A: Forest Teal ribbon (`#187968`, gradient `#1c8c78` to `#125c4f`) with gold accent ring for Apex Authority.
+      - Level B: Emerald Green ribbon (`#16a34a`, gradient `#22c55e` to `#15803d`) for Directorates.
+      - Level C: Warm Amber / Gold ribbon (`#d97706`, gradient `#f59e0b` to `#b45309`) for Department Heads.
+      - Level D: Coral / Orange ribbon (`#ea580c`, gradient `#f97316` to `#c2410c`) for Operational Officers.
+    - **Portraits & Typography**: Circular executive photo avatars with 3px solid white borders, bold uppercase titles (`font-weight: 800`, `letter-spacing: 0.04em`), and muted officer name subtitles.
+  - **Strict Dual-Branching (Binary Tree) Hierarchy ($1 \rightarrow 2 \rightarrow 4 \rightarrow 8$)**:
+    - **Level A (1 Node)**: General Secretary (Accounting Officer) at Apex $(X=960, Y=60)$.
+    - **Level B (2 Directorate Nodes)**: Head of Finance & Corporate Services $(X=520, Y=240)$ and Head of Technical & Sports Development $(X=1400, Y=240)$ reporting to Level A.
+    - **Level C (4 Department Nodes)**: 2 under Finance (Head of Procurement $(X=320, Y=420)$ and Senior Accountant $(X=720, Y=420)$), 2 under Sports (Facilities Manager $(X=1200, Y=420)$ and Chief Internal Auditor $(X=1600, Y=420)$).
+    - **Level D (8 Operational Nodes)**: 2 under each Level C node (Accounts Assistant, Budget Officer, Stores Officer, Audit Assistant, Facilities Officer, Sports Officer, Games Coordinator, etc.) at $Y=610$.
+  - **Automatic Line Attachment & Real-Time Auto-Save**:
+    - Orthogonal stepped bus connectors (horizontal crossbars and vertical drop trunks) connecting parents and children.
+    - Automatic line setup on load with zero manual wiring required.
+    - Real-time debounced auto-save via AJAX (`organogram/save_node_position`) persisting canvas coordinates on drag-end with live indicator badge ("Auto-saved").
+  - **Organizational Hierarchy & Workflow Paradigm**:
+    - Modeled the complete administrative hierarchy of the National Council of Sports where **every role is an office** and **every department is a branch**.
+    - Designed and implemented a bottom-to-top document and request approval routing engine where subordinates submit requisitions upward through intermediate supervisors and departmental heads up to the apex executive authority (General Secretary / Accounting Officer).
+  - **Interactive Drag-and-Drop Canvas & Right-Side Palette Architecture**:
+    - **Canvas**: Pan-and-zoom dot-matrix canvas (`#organogram-container`) supporting mouse-wheel scaling (35% to 220%), mouse-drag panning, hierarchical auto-layout, and viewport bounds fitting.
+    - **Right-Side Palette (`organogram-palette-sidebar`)**: Grouped by department branches and listing all available roles/offices with live search filtering.
+    - **Zero-Duplication Invariant**: When an office or branch is dragged from the palette onto the canvas, it moves completely (permanently excluded from the palette pool) and determines its position on the canvas. Deleting a node from the canvas restores the office back to the right-side palette immediately.
+    - **"Place Entire Branch" Action**: Allows placing all remaining unplaced roles of a department onto the canvas simultaneously in an organized tree structure.
+  - **Curved SVG String Connectors & Directional Arrows**:
+    - Dynamic cubic bezier curve renderer (`M x1 y1 C x1 (y1-ctrl), x2 (y2+ctrl), x2 y2`) connecting subordinate bottom handles to superior top handles.
+    - SVG directional arrowheads (`#arrow-standard`, `#arrow-active`) pointing along the workflow direction from bottom to top.
+    - Active workflow glowing animation with animated `stroke-dashoffset` dashed pulses when tracing approval paths.
+  - **Workflow Engine & Simulation Tracer**:
+    - **Approval Ladder Resolver**: Resolves sequential approval paths based on hierarchical tree linkages, office tier levels (Tier 0/1 Apex, Tier 2 HOD, Tier 3 Senior Officer, Tier 4 Operations), and financial approval limits (`approval_limit_ugx`).
+    - **Simulation Drawer/Modal**: Allows selecting any starting office, document type (Form 5, Payment Voucher, Travel Memo, Capital Expenditure), and requisition amount (UGX).
+    - **Step-by-Step Visualization**: Displays sequential approval cards with initiator, supervisor reviews, departmental head concurrence, and executive sign-off, while simultaneously lighting up the glowing active path directly on the canvas.
+    - **Anti-Cycle Loop Prevention**: Integrated depth-first cycle detector (`would_create_cycle`) preventing circular parent-child loops or self-reporting.
+  - **Main Sidebar Integration**:
+    - Integrated **Organogram** (`organogram`) into the main staff sidebar in [Left_menu.php](file:///c:/laragon/www/NCS_Intranet/app/Libraries/Left_menu.php) with the Feather icon `"git-pull-request"`.
+    - Added localization keys in [custom_lang.php](file:///c:/laragon/www/NCS_Intranet/app/Language/english/custom_lang.php).
+  - **Database Architecture & Schema**:
+    - Created PostgreSQL tables: `ncs_organogram_nodes`, `ncs_organogram_connectors`, and `ncs_approval_workflows`.
+    - Seeded baseline hierarchy across 10 NCS departments with 29 standardized public sector governance roles and baseline reporting connectors.
+  - **Automated Test Suite**:
+    - Built [tests/OrganogramWorkflowTest.php](file:///c:/laragon/www/NCS_Intranet/tests/OrganogramWorkflowTest.php) with 37 assertions verifying schema invariants, zero-duplication palette filtering, drag-and-drop placement/restoration, anti-cycle detection, bottom-to-top approval traversal, financial thresholds, and multi-step state transitions.
+    - Integrated into master test runner [tests/run_all_tests.php](file:///c:/laragon/www/NCS_Intranet/tests/run_all_tests.php) achieving 127/127 passing assertions across all suites.
+  - **Comprehensive Architectural Plan**:
+    - Documented complete system architecture in [Docs/plans/organogram-approval-workflow-plan.md](file:///c:/laragon/www/NCS_Intranet/Docs/plans/organogram-approval-workflow-plan.md).
+
+### Added
+- **NITA-U UG Pass (DAES) Authentication & Single Sign-On (OIDC Token API Specification V1.5)**:
+  - **Sign In with UG Pass Button Activation**:
+    - Converted the static/disabled "Sign in with UG Pass" button on [signin_form.php](file:///c:/laragon/www/NCS_Intranet/app/Views/signin/signin_form.php) into an interactive, accessible Single Sign-On link to `/ugpass/login` with preserved destination redirects.
+    - Updated CSS styling with hover elevation (`transform: translateY(-1px)`), Government Blue accent borders (`#0b69a3`), active press feedback, and accessible focus rings.
+    - Enhanced error rendering so validation alerts and UG Pass notifications display universally in both development and production environments.
+  - **Core Cryptographic & OIDC Engine ([Ugpass.php](file:///c:/laragon/www/NCS_Intranet/app/Libraries/Ugpass.php))**:
+    - **RS256 JWT Generation & Signing**: Standards-compliant SHA-256 and RSA private key signing using native PHP OpenSSL (`openssl_sign`) for both OIDC Authorization Request JWTs and Client Assertion JWTs.
+    - **CSRF & Replay Mitigation**: Cryptographically secure 32-character hexadecimal `state` and `nonce` generation and timing-safe `hash_equals()` verification.
+    - **OIDC Authorization Flow**: Complete DAES authorization URL generator with signed `request` JWT containing standard claims (`iss`, `aud`, `iat`, `exp`, `nbf`, `jti`, `redirect_uri`, `scope`, `state`, `nonce`).
+    - **Token Endpoint Exchange**: RFC 7523 private key JWT client assertion (`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`) token exchange at `/api/Authentication/token`.
+    - **ID Token Verification & Claim Extraction**: Validates signature, audience (`client_id`), issuer (DAES base URL), expiration (with clock skew), nonce, and `at_hash` (SHA-256 leftmost 128 bits of access token).
+    - **Pure-PHP RSA JWK to PEM Converter**: Translates JSON Web Key (JWK) modulus `n` and exponent `e` from DAES `/api/Jwks/jwksuri` directly into X.509 SPKI PEM public keys using pure PHP ASN.1 DER binary encoding.
+    - **Single Sign-Out (OIDClogout)**: Generates DAES Single Sign-Out URLs with `id_token_hint`, `post_logout_redirect_uri`, and CSRF state.
+  - **Authentication Controller ([Ugpass.php](file:///c:/laragon/www/NCS_Intranet/app/Controllers/Ugpass.php))**:
+    - Added `login()`, `callback()`, and `logout()` actions with friendly flash messaging when credentials are pending in `.env`.
+    - **Multi-Parameter Account Linking (Section 4.2.3)**: Matches subscriber identity by `ugpass_suid`, `email`, National ID / Passport (`ssn`), or mobile number suffix.
+    - **Automatic User Provisioning**: Auto-provisions and activates intranet staff accounts from `daes_claims` (`suid`, `name`, `email`, `phone`, `id_document_number`, `gender`, `dob`, `loa`) when `UGPASS_AUTO_CREATE_USER = true`.
+  - **Database Architecture**:
+    - Enhanced `ncs_users` table with `ugpass_suid VARCHAR(255)` (indexed) and `ugpass_loa VARCHAR(50)`.
+  - **Explicit Routing ([Routes.php](file:///c:/laragon/www/NCS_Intranet/app/Config/Routes.php))**:
+    - Added routes for `/ugpass`, `/ugpass/login`, `/ugpass/callback` (GET/POST), and `/ugpass/logout`.
+  - **Environment Configuration**:
+    - Added comprehensive configuration keys in [.env](file:///c:/laragon/www/NCS_Intranet/.env) and [.env.example](file:///c:/laragon/www/NCS_Intranet/.env.example) (`UGPASS_CLIENT_ID`, `UGPASS_PRIVATE_KEY`, `UGPASS_ENVIRONMENT`, etc.) for seamless credential updates.
+  - **Test Suite & Verification ([tests/](file:///c:/laragon/www/NCS_Intranet/tests/))**:
+    - Added `tests/UgpassTest.php` (80 unit tests across 19 suites covering all cryptographic, OIDC, token, JWKS, and error scenarios).
+    - Added `tests/UgpassDbTest.php` (10 database integration tests verifying schema, linking, queries, and provisioning).
+    - Added master test runner `tests/run_all_tests.php` passing 90/90 tests (100% pass rate).
+  - **Documentation**:
+    - Authored comprehensive technical report in [UG_PASS_INTEGRATION_REPORT.md](file:///c:/laragon/www/NCS_Intranet/Docs/UG_PASS_INTEGRATION_REPORT.md).
+
 ### Fixed
 - **Feather Icon TypeError & Sidebar Resilience (`Uncaught TypeError: r.default[o] is undefined`)**:
   - Fixed JavaScript console error at `app.all.js:16171` caused by non-existent Feather icon names (`"calculator"` in Accounting menu and `"server"` in ICT menu).
@@ -66,7 +147,7 @@ All notable changes, features, and bug fixes for the **NCS Intranet System** are
     - **Legal Compliance Reports** (`legal_compliance/reports`) - *Executive legal audit briefing, risk exposure analytics, contract renewal pipeline, and statutory returns*
   - **Database Architecture**: Created 4 PostgreSQL tables (`ncs_legal_contracts`, `ncs_legal_disputes`, `ncs_legal_trademarks`, `ncs_legal_litigation`).
   - **Backend Controller & Models**: Built [Legal_compliance.php](file:///var/www/ncs_intranet/app/Controllers/Legal_compliance.php), [Legal_contracts_model.php](file:///var/www/ncs_intranet/app/Models/Legal_contracts_model.php), [Legal_disputes_model.php](file:///var/www/ncs_intranet/app/Models/Legal_disputes_model.php), [Legal_trademarks_model.php](file:///var/www/ncs_intranet/app/Models/Legal_trademarks_model.php), and [Legal_litigation_model.php](file:///var/www/ncs_intranet/app/Models/Legal_litigation_model.php).
-  - **Views & UI**: Created 11 view templates in `app/Views/legal_compliance/` with DataTables, Select2 dropdowns, Feather icons, and RISE modal form anchors (`contract_modal_form`, `dispute_modal_form`, `trademark_modal_form`, `litigation_modal_form`).
+  - **Views & UI**: Created 11 view templates in `app/Views/legal_compliance/` with DataTables, Select2 dropdowns, Feather icons, and NCS modal form anchors (`contract_modal_form`, `dispute_modal_form`, `trademark_modal_form`, `litigation_modal_form`).
 
 - **Accounting Department Module (Positioned Immediately Below Leads)**:
   - Integrated **Accounting** as an independent top-level sidebar menu item ([Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php)) positioned directly below **Leads**, merging `Docs/plans/accountant-dashboard-plan.md` and `Docs/plans/accountant-hr-auditor-itofficer-dashboards-plan.md` into 8 specialized submenus:
@@ -137,7 +218,7 @@ All notable changes, features, and bug fixes for the **NCS Intranet System** are
   - **Cross-Departmental Maintenance & Repair Requisitions**: Hardware repair requisition engine enabling staff from any department to submit repair requests for faulty hardware, with IT diagnostic routing (`INTERNAL_IT` workshop vs `EXTERNAL_VENDOR` servicing vs `UNDER_WARRANTY` claim).
   - **IT Helpdesk & Service Ticket Queue**: Support ticket queue with SLA priority escalation (`URGENT`, `HIGH`, `MEDIUM`, `LOW`), category tagging (`NETWORK`, `ACCESS_RIGHTS`, `EMAIL_INTRANET`, `HARDWARE`, `PRINTER`, `MEDIA_SUPPORT`), technician assignment, and resolution notes.
   - **ICT & Media Operational Expenses**: Operational expense logbook for software licenses, AWS cloud S3 backups, SSL certificates, drone accessories, memory cards, and vendor servicing fees.
-  - **Systems Infrastructure Health & Disaster Recovery**: Command center monitoring intranet uptime (99.98%), server load, PostgreSQL database automated S3 backup sync logs (`rise_db`), and active user sessions.
+  - **Systems Infrastructure Health & Disaster Recovery**: Command center monitoring intranet uptime (99.98%), server load, PostgreSQL database automated S3 backup sync logs (`ncs_db`), and active user sessions.
   - **ICT & Media Executive Reports**: Analytics dashboard displaying hardware valuation breakdowns, custodian issuance logs, maintenance repair costs, and IT expense reports.
   - **Database Architecture**: Created 5 PostgreSQL tables (`ncs_ict_equipment`, `ncs_ict_issuances`, `ncs_ict_maintenance_requisitions`, `ncs_ict_helpdesk_tickets`, `ncs_ict_expenses`).
   - **Backend Controller & Models**: Built [Ict_and_media.php](file:///var/www/ncs_intranet/app/Controllers/Ict_and_media.php), [Ict_equipment_model.php](file:///var/www/ncs_intranet/app/Models/Ict_equipment_model.php), [Ict_issuances_model.php](file:///var/www/ncs_intranet/app/Models/Ict_issuances_model.php), [Ict_maintenance_model.php](file:///var/www/ncs_intranet/app/Models/Ict_maintenance_model.php), [Ict_helpdesk_model.php](file:///var/www/ncs_intranet/app/Models/Ict_helpdesk_model.php), and [Ict_expenses_model.php](file:///var/www/ncs_intranet/app/Models/Ict_expenses_model.php).
@@ -201,7 +282,7 @@ All notable changes, features, and bug fixes for the **NCS Intranet System** are
     - **Stock Aging & Buffer Alerts** (`stores_inventory/alerts`)
     - **Stores Inventory Reports** (`stores_inventory/reports`)
   - **Add New Inventory Page UI Redesign**:
-    - Created dedicated full-page form view [create_page.php](file:///var/www/ncs_intranet/app/Views/stores_inventory/create_page.php) featuring standard RISE card container (`p30`), 2-column form layout grid, fully initialised `Select2` dropdowns for categories and condition status, Feather icons (`plus-circle`), and `appForm` AJAX submission with redirect back to inventory list.
+    - Created dedicated full-page form view [create_page.php](file:///var/www/ncs_intranet/app/Views/stores_inventory/create_page.php) featuring standard NCS card container (`p30`), 2-column form layout grid, fully initialised `Select2` dropdowns for categories and condition status, Feather icons (`plus-circle`), and `appForm` AJAX submission with redirect back to inventory list.
     - Added `create_page()` and `create()` methods in [Stores_inventory.php](file:///var/www/ncs_intranet/app/Controllers/Stores_inventory.php).
     - Updated sidebar menu item `add_new_inventory_record` in [Left_menu.php](file:///var/www/ncs_intranet/app/Libraries/Left_menu.php) to point directly to `stores_inventory/create_page`.
   - **Reports Integration**: Added **Inventory Report** menu item (`stores_inventory/reports`) under the **Reports** sidebar dropdown.

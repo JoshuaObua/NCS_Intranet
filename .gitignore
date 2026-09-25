@@ -3,4 +3,6 @@ writable/cache/
 writable/session/
 writable/uploads/temp/
 .env
+.env.*
+!.env.example
 cookies.txt

@@ -99,7 +99,7 @@
                 echo form_input(array(
                     "id" => "debit_amount",
                     "name" => "debit_amount",
-                    "value" => number_format($model_info->debit_amount, 2),
+                    "value" => number_format((float) ($model_info->debit_amount ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));
@@ -116,7 +116,7 @@
                 echo form_input(array(
                     "id" => "credit_amount",
                     "name" => "credit_amount",
-                    "value" => number_format($model_info->credit_amount, 2),
+                    "value" => number_format((float) ($model_info->credit_amount ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

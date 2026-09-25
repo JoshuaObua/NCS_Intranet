@@ -1,4 +1,4 @@
-<div class="rise-chat-header">
+<div class="ncs-chat-header">
     <div class="chat-back chat-topbar-btn" id="js-back-to-chat-tabs">
         <i data-feather="chevron-left" class="icon-22"></i>
     </div>
@@ -33,12 +33,12 @@
     <?php echo view("messages/chat/chat_header_actions"); ?>
 </div>
 
-<div class="rise-chat-body clearfix">
+<div class="ncs-chat-body clearfix">
     <div id="js-chat-messages-container" class="clearfix"></div>
     <div id="js-chat-reply-indicator"></div>
 </div>
 
-<div class="rise-chat-footer">
+<div class="ncs-chat-footer">
     <div id="chat-reply-form-dropzone" class="post-dropzone">
         <?php echo form_open(get_uri("messages/reply/1"), array("id" => "chat-message-reply-form", "class" => "general-form", "role" => "form")); ?>
 
@@ -78,18 +78,18 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var chatBoxHeight = $(".rise-chat-wrapper").height();
-        $(".rise-chat-body").height(chatBoxHeight - 152);
+        var chatBoxHeight = $(".ncs-chat-wrapper").height();
+        $(".ncs-chat-body").height(chatBoxHeight - 152);
 
-        var textarea = document.querySelector('.rise-chat-footer textarea');
-        textarea.addEventListener('keydown', autosizeRISEChatBox);
+        var textarea = document.querySelector('.ncs-chat-footer textarea');
+        textarea.addEventListener('keydown', autosizeNCSChatBox);
 
-        function autosizeRISEChatBox() {
+        function autosizeNCSChatBox() {
             var el = this;
             setTimeout(function() {
                 if (el.scrollHeight < 110) {
-                    var chatWrapperHeight = $(".rise-chat-wrapper").height();
-                    $(".rise-chat-body").height(chatWrapperHeight - el.scrollHeight - 103);
+                    var chatWrapperHeight = $(".ncs-chat-wrapper").height();
+                    $(".ncs-chat-body").height(chatWrapperHeight - el.scrollHeight - 103);
                     el.style.cssText = 'height:' + el.scrollHeight + 'px';
                 }
             });
@@ -98,7 +98,7 @@
         loadMessages(1);
 
         //drag and drop
-        makeDraggable(".rise-chat-header", ".rise-chat-wrapper", async function(pos) {
+        makeDraggable(".ncs-chat-header", ".ncs-chat-wrapper", async function(pos) {
             var currentDimensions = await IDBHelper.getValue('chat_window_dimensions') || {};
 
             await IDBHelper.setValue('chat_window_dimensions', {
@@ -182,7 +182,7 @@
 
             var channel = pusher.subscribe("user_" + "<?php echo $login_user->id; ?>" + "_message_id_" + "<?php echo $message_id ?>" + "_channel");
 
-            channel.bind('rise-chat-event',
+            channel.bind('ncs-chat-event',
                 function(data) {
                     appAjaxRequest({
                         url: "<?php echo get_uri('messages/view_chat'); ?>",
@@ -200,7 +200,7 @@
                     });
                 });
 
-            channel.bind('rise-chat-typing-event',
+            channel.bind('ncs-chat-typing-event',
                 function(data) {
                     $("#js-chat-reply-indicator").html(data);
                     chatScrollToBottom();
@@ -221,7 +221,7 @@
         //scroll to bottom only if the foucs on textarea
         var $focused = $(':focus');
         if (($focused && $focused.is("textarea"))) {
-            $(".rise-chat-body").animate({
+            $(".ncs-chat-body").animate({
                 scrollTop: 10000000
             }, 100);
         }

@@ -264,16 +264,16 @@
   left: 20px;
 }
 
-.rise-chat-wrapper {
+.ncs-chat-wrapper {
   right: auto;
   left: 80px;
 }
 
-.rise-chat-header .chat-back svg {
+.ncs-chat-header .chat-back svg {
   transform: rotate(180deg);
 }
 
-.rise-chat-footer textarea {
+.ncs-chat-footer textarea {
   padding: 10px 35px 10px 10px;
 }
 

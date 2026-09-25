@@ -107,7 +107,7 @@
                 echo form_input(array(
                     "id" => "ntr_rate_per_day",
                     "name" => "ntr_rate_per_day",
-                    "value" => number_format($model_info->ntr_rate_per_day, 2),
+                    "value" => number_format((float) ($model_info->ntr_rate_per_day ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));
@@ -124,7 +124,7 @@
                 echo form_input(array(
                     "id" => "caution_deposit_rate",
                     "name" => "caution_deposit_rate",
-                    "value" => number_format($model_info->caution_deposit_rate, 2),
+                    "value" => number_format((float) ($model_info->caution_deposit_rate ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

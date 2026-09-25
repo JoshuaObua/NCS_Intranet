@@ -42,7 +42,7 @@ class Pwa extends App_Controller {
 
     $manifest = [
       "name" => get_setting("app_title"),
-      "short_name" => get_setting("app_title"),
+      "short_name" => "NCS",
       "start_url" => "{$base_url}index.php",
       "display" => $display_mode,
       "background_color" => $pwa_theme_color,
@@ -50,7 +50,7 @@ class Pwa extends App_Controller {
       "icons" => [
         [
           "src" => "{$base_url}{$system_file_path}pwa/{$icon_name}",
-          "sizes" => "192x192",
+          "sizes" => $icon_name === "default-pwa-icon.png" ? "1150x517" : "192x192",
           "type" => "image/png"
         ]
       ]

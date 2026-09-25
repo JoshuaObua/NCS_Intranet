@@ -8,26 +8,34 @@ use CodeIgniter\Session\Handlers\FileHandler;
 class App extends BaseConfig {
 
     public function __construct() {
+        $this->encryption_key = env('app.encryption_key', '');
         $this->set_base_url();
         $this->set_supported_languages();
     }
 
     private function set_base_url() {
-        if (!$this->baseURL) {
+        $envBaseUrl = env('app.baseURL', '');
+        if ($envBaseUrl) {
+            $this->baseURL = $envBaseUrl;
+            return;
+        }
 
+        if (!$this->baseURL) {
             $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
             $script = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
             $domain = $host . $script;
 
             $domain = preg_replace('/index.php.*/', '', $domain);
-            $domain = strtolower($domain);
-            if (!empty($_SERVER['HTTPS'])) {
-                $this->baseURL = 'https://' . $domain;
-            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-                $this->baseURL = 'https://' . $domain;
-            } else {
-                $this->baseURL = 'http://' . $domain;
+            $protocol = (!empty($_SERVER['HTTPS']) || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')) ? 'https://' : 'http://';
+            $fullUrl = $protocol . $domain;
+            if (!filter_var($fullUrl, FILTER_VALIDATE_URL)) {
+                $parts = parse_url($fullUrl);
+                if (isset($parts['host'])) {
+                    $parts['host'] = str_replace('_', '-', $parts['host']);
+                    $fullUrl = ($parts['scheme'] ?? 'http') . '://' . $parts['host'] . (isset($parts['port']) ? ':' . $parts['port'] : '') . ($parts['path'] ?? '/');
+                }
             }
+            $this->baseURL = $fullUrl;
         }
     }
 
@@ -261,7 +269,7 @@ class App extends BaseConfig {
     public $CSPEnabled = false;
 
     /* User configs */
-    public $encryption_key = "enter_encryption_key";
+    public $encryption_key = '';
     public $csrf_protection = true;
     public $temp_file_path = 'files/temp/';
     public $profile_image_path = 'files/profile_images/';

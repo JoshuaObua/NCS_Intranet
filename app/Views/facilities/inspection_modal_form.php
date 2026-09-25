@@ -80,7 +80,7 @@
                 echo form_input(array(
                     "id" => "damage_deduction_ugx",
                     "name" => "damage_deduction_ugx",
-                    "value" => number_format($model_info->damage_deduction_ugx, 2),
+                    "value" => number_format((float) ($model_info->damage_deduction_ugx ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

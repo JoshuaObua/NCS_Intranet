@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="fairsketch">
+        <meta name="author" content="atenimedia">
         <link rel="icon" href="../assets/images/favicon.png" />
-        <title>RISE - Ultimate Project Manager & CRM Installation</title>
+        <title>National Council Of Sports Installation</title>
         <link rel='stylesheet' type='text/css' href='../assets/bootstrap/css/bootstrap.min.css' />
 
         <link rel='stylesheet' type='text/css' href='install.css' />
@@ -22,8 +22,8 @@
         <div class="install-box">
 
             <div class="card card-install">
-                <div class="card-header text-center">                    
-                    <h2> RISE - Ultimate Project Manager & CRM Installation</h2>
+                <div class="card-header text-center">
+                    <h2> National Council Of Sports Installation</h2>
                 </div>
                 <div class="card-body no-padding">
                     <div class="tab-container clearfix">
@@ -256,7 +256,7 @@
                                             foreach ($writeable_directories as $value) {
                                                 ?>
                                                 <tr>
-                                                    <td style="width:87%;"><?php echo $value; ?></td>  
+                                                    <td style="width:87%;"><?php echo $value; ?></td>
                                                     <td class="text-center">
                                                         <?php if (is_writeable(".." . $value)) { ?>
                                                             <i data-feather="check-circle" class="status-icon"></i>
@@ -328,7 +328,7 @@
                                             <div class="row">
                                                 <label for="dbprefix" class=" col-md-3">Table Prefix</label>
                                                 <div class=" col-md-9">
-                                                    <input id="dbprefix" type="text" value="rise_" name="dbprefix" class="form-control" placeholder="Table Prefix" maxlength="21" />
+                                                    <input id="dbprefix" type="text" value="ncs_" name="dbprefix" class="form-control" placeholder="Table Prefix" maxlength="21" />
                                                 </div>
                                             </div>
                                         </div>
@@ -393,7 +393,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-info form-next">
                                         <span class="loader text-white hide"><span> Please wait...</span></span>
-                                        <span class="button-text text-white"><i data-feather="chevron-right" class='icon'></i> Finish</span> 
+                                        <span class="button-text text-white"><i data-feather="chevron-right" class='icon'></i> Finish</span>
                                     </button>
                                 </div>
 
@@ -403,7 +403,7 @@
                         <div role="tabpanel" class="tab-pane" id="finished-tab">
                             <div class="section">
                                 <div class="clearfix">
-                                    <i data-feather="check-circle" height="2.5rem" width="2.5rem" stroke-width="3" class='status mr10'></i><span class="pull-left"  style="line-height: 50px;">Congratulation! You have successfully installed RISE - Ultimate Project Manager & CRM.</span>  
+                                    <i data-feather="check-circle" height="2.5rem" width="2.5rem" stroke-width="3" class='status mr10'></i><span class="pull-left"  style="line-height: 50px;">Congratulation! You have successfully installed National Council Of Sports.</span>
                                 </div>
 
                                 <div style="margin: 15px 0 15px 55px; color: #d73b3b;">
@@ -480,8 +480,8 @@
             return false;
         });
 
-        //lowercase 
-        //21 max characers 
+        //lowercase
+        //21 max characers
         //only a-z letter and underscore allowed
         $('#dbprefix').on('keyup', function () {
             var $dbPrefix = $('#dbprefix'),

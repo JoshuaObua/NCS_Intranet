@@ -287,6 +287,9 @@ class Left_menu {
                 }
             }
 
+            // Organogram & Hierarchy Approval Workflow
+            $sidebar_menu["organogram"] = array("name" => "organogram", "url" => "organogram", "class" => "git-pull-request");
+
             if (get_setting("module_ticket") == "1" && ($this->ci->login_user->is_admin || $access_ticket)) {
 
                 $ticket_badge = 0;
@@ -461,7 +464,7 @@ class Left_menu {
                         "ticket_types/index",
                         "lead_status/index",
                         "pages/index",
-                        "rise_plugins/index"
+                        "ncs_plugins/index"
                     )
                 );
             }

@@ -40,6 +40,18 @@ foreach ($controller_dropdown as $controller) {
     $routes->post(strtolower($controller) . '/(:any)', "$controller::$1");
 }
 
+// UG Pass Authentication Routes
+$routes->get('ugpass', 'Ugpass::login');
+$routes->get('ugpass/login', 'Ugpass::login');
+$routes->get('ugpass/callback', 'Ugpass::callback');
+$routes->post('ugpass/callback', 'Ugpass::callback');
+$routes->get('ugpass/logout', 'Ugpass::logout');
+
+// Organogram & Hierarchy Approval Routes
+$routes->get('organogram', 'Organogram::index');
+$routes->get('organogram/(:any)', 'Organogram::$1');
+$routes->post('organogram/(:any)', 'Organogram::$1');
+
 //add uppercase links
 
 // Fleet alias routes

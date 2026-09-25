@@ -15,8 +15,8 @@ function appAjaxRequest(options) {
 }
 
 const IDBHelper = (() => {
-    const DB_NAME = 'RISE_indexedDB';
-    const STORE_NAME = 'rise_store';
+    const DB_NAME = 'NCS_indexedDB';
+    const STORE_NAME = 'ncs_store';
     const DB_VERSION = 1;
 
     function isSupported() {

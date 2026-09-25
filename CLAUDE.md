@@ -1,2 +1,0 @@
--Make sure for evry important or major record it is stored in activity log linked to that user account
--Evry new model added must conform to RBAC and its CRUD permission should reflect in the permission matrix fro the system

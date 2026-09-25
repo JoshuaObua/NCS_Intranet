@@ -64,8 +64,8 @@ Events::on('pre_system', static function (): void {
 
     load_plugin_indexes();
 
-    include APPPATH . 'Config/RiseHooks.php';
-    include APPPATH . 'Config/RiseCustomHooks.php';
+    include APPPATH . 'Config/NcsHooks.php';
+    include APPPATH . 'Config/NcsCustomHooks.php';
 
     set_default_csp_directives();
 });
@@ -78,7 +78,7 @@ function load_plugin_indexes() {
         return false;
     }
 
-    $app_version = config('Rise')->app_settings_array['app_version'];
+    $app_version = config('Ncs')->app_settings_array['app_version'];
 
     foreach ($plugins as $plugin) {
         $index_file = PLUGINPATH . $plugin . '/index.php';

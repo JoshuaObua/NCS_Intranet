@@ -108,7 +108,7 @@ $settings_menu["setup"][] = array("name" => "gdpr", "url" => "settings/gdpr");
 $settings_menu["setup"][] = array("name" => "pages", "url" => "pages");
 
 if ($login_user->is_admin) {
-    $settings_menu["plugins"][] = array("name" => "all_plugins", "url" => "rise_plugins");
+    $settings_menu["plugins"][] = array("name" => "all_plugins", "url" => "ncs_plugins");
 }
 
 $settings_menu = app_hooks()->apply_filters('app_filter_admin_settings_menu', $settings_menu);

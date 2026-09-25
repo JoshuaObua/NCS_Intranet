@@ -31,7 +31,7 @@ This plan details the **IT Infrastructure Command Center** inside `NCS_Intranet`
 +-----------------------------------------------------------------------------------+
 | [IT WORKSPACE: (1) System Operations | (2) User RBAC | (3) IT Helpdesk | (4) Backups]    |
 | +-------------------------------------------------------------------------------+ |
-| | [ENTERPRISE IT HELPDESK & TICKET MANAGEMENT QUEUE]                            | |
+| | [ENTERPNCS IT HELPDESK & TICKET MANAGEMENT QUEUE]                            | |
 | | Ticket ID  | User / Dept      | Category       | Issue Description   | SLA Status | |
 | | T-2026-042 | Musoke (Eng)     | Printer Conn   | Kyocera Driver Error| In Progress| |
 | | T-2026-045 | Akello (Finance) | Password Reset | Account Locked      | Resolved   | |

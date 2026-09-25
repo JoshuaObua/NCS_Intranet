@@ -14,7 +14,7 @@ The four core operational dashboards interact through a centralized event-driven
 
 ```
 +---------------------------------------------------------------------------------------------------+
-|                        NCS ENTERPRISE CENTRAL DATA PIPELINE & GO EVENT BUS                       |
+|                        NCS ENTERPNCS CENTRAL DATA PIPELINE & GO EVENT BUS                       |
 +---------------------------------------------------------------------------------------------------+
        |                                |                               |                           |
        v                                v                               v                           v
@@ -191,7 +191,7 @@ Oversees system health, database performance, automated backup routines, network
 +-----------------------------------------------------------------------------------+
 | [IT WORKSPACE: (1) System Operations | (2) User RBAC | (3) IT Helpdesk | (4) Backups]    |
 | +-------------------------------------------------------------------------------+ |
-| | [ENTERPRISE IT HELPDESK & TICKET MANAGEMENT QUEUE]                            | |
+| | [ENTERPNCS IT HELPDESK & TICKET MANAGEMENT QUEUE]                            | |
 | | Ticket ID  | User / Dept      | Category       | Issue Description   | SLA Status | |
 | | T-2026-042 | Musoke (Eng)     | Printer Conn   | Kyocera Driver Error| In Progress| |
 | | T-2026-045 | Akello (Finance) | Password Reset | Account Locked      | Resolved   | |

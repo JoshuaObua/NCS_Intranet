@@ -70,7 +70,7 @@
                 echo form_input(array(
                     "id" => "allocated_amount",
                     "name" => "allocated_amount",
-                    "value" => number_format($model_info->allocated_amount, 2),
+                    "value" => number_format((float) ($model_info->allocated_amount ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));
@@ -87,7 +87,7 @@
                 echo form_input(array(
                     "id" => "disbursed_amount",
                     "name" => "disbursed_amount",
-                    "value" => number_format($model_info->disbursed_amount, 2),
+                    "value" => number_format((float) ($model_info->disbursed_amount ?? 0), 2),
                     "class" => "form-control",
                     "placeholder" => "0.00"
                 ));

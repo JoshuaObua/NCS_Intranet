@@ -529,8 +529,8 @@ var Gantt = (function () {
         draw() {
             this.draw_bar();
             this.draw_progress_bar();
-            this.draw_parent_symbol(); // added by fairsketch team
-            this.draw_child_symbol(); // added by fairsketch team
+            this.draw_parent_symbol(); // added by atenimedia team
+            this.draw_child_symbol(); // added by atenimedia team
             this.draw_label();
             this.draw_resize_handles();
         }
@@ -996,7 +996,7 @@ var Gantt = (function () {
         }
 
         draw() {
-            //modified by fairsketch team
+            //modified by atenimedia team
             let arrowClass = "";
             if (this.to_task.task.arrow_class) {
                 arrowClass = this.to_task.task.arrow_class;

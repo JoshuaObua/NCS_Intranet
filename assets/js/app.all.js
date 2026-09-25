@@ -23637,7 +23637,7 @@ const NotificationHelper = (() => {
 
         const channel = pusher.subscribe("user_" + AppHelper.userId + "_channel");
 
-        channel.bind('rise-pusher-event', function (data) {
+        channel.bind('ncs-pusher-event', function (data) {
             if (data) {
                 if (_canShowBrowserNotification(data)) {
                     showBrowserNotification(data);
@@ -23941,8 +23941,8 @@ function appAjaxRequest(options) {
 }
 
 const IDBHelper = (() => {
-    const DB_NAME = 'RISE_indexedDB';
-    const STORE_NAME = 'rise_store';
+    const DB_NAME = 'NCS_indexedDB';
+    const STORE_NAME = 'ncs_store';
     const DB_VERSION = 1;
 
     function isSupported() {
