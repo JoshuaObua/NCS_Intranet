@@ -6,3 +6,4 @@ writable/uploads/temp/
 .env.*
 !.env.example
 cookies.txt
+!.env.docker.example

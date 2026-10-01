@@ -1,0 +1,7 @@
+# Scripts and configs run inside Linux containers - keep LF line endings.
+*.sh text eol=lf
+Dockerfile text eol=lf
+Caddyfile text eol=lf
+docker/** text eol=lf
+docker-compose.yml text eol=lf
+.env.docker.example text eol=lf

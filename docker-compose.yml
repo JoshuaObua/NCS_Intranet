@@ -1,0 +1,92 @@
+# NCS Intranet production stack.
+#   caddy -> HTTPS (automatic Let's Encrypt certificates) and reverse proxy
+#   app   -> PHP 8.3 + Apache running CodeIgniter
+#   db    -> PostgreSQL 16 (not exposed outside the Docker network)
+# Configuration lives in .env next to this file (see .env.docker.example).
+
+name: ncs
+
+services:
+  db:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_SUPERUSER_PASSWORD:?set in .env}
+      POSTGRES_DB: ${DB_NAME:-ncs_db}
+      APP_DB_USER: ${DB_USER:-ncs_user}
+      APP_DB_PASSWORD: ${DB_PASSWORD:?set in .env}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?set in .env}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set in .env}
+      ADMIN_FIRST_NAME: ${ADMIN_FIRST_NAME:-System}
+      ADMIN_LAST_NAME: ${ADMIN_LAST_NAME:-Administrator}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./docker/db/init:/docker-entrypoint-initdb.d:ro
+      - ./database_schema.sql:/schema/database_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_NAME:-ncs_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [backend]
+
+  app:
+    build: .
+    image: ncs-intranet:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      CI_ENVIRONMENT: ${CI_ENVIRONMENT:-production}
+      APP_BASE_URL: https://${DOMAIN:?set in .env}/
+      APP_ENCRYPTION_KEY: ${APP_ENCRYPTION_KEY:?set in .env}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-ncs_db}
+      DB_USER: ${DB_USER:-ncs_user}
+      DB_PASSWORD: ${DB_PASSWORD}
+      UGPASS_ENVIRONMENT: ${UGPASS_ENVIRONMENT:-staging}
+      UGPASS_CLIENT_ID: ${UGPASS_CLIENT_ID:-}
+      UGPASS_PRIVATE_KEY_PATH: ${UGPASS_PRIVATE_KEY_PATH:-}
+      UGPASS_CLIENT_SECRET: ${UGPASS_CLIENT_SECRET:-}
+      UGPASS_PUBLIC_KEY_PATH: ${UGPASS_PUBLIC_KEY_PATH:-}
+      UGPASS_BASE_URL: ${UGPASS_BASE_URL:-}
+      UGPASS_REDIRECT_URI: ${UGPASS_REDIRECT_URI:-}
+      UGPASS_LOGOUT_REDIRECT_URI: ${UGPASS_LOGOUT_REDIRECT_URI:-}
+      UGPASS_AUTO_CREATE_USER: ${UGPASS_AUTO_CREATE_USER:-true}
+      UGPASS_DEFAULT_USER_TYPE: ${UGPASS_DEFAULT_USER_TYPE:-staff}
+      UGPASS_VERIFY_SSL: ${UGPASS_VERIFY_SSL:-true}
+    volumes:
+      - app-writable:/var/www/html/writable
+      - app-files:/var/www/html/files
+    networks: [backend, frontend]
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [app]
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [frontend]
+
+volumes:
+  db-data:
+  app-writable:
+  app-files:
+  caddy-data:
+  caddy-config:
+
+networks:
+  frontend:
+  backend:
+    internal: true
