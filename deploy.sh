@@ -10,7 +10,11 @@ if [ ! -f .env ]; then
 fi
 
 git pull --ff-only
+docker network inspect ncs_gateway_net >/dev/null 2>&1 || docker network create ncs_gateway_net
 docker compose build --pull app
 docker compose up -d --remove-orphans
+# Shared HTTPS edge (also serves the other NCS sites); reload picks up Caddyfile changes
+docker compose -f docker/edge/docker-compose.yml up -d
+docker compose -f docker/edge/docker-compose.yml exec -T caddy caddy reload --config /etc/caddy/Caddyfile >/dev/null
 docker image prune -f >/dev/null
 docker compose ps

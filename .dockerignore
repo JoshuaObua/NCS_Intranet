@@ -12,7 +12,7 @@ docker-compose.yml
 deploy.sh
 database_schema.sql
 docker/db
-docker/caddy
+docker/edge
 *.md
 writable/logs/*
 writable/cache/*

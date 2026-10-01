@@ -1,0 +1,62 @@
+# Shared HTTPS edge for every NCS site on this server.
+# Caddy obtains and renews Let's Encrypt certificates for each hostname and
+# redirects HTTP to HTTPS. Upstreams are reached by container name over the
+# external ncs_gateway_net network.
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+		-X-Powered-By
+	}
+}
+
+# NCS Intranet (CodeIgniter / PHP)
+ncsintranet.atenimedia.com {
+	import security_headers
+	header X-Frame-Options "SAMEORIGIN"
+	encode zstd gzip
+	request_body {
+		max_size 72MB
+	}
+	reverse_proxy ncs-app-1:80
+}
+
+# NCS public website (NCSOnline "website" branch, compose project ncswebsite)
+ncsweb.atenimedia.com {
+	import security_headers
+	encode zstd gzip
+	request_body {
+		max_size 50MB
+	}
+
+	handle_path /portal-api/* {
+		reverse_proxy ncsportal-backend-1:8080
+	}
+	@backend path /api/* /uploads/* /health /healthz
+	handle @backend {
+		reverse_proxy ncswebsite-backend-1:8080
+	}
+	handle {
+		reverse_proxy ncswebsite-frontend-1:80
+	}
+}
+
+# NCS portal (NCSOnline "portal" branch, compose project ncsportal)
+ncsportal.atenimedia.com {
+	import security_headers
+	encode zstd gzip
+	request_body {
+		max_size 20MB
+	}
+
+	@backend path /api/* /uploads/* /health /healthz
+	handle @backend {
+		reverse_proxy ncsportal-backend-1:8080
+	}
+	handle {
+		reverse_proxy ncsportal-frontend-1:80
+	}
+}

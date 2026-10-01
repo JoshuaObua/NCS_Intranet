@@ -1,0 +1,29 @@
+# Shared HTTPS edge proxy for all NCS sites on this server
+# (ncsintranet, ncsweb, ncsportal). Start it once with:
+#   docker network create ncs_gateway_net   # if it does not exist yet
+#   docker compose -f docker/edge/docker-compose.yml up -d
+
+name: ncs-edge
+
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [gateway]
+
+volumes:
+  caddy-data:
+  caddy-config:
+
+networks:
+  gateway:
+    external: true
+    name: ncs_gateway_net

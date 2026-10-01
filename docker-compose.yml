@@ -1,7 +1,8 @@
 # NCS Intranet production stack.
-#   caddy -> HTTPS (automatic Let's Encrypt certificates) and reverse proxy
 #   app   -> PHP 8.3 + Apache running CodeIgniter
 #   db    -> PostgreSQL 16 (not exposed outside the Docker network)
+# HTTPS is terminated by the shared edge proxy (docker/edge), which reaches
+# the app over the external ncs_gateway_net network as "ncs-app-1".
 # Configuration lives in .env next to this file (see .env.docker.example).
 
 name: ncs
@@ -62,32 +63,16 @@ services:
     volumes:
       - app-writable:/var/www/html/writable
       - app-files:/var/www/html/files
-    networks: [backend, frontend]
-
-  caddy:
-    image: caddy:2
-    restart: unless-stopped
-    depends_on: [app]
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    environment:
-      DOMAIN: ${DOMAIN}
-    volumes:
-      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy-data:/data
-      - caddy-config:/config
-    networks: [frontend]
+    networks: [backend, gateway]
 
 volumes:
   db-data:
   app-writable:
   app-files:
-  caddy-data:
-  caddy-config:
 
 networks:
-  frontend:
   backend:
     internal: true
+  gateway:
+    external: true
+    name: ncs_gateway_net
