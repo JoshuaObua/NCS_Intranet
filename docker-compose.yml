@@ -25,7 +25,8 @@ services:
       - ./docker/db/init:/docker-entrypoint-initdb.d:ro
       - ./database_schema.sql:/schema/database_schema.sql:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_NAME:-ncs_db}"]
+      # TCP check: the temporary server used during first-run init only listens on the socket
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres -d ${DB_NAME:-ncs_db}"]
       interval: 10s
       timeout: 5s
       retries: 10
